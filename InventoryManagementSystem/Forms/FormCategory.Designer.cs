@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCategory));
-            this.btnAddProduct = new System.Windows.Forms.Button();
+            this.btnAddCategory = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -56,13 +56,10 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel2.SuspendLayout();
@@ -75,21 +72,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnAddProduct
+            // btnAddCategory
             // 
-            this.btnAddProduct.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAddProduct.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnAddProduct.FlatAppearance.BorderSize = 0;
-            this.btnAddProduct.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAddProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAddProduct.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddProduct.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAddProduct.Location = new System.Drawing.Point(1459, 1);
-            this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(196, 56);
-            this.btnAddProduct.TabIndex = 22;
-            this.btnAddProduct.Text = "Add Category";
-            this.btnAddProduct.UseVisualStyleBackColor = false;
+            this.btnAddCategory.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddCategory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddCategory.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddCategory.FlatAppearance.BorderSize = 0;
+            this.btnAddCategory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddCategory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddCategory.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCategory.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAddCategory.Location = new System.Drawing.Point(1459, 1);
+            this.btnAddCategory.Name = "btnAddCategory";
+            this.btnAddCategory.Size = new System.Drawing.Size(196, 56);
+            this.btnAddCategory.TabIndex = 22;
+            this.btnAddCategory.Text = "Add Category";
+            this.btnAddCategory.UseVisualStyleBackColor = false;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // label1
             // 
@@ -343,13 +342,10 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
             this.Column7,
             this.Column9,
-            this.Column8});
+            this.Column8,
+            this.Column3});
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.Location = new System.Drawing.Point(32, 408);
@@ -358,6 +354,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1624, 549);
             this.dataGridView1.TabIndex = 23;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Column1
             // 
@@ -371,30 +368,6 @@
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Category";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Price";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Stock";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Status";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            // 
             // Column7
             // 
             this.Column7.HeaderText = "Descriptions";
@@ -403,19 +376,26 @@
             // 
             // Column9
             // 
-            this.Column9.HeaderText = "Edit";
+            this.Column9.HeaderText = "Created At";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             this.Column9.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Column8
             // 
-            this.Column8.HeaderText = "Delete";
+            this.Column8.HeaderText = "Edit";
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
             this.Column8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Delete";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // FormCategory
             // 
@@ -428,7 +408,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnAddProduct);
+            this.Controls.Add(this.btnAddCategory);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel2);
@@ -458,7 +438,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnAddProduct;
+        private System.Windows.Forms.Button btnAddCategory;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.PictureBox pictureBox7;
@@ -485,12 +465,9 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewButtonColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewButtonColumn Column8;
+        private System.Windows.Forms.DataGridViewButtonColumn Column3;
     }
 }

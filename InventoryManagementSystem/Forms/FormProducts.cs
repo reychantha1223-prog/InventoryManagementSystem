@@ -121,8 +121,31 @@ namespace InventoryManagementSystem.Forms
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FormAddProduct addProductForm = new FormAddProduct();
-            addProductForm.Show();
+            // Gets the main application window (your Dashboard root)
+            Form mainForm = Application.OpenForms[0];
+
+            using (Form overlay = new Form())
+            {
+                overlay.StartPosition = FormStartPosition.Manual;
+                overlay.FormBorderStyle = FormBorderStyle.None;
+                overlay.Opacity = 0.50d; // Controls dark dimming intensity
+                overlay.BackColor = Color.Black;
+                overlay.ShowInTaskbar = false;
+
+                // Cover the exact client area of the entire main dashboard window
+                overlay.Location = mainForm.PointToScreen(Point.Empty);
+                overlay.Size = mainForm.ClientSize;
+
+                // Display overlay over main form
+                overlay.Show(mainForm);
+
+                // Open FormAddProduct popup centered on top of the overlay
+                using (FormAddProduct addProductForm = new FormAddProduct())
+                {
+                    addProductForm.StartPosition = FormStartPosition.CenterParent;
+                    addProductForm.ShowDialog(overlay);
+                }
+            } // Overlay disposes automatically when the product form is closed
         }
     }
 }

@@ -412,6 +412,7 @@
             // btnAddProduct
             // 
             this.btnAddProduct.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddProduct.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddProduct.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnAddProduct.FlatAppearance.BorderSize = 0;
             this.btnAddProduct.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
@@ -443,7 +444,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
-            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Name = "FormProducts";
             this.Text = "FormProducts";
             this.Load += new System.EventHandler(this.FormProducts_Load);

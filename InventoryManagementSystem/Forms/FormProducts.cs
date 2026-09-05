@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InventoryManagementSystem.Forms
@@ -19,59 +13,116 @@ namespace InventoryManagementSystem.Forms
 
         private void FormProducts_Load(object sender, EventArgs e)
         {
+            SetupComboBoxes();
+            SetupDataGridView();
+            LoadSampleData();
+        }
+
+        private void SetupComboBoxes()
+        {
+            // Category Filter ComboBox
             comboBox1.Items.Add("Category"); // Placeholder at Index 0
             comboBox1.Items.Add("Electronics");
             comboBox1.Items.Add("Clothing");
             comboBox1.Items.Add("Food & Beverages");
-
-            // Display "Category" by default on startup
             comboBox1.SelectedIndex = 0;
+
+            // Stock Filter ComboBox
             comboBox2.Items.Add("Stock"); // Placeholder at Index 0
             comboBox2.Items.Add("Low Stock");
             comboBox2.Items.Add("Out of Stock");
-
-            // Display "Category" by default on startup
             comboBox2.SelectedIndex = 0;
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
+        private void SetupDataGridView()
         {
+            // Grid Layout & Behavior
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.ReadOnly = true;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+            // Grid Lines & Borders
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            dataGridView1.GridColor = Color.Gray;
+
+            // Header & Row Formatting
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridView1.ColumnHeadersHeight = 40;
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            dataGridView1.RowTemplate.Height = 35;
+            dataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 11F, FontStyle.Regular);
+
+            // Configure Edit Button Column
+            if (dataGridView1.Columns["Edit"] is DataGridViewButtonColumn editCol)
+            {
+                editCol.Text = "Edit";
+                editCol.UseColumnTextForButtonValue = true;
+                editCol.FlatStyle = FlatStyle.Flat;
+                editCol.DefaultCellStyle.BackColor = Color.DodgerBlue;
+                editCol.DefaultCellStyle.ForeColor = Color.White;
+                editCol.DefaultCellStyle.SelectionBackColor = Color.RoyalBlue;
+            }
+
+            // Configure Delete Button Column
+            if (dataGridView1.Columns["Delete"] is DataGridViewButtonColumn deleteCol)
+            {
+                deleteCol.Text = "Delete";
+                deleteCol.UseColumnTextForButtonValue = true;
+                deleteCol.FlatStyle = FlatStyle.Flat;
+                deleteCol.DefaultCellStyle.BackColor = Color.Crimson;
+                deleteCol.DefaultCellStyle.ForeColor = Color.White;
+                deleteCol.DefaultCellStyle.SelectionBackColor = Color.DarkRed;
+            }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void LoadSampleData()
         {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
+            dataGridView1.Rows.Clear();
+            dataGridView1.Rows.Add("1", "Laptop", "Electronics", "$999", "15", "In Stock", "Gaming Laptop", "Edit", "Delete");
+            dataGridView1.Rows.Add("2", "T-Shirt", "Clothing", "$19", "50", "In Stock", "Cotton T-Shirt", "Edit", "Delete");
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // If adding string items directly
             if (comboBox1.SelectedIndex > 0)
             {
                 string selectedCategory = comboBox1.SelectedItem.ToString();
-                // Do your filtering or logic here
+                // Perform filtering or logic here
             }
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Perform stock filtering logic here
+        }
 
+        // Unused layout events
+        private void panel1_Paint(object sender, PaintEventArgs e) { }
+        private void panel2_Paint(object sender, PaintEventArgs e) { }
+        private void panel3_Paint(object sender, PaintEventArgs e) { }
+        private void panel7_Paint(object sender, PaintEventArgs e) { }
+        private void label1_Click(object sender, EventArgs e) { }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private bool isFirstClick = true;
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            if (isFirstClick)
+            {
+                textBox1.Clear();
+                isFirstClick = false;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FormAddProduct addProductForm = new FormAddProduct();
+            addProductForm.Show();
         }
     }
 }

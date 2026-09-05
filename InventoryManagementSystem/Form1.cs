@@ -108,5 +108,10 @@ namespace InventoryManagementSystem
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LoadForm(new FormCategory(), sender);
+        }
     }
 }

@@ -24,11 +24,11 @@ namespace InventoryManagementSystem.Forms
                 !textBox2.UseSystemPasswordChar;
             if (textBox2.UseSystemPasswordChar)
             {
-                pictureBox5.Image = Properties.Resources.show;
+                pictureBox5.Image = Properties.Resources.hide;
             }
             else
             {
-                pictureBox5.Image = Properties.Resources.hide;
+                pictureBox5.Image = Properties.Resources.show;
             }
         }
 

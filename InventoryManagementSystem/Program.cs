@@ -19,7 +19,7 @@ namespace InventoryManagementSystem
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
             //Application.Run(new FormAddProduct());
-            Application.Run(new FormLogin());
+            Application.Run(new FormLoading());
         }
     }
 }

@@ -19,8 +19,7 @@ namespace InventoryManagementSystem.Forms
         public FormLoading()
         {
             InitializeComponent();
-     
-            MakeRounded(panelProgress , 8);
+
             panelProgress.Controls.Add(panelProgressFill);
             panelProgress.Location = new Point(82, 465);
             panelProgress.Size = new Size(544,18);
@@ -29,7 +28,6 @@ namespace InventoryManagementSystem.Forms
             panelProgressFill.Size = new Size(0, panelProgress.Height);
             panelProgressFill.BackColor = Color.FromArgb(0, 120, 215);
             panelProgressFill.BringToFront();
-            MakeRounded(panelProgress, 8);
 
             timer= new Timer();
             timer.Interval = 30;
@@ -59,41 +57,6 @@ namespace InventoryManagementSystem.Forms
                 this.Hide();
             }
         }
-
-        private void MakeRounded(Control control, int radius)
-        {
-            GraphicsPath path = new GraphicsPath();
-
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            path.AddArc(
-                control.Width - radius,
-                0,
-                radius,
-                radius,
-                270,
-                90);
-
-            path.AddArc(
-                control.Width - radius,
-                control.Height - radius,
-                radius,
-                radius,
-                0,
-                90);
-
-            path.AddArc(
-                0,
-                control.Height - radius,
-                radius,
-                radius,
-                90,
-                90);
-
-            path.CloseAllFigures();
-
-            control.Region = new Region(path);
-        }
-
         private void FormLoading_Load(object sender, EventArgs e)
         {
 

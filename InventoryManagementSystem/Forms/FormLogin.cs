@@ -9,8 +9,7 @@ namespace InventoryManagementSystem.Forms
         public FormLogin()
         {
             InitializeComponent();
-            textBox2.UseSystemPasswordChar = true;
-            this.AcceptButton = button1;
+            txtPassword.UseSystemPasswordChar = true;
             pictureBox3.Visible = true;
             pictureBox4.Visible = true;
             pictureBox5.Visible = true;
@@ -20,9 +19,9 @@ namespace InventoryManagementSystem.Forms
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            textBox2.UseSystemPasswordChar =
-                !textBox2.UseSystemPasswordChar;
-            if (textBox2.UseSystemPasswordChar)
+            txtPassword.UseSystemPasswordChar =
+                !txtPassword.UseSystemPasswordChar;
+            if (txtPassword.UseSystemPasswordChar)
             {
                 pictureBox5.Image = Properties.Resources.hide;
             }
@@ -34,41 +33,47 @@ namespace InventoryManagementSystem.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string username = textBox1.Text.Trim();
-            string password = textBox2.Text;
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Text;
             if (username == "admin" && password == "admin")
             {
-                MessageBox.Show(
-                    "login successfull!",
-                    "success",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
                 Form1 MainForm = new Form1();
                 MainForm.Show();
                 this.Hide();
             }
             else
             {
-                MessageBox.Show(
-                    "Invaild username or password.",
-                    "Login Failed",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-                textBox2.Clear();
-                textBox2.Focus();
+                lblMessage.Text = "Invalid username or password !";
+                txtPassword.Focus();
             }
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            textBox1.Focus();
+            txtUsername.Focus();
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            textBox2.Focus();
+            txtPassword.Focus();
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                button1_Click(sender, e);  // Performs login check
+            }
+        }
+
+        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; 
+                txtPassword.Focus();       
+            }
         }
     }
 }

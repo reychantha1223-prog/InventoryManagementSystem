@@ -60,6 +60,12 @@
     <Compile Include="Forms\FormAddCategory.Designer.cs">
       <DependentUpon>FormAddCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormAddCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAddCustomer.Designer.cs">
+      <DependentUpon>FormAddCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormAddProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,12 @@
     </Compile>
     <Compile Include="Forms\FormCategory.Designer.cs">
       <DependentUpon>FormCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCustomer.Designer.cs">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormDashboard.cs">
       <SubType>Form</SubType>
@@ -104,11 +116,17 @@
     <EmbeddedResource Include="Forms\FormAddCategory.resx">
       <DependentUpon>FormAddCategory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAddCustomer.resx">
+      <DependentUpon>FormAddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAddProduct.resx">
       <DependentUpon>FormAddProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormCategory.resx">
       <DependentUpon>FormCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCustomer.resx">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormDashboard.resx">
       <DependentUpon>FormDashboard.cs</DependentUpon>

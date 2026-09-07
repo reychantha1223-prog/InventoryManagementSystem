@@ -62,10 +62,11 @@
             this.panelProgress.Controls.Add(this.panel5);
             this.panelProgress.Controls.Add(this.panel3);
             this.panelProgress.Controls.Add(this.panel2);
-            this.panelProgress.Location = new System.Drawing.Point(78, 409);
+            this.panelProgress.Location = new System.Drawing.Point(78, 394);
             this.panelProgress.Name = "panelProgress";
             this.panelProgress.Size = new System.Drawing.Size(544, 16);
             this.panelProgress.TabIndex = 0;
+            this.panelProgress.Paint += new System.Windows.Forms.PaintEventHandler(this.panelProgress_Paint);
             // 
             // panel5
             // 
@@ -133,7 +134,7 @@
             this.panelProgressFill.Controls.Add(this.panel10);
             this.panelProgressFill.Controls.Add(this.panel14);
             this.panelProgressFill.Controls.Add(this.panel16);
-            this.panelProgressFill.Location = new System.Drawing.Point(78, 409);
+            this.panelProgressFill.Location = new System.Drawing.Point(78, 394);
             this.panelProgressFill.Name = "panelProgressFill";
             this.panelProgressFill.Size = new System.Drawing.Size(0, 16);
             this.panelProgressFill.TabIndex = 4;
@@ -203,7 +204,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(303, 383);
+            this.label1.Location = new System.Drawing.Point(303, 373);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 18);
             this.label1.TabIndex = 5;

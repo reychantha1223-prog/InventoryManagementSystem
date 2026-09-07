@@ -21,7 +21,7 @@ namespace InventoryManagementSystem.Forms
             InitializeComponent();
 
             panelProgress.Controls.Add(panelProgressFill);
-            panelProgress.Location = new Point(82, 409);
+            panelProgress.Location = new Point(82, 395);
             panelProgress.Size = new Size(544,18);
             panelProgress.BackColor = Color.Gainsboro;
             panelProgressFill.Location = new Point(0, 0);
@@ -58,6 +58,11 @@ namespace InventoryManagementSystem.Forms
             }
         }
         private void FormLoading_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelProgress_Paint(object sender, PaintEventArgs e)
         {
 
         }

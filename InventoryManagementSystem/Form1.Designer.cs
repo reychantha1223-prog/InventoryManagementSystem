@@ -67,7 +67,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(61, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(390, 30);
+            this.label1.Size = new System.Drawing.Size(315, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "Inventory Management System";
             // 
@@ -131,7 +131,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
             this.label3.Location = new System.Drawing.Point(108, 129);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 20);
+            this.label3.Size = new System.Drawing.Size(47, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Admin";
             // 
@@ -142,7 +142,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
             this.label2.Location = new System.Drawing.Point(80, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 20);
+            this.label2.Size = new System.Drawing.Size(101, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Rey Chantha";
             // 
@@ -229,6 +229,7 @@
             this.button4.Text = "    Customers";
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // panelMenu
             // 
@@ -258,7 +259,7 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;

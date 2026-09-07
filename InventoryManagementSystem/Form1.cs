@@ -113,5 +113,10 @@ namespace InventoryManagementSystem
         {
             LoadForm(new FormCategory(), sender);
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            LoadForm(new FormCustomer(), sender);
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace InventoryManagementSystem.Forms
 
         private void FormProducts_Load(object sender, EventArgs e)
         {
+            txtProduct.ForeColor = Color.Gray;
             SetupComboBoxes();
             SetupDataGridView();
             LoadSampleData();
@@ -104,22 +105,20 @@ namespace InventoryManagementSystem.Forms
         private void panel3_Paint(object sender, PaintEventArgs e) { }
         private void panel7_Paint(object sender, PaintEventArgs e) { }
         private void label1_Click(object sender, EventArgs e) { }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private bool isFirstClick = true;
         private void textBox1_Click(object sender, EventArgs e)
         {
-            if (isFirstClick)
-            {
-                textBox1.Clear();
-                isFirstClick = false;
-            }
+
         }
 
-        private void button3_Click(object sender, EventArgs e)
+
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
         {
             Form mainForm = this.TopLevelControl as Form ?? Form.ActiveForm ?? this;
 
@@ -147,7 +146,17 @@ namespace InventoryManagementSystem.Forms
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void txtProduct_Click(object sender, EventArgs e)
+        {
+            if (isFirstClick)
+            {
+                txtProduct.ForeColor = Color.Black;
+                txtProduct.Clear();
+                isFirstClick = false;
+            }
+        }
+
+        private void txtProduct_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace InventoryManagementSystem.Forms
 {
@@ -134,6 +135,21 @@ namespace InventoryManagementSystem.Forms
                     addCustomerForm.ShowDialog(overlay);
                 }
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private bool isFirstClick = true;
+        private void txtCustomer_Click(object sender, EventArgs e)
+        {
+            if (isFirstClick)
+            {
+                txtCustomer.Clear();
+                isFirstClick = false;
+            }
+        
         }
     }
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace InventoryManagementSystem.Forms
 {
@@ -22,7 +23,9 @@ namespace InventoryManagementSystem.Forms
 
         }
 
-        private void btnAddProduct_Click(object sender, EventArgs e)
+      
+
+        private void btnAddCategory_Click(object sender, EventArgs e)
         {
             Form mainForm = this.TopLevelControl as Form ?? Form.ActiveForm ?? this;
 
@@ -47,7 +50,22 @@ namespace InventoryManagementSystem.Forms
                     addCategoryForm.StartPosition = FormStartPosition.CenterParent;
                     addCategoryForm.ShowDialog(overlay);
                 }
-            } 
+            }
+        }
+        private bool isFirstClick = true;
+        private void txtCategory_Click(object sender, EventArgs e)
+        {
+            if (isFirstClick)
+            {
+                txtCategory.Clear();
+                isFirstClick = false;
+            }
+        
+        }
+
+        private void FormCategory_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

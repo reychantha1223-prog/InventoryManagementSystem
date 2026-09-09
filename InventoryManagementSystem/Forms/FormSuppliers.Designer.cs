@@ -57,6 +57,62 @@
             ((System.ComponentModel.ISupportInitialize)(this.supplierinfoView)).BeginInit();
             this.SuspendLayout();
             // 
+<<<<<<< HEAD
+=======
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtSupplier);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Location = new System.Drawing.Point(31, 111);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(811, 48);
+            this.panel1.TabIndex = 24;
+            // 
+            // txtSupplier
+            // 
+            this.txtSupplier.BackColor = System.Drawing.SystemColors.Control;
+            this.txtSupplier.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSupplier.Location = new System.Drawing.Point(52, 12);
+            this.txtSupplier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSupplier.Name = "txtSupplier";
+            this.txtSupplier.Size = new System.Drawing.Size(743, 23);
+            this.txtSupplier.TabIndex = 14;
+            this.txtSupplier.Text = "Search supplier. . .";
+            this.txtSupplier.Click += new System.EventHandler(this.txtSupplier_Click);
+            this.txtSupplier.TextChanged += new System.EventHandler(this.txtSupplier_TextChanged);
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(4, 3);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(43, 41);
+            this.button2.TabIndex = 1;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(1471, 9);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(196, 57);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "＋ Add Supplier";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+>>>>>>> 6646a16 (update ui)
             // label2
             // 
             this.label2.AutoSize = true;

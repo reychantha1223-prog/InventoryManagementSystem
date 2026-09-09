@@ -392,6 +392,7 @@
             // btnAddCategory
             // 
             this.btnAddCategory.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddCategory.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCategory.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddCategory.ForeColor = System.Drawing.SystemColors.ButtonHighlight;

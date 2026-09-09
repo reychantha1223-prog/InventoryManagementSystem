@@ -1,114 +1,117 @@
-﻿using System;
+﻿using Guna.Charts.WinForms;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
+using System.Xml.Linq;
 
 namespace InventoryManagementSystem.Forms
 {
     public partial class FormDashboard : Form
     {
+        public class Product
+        {
+            public int ID { get; set; }
+            public string Name { get; set; }
+            public decimal Price { get; set; }
+            public int Stock { get; set; }
+            public string Category { get; set; }
+            public string Status { get; set; }
+            public DateTime CreatedAt { get; set; }
+        }
+
         public FormDashboard()
         {
             InitializeComponent();
         }
-        private void ConfigureBarChart()
-        {
-            // Series setup
-            var categorySeries = chart1.Series["Series1"];
-            categorySeries.Name = "Category";
-            categorySeries.Points.Clear();
 
-            // Populate data
-            categorySeries.Points.AddXY("Phone", 120);
-            categorySeries.Points.AddXY("Laptop", 85);
-            categorySeries.Points.AddXY("Bottle", 45);
-            categorySeries.Points.AddXY("Headphones", 60);
-            categorySeries.Points.AddXY("Accessories", 14);
-            categorySeries.Points.AddXY("Monitors", 42);
-            categorySeries.Points.AddXY("Smartwatches", 78);
-            categorySeries.Points.AddXY("Cameras", 29);
-            categorySeries.Points.AddXY("Tablets", 53);
-
-            // Styling & Tooltips
-            categorySeries.ToolTip = "#VALX: #VALY units";
-            chart1.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Segoe UI", 9F);
-            chart1.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Segoe UI", 9F);
-        }
-        private void ConfigurePieChart()
-        {
-            // Series setup
-            var genderSeries = chart2.Series["Series1"];
-            genderSeries.Name = "Gender";
-            genderSeries.ChartType = SeriesChartType.Pie;
-            genderSeries.Points.Clear();
-
-            // Populate data
-            genderSeries.Points.AddXY("Male", 320);
-            genderSeries.Points.AddXY("Female", 250);
-
-            // Styling & Labels
-            genderSeries.Label = "#VALX (#PERCENT{P0})";
-            genderSeries.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-
-            if (chart2.Legends.Count > 0)
-            {
-                chart2.Legends[0].Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-            }
-        }
-        private void ConfigureDataGridView()
-        {
-            // 1. Structural and Visual Properties (Set BEFORE adding rows)
-            dataGridView1.Rows.Clear();
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.ReadOnly = true;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            // 2. Font & Height Settings
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridView1.ColumnHeadersHeight = 40;
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-
-            dataGridView1.RowTemplate.Height = 35;
-            dataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 11F, FontStyle.Regular);
-
-            // 3. Populate Rows
-            dataGridView1.Rows.Add(101, "iPhone 15 Pro", "$999.00", 25, "Phone", "In Stock", "2026-09-04 10:30 AM");
-            dataGridView1.Rows.Add(102, "Dell XPS 15", "$1,200.00", 8, "Laptop", "Low Stock", "2026-09-04 09:15 AM");
-            dataGridView1.Rows.Add(103, "Water Bottle 1L", "$12.50", 120, "Bottle", "In Stock", "2026-09-03 04:45 PM");
-            dataGridView1.Rows.Add(104, "Sony WH-1000XM5", "$348.00", 15, "Headphones", "In Stock", "2026-09-03 02:10 PM");
-            dataGridView1.Rows.Add(105, "Logitech MX Master 3S", "$99.00", 3, "Accessories", "Critical", "2026-09-02 11:20 AM");
-        }
         private void FormProduct_Load(object sender, EventArgs e)
         {
             ConfigureBarChart();
             ConfigurePieChart();
-            ConfigureDataGridView();
-        }
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
+            ConfigureRecentProductView();
         }
 
-        private void chart1_MouseMove(object sender, MouseEventArgs e)
+        private void ConfigureBarChart()
         {
-
         }
 
-        private void chart2_Click(object sender, EventArgs e)
+        private void ConfigurePieChart()
         {
-
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ConfigureRecentProductView()
         {
+            recentProductView.ThemeStyle.HeaderStyle.BackColor =
+                Color.FromArgb(15, 23, 42);
 
+            recentProductView.ThemeStyle.HeaderStyle.Font =
+                new Font("Segoe UI", 10F, FontStyle.Bold);
+
+            recentProductView.ThemeStyle.RowsStyle.Font =
+                new Font("Segoe UI", 10.5F);
+
+            recentProductView.AllowUserToResizeColumns = false;
+            recentProductView.AllowUserToResizeRows = false;
+            recentProductView.ColumnHeadersHeightSizeMode =
+                DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            recentProductView.ColumnHeadersHeight = 38;
+            recentProductView.RowTemplate.Height = 32;
+
+            List<Product> products = new List<Product>
+            {
+                new Product { ID = 1, Name = "Laptop", Price = 999.99m, Stock = 12, Category = "Electronics", Status = "In Stock", CreatedAt = DateTime.Now },
+                new Product { ID = 2, Name = "Mouse", Price = 25.50m, Stock = 3, Category = "Accessories", Status = "Low Stock", CreatedAt = DateTime.Now },
+                new Product { ID = 3, Name = "Keyboard", Price = 45.00m, Stock = 8, Category = "Accessories", Status = "In Stock", CreatedAt = DateTime.Now },
+                new Product { ID = 4, Name = "Monitor", Price = 249.99m, Stock = 5, Category = "Electronics", Status = "Low Stock", CreatedAt = DateTime.Now },
+                new Product { ID = 5, Name = "Printer", Price = 180.00m, Stock = 0, Category = "Office", Status = "Out of Stock", CreatedAt = DateTime.Now }
+            };
+
+            recentProductView.DataSource = null;
+            recentProductView.DataSource = products;
+        }
+
+        private void guna2Chart1_Load(object sender, EventArgs e)
+        {
+            guna2Chart1.Datasets.Clear();
+
+            GunaBarDataset dataset = new GunaBarDataset
+            {
+                Label = "Total Sales",
+                CornerRadius = 10
+            };
+
+            dataset.FillColors.Add(Color.FromArgb(54, 140, 246));
+
+            dataset.DataPoints.Add("Jan", 73);
+            dataset.DataPoints.Add("Feb", 83);
+            dataset.DataPoints.Add("Mar", 72);
+            dataset.DataPoints.Add("Apr", 22);
+            dataset.DataPoints.Add("May", 81);
+            dataset.DataPoints.Add("Jun", 39);
+
+            guna2Chart1.Datasets.Add(dataset);
+            guna2Chart1.Update();
+        }
+
+        private void gunaChart1_Load(object sender, EventArgs e)
+        {
+            GunaDoughnutDataset stockDataset = new GunaDoughnutDataset
+            {
+                Label = "Stock Overview"
+            };
+
+            stockDataset.FillColors.Add(Color.FromArgb(46, 204, 113));
+            stockDataset.FillColors.Add(Color.FromArgb(243, 156, 18));
+            stockDataset.FillColors.Add(Color.FromArgb(231, 76, 60));
+
+            stockDataset.DataPoints.Add("In Stock", 120);
+            stockDataset.DataPoints.Add("Low Stock", 40);
+            stockDataset.DataPoints.Add("Out of Stock", 15);
+
+            chartStockOverview.Datasets.Clear();
+            chartStockOverview.Datasets.Add(stockDataset);
+            chartStockOverview.Update();
         }
     }
 }

@@ -85,7 +85,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(562, 352);
+            this.label4.Location = new System.Drawing.Point(562, 338);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 17);
             this.label4.TabIndex = 8;
@@ -96,7 +96,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBox1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(565, 441);
+            this.checkBox1.Location = new System.Drawing.Point(565, 429);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(110, 19);
             this.checkBox1.TabIndex = 9;
@@ -117,7 +117,7 @@
             this.txtUsername.ForeColor = System.Drawing.Color.Black;
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUsername.Location = new System.Drawing.Point(565, 270);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PlaceholderText = "";
             this.txtUsername.SelectedText = "";
@@ -140,8 +140,8 @@
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.Black;
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPassword.Location = new System.Drawing.Point(565, 382);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Location = new System.Drawing.Point(565, 368);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PlaceholderText = "";
             this.txtPassword.SelectedText = "";
@@ -192,7 +192,7 @@
             this.eyeicon.BackColor = System.Drawing.Color.White;
             this.eyeicon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.eyeicon.Image = ((System.Drawing.Image)(resources.GetObject("eyeicon.Image")));
-            this.eyeicon.Location = new System.Drawing.Point(955, 396);
+            this.eyeicon.Location = new System.Drawing.Point(955, 382);
             this.eyeicon.Name = "eyeicon";
             this.eyeicon.Size = new System.Drawing.Size(25, 20);
             this.eyeicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -204,7 +204,7 @@
             // 
             this.Passwordicon.BackColor = System.Drawing.Color.White;
             this.Passwordicon.Image = ((System.Drawing.Image)(resources.GetObject("Passwordicon.Image")));
-            this.Passwordicon.Location = new System.Drawing.Point(573, 394);
+            this.Passwordicon.Location = new System.Drawing.Point(573, 380);
             this.Passwordicon.Name = "Passwordicon";
             this.Passwordicon.Size = new System.Drawing.Size(22, 24);
             this.Passwordicon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

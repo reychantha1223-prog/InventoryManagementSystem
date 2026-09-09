@@ -20,6 +20,7 @@ namespace InventoryManagementSystem
             //Application.Run(new FormOrder());
             //Application.Run(new FormAddProduct());
             Application.Run(new FormLoading());
+            
         }
     }
 }

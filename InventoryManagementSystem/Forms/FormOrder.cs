@@ -11,40 +11,19 @@ namespace InventoryManagementSystem.Forms
         {
             InitializeComponent();
 
-            // ==========================================
-            // DATAGRIDVIEW
-            // ==========================================
+            OrderInfoView.AutoGenerateColumns = false;
 
-            dgvOrders.AutoGenerateColumns = false;
+            OrderInfoView.Columns[0].DataPropertyName = "ID";
+            OrderInfoView.Columns[1].DataPropertyName = "Date";
+            OrderInfoView.Columns[2].DataPropertyName = "Customer";
+            OrderInfoView.Columns[3].DataPropertyName = "Total Amount";
+            OrderInfoView.Columns[4].DataPropertyName = "Status";
 
-            // Connect Designer columns to DataTable
-            dgvOrders.Columns[0].DataPropertyName = "ID";
-            dgvOrders.Columns[1].DataPropertyName = "Date";
-            dgvOrders.Columns[2].DataPropertyName = "Customer";
-            dgvOrders.Columns[3].DataPropertyName = "Total Amount";
-            dgvOrders.Columns[4].DataPropertyName = "Status";
-
-            // DO NOT use:
-            // dgvOrders.Columns[5].DataPropertyName = "Action";
-
-            // ==========================================
-            // EVENTS
-            // ==========================================
-
-            dgvOrders.CellPainting += dgvOrders_CellPainting;
-            dgvOrders.CellClick += dgvOrders_CellClick;
-
-            // ==========================================
-            // LOAD DATA
-            // ==========================================
+            OrderInfoView.CellPainting += guna2DataGridView2_CellPainting;
+            OrderInfoView.CellClick += guna2DataGridView2_CellClick;
 
             LoadSampleOrders();
         }
-
-
-        // =====================================================
-        // LOAD SAMPLE ORDERS
-        // =====================================================
 
         private void LoadSampleOrders()
         {
@@ -56,154 +35,89 @@ namespace InventoryManagementSystem.Forms
             dt.Columns.Add("Total Amount");
             dt.Columns.Add("Status");
 
-            dt.Rows.Add(
-                "ORD-001",
-                "2025-09-01",
-                "Sok Dara",
-                "$120.00",
-                "Pending"
-            );
+            dt.Rows.Add("ORD-001", "2025-09-01", "Sok Dara", "$120.00", "Pending");
+            dt.Rows.Add("ORD-002", "2025-08-30", "Chan Vibol", "$250.00", "Paid");
+            dt.Rows.Add("ORD-003", "2025-08-28", "Srey Neang", "$80.00", "Shipped");
+            dt.Rows.Add("ORD-004", "2025-08-27", "Long Ratha", "$175.00", "Pending");
+            dt.Rows.Add("ORD-005", "2025-08-25", "Kim Sovan", "$320.00", "Delivered");
 
-            dt.Rows.Add(
-                "ORD-002",
-                "2025-08-30",
-                "Chan Vibol",
-                "$250.00",
-                "Paid"
-            );
-
-            dt.Rows.Add(
-                "ORD-003",
-                "2025-08-28",
-                "Srey Neang",
-                "$80.00",
-                "Shipped"
-            );
-
-            dt.Rows.Add(
-                "ORD-004",
-                "2025-08-27",
-                "Long Ratha",
-                "$175.00",
-                "Pending"
-            );
-
-            dt.Rows.Add(
-                "ORD-005",
-                "2025-08-25",
-                "Kim Sovan",
-                "$320.00",
-                "Delivered"
-            );
-
-            dgvOrders.DataSource = dt;
+            OrderInfoView.DataSource = dt;
 
             SetupOrderGrid();
         }
 
-
-        // =====================================================
-        // SETUP DATAGRIDVIEW
-        // =====================================================
-
         private void SetupOrderGrid()
         {
-            // Header
-            dgvOrders.ColumnHeadersHeightSizeMode =
+            OrderInfoView.ColumnHeadersHeightSizeMode =
                 DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
 
-            dgvOrders.ColumnHeadersHeight = 40;
+            OrderInfoView.ColumnHeadersHeight = 40;
 
-            dgvOrders.ColumnHeadersDefaultCellStyle.Font =
+            OrderInfoView.ColumnHeadersDefaultCellStyle.Font =
                 new Font("Segoe UI", 12F, FontStyle.Bold);
 
-            dgvOrders.ColumnHeadersDefaultCellStyle.Alignment =
+            OrderInfoView.ColumnHeadersDefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleLeft;
 
-            // Rows
-            dgvOrders.RowTemplate.Height = 35;
+            OrderInfoView.RowTemplate.Height = 35;
 
-            dgvOrders.DefaultCellStyle.Font =
-                new Font("Segoe UI", 11F, FontStyle.Regular);
+            OrderInfoView.DefaultCellStyle.Font =
+                new Font("Segoe UI", 11F);
 
-            dgvOrders.DefaultCellStyle.Alignment =
+            OrderInfoView.DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleLeft;
 
-            // Grid
-            dgvOrders.CellBorderStyle =
+            OrderInfoView.CellBorderStyle =
                 DataGridViewCellBorderStyle.Single;
 
-            dgvOrders.GridColor = Color.Gray;
+            OrderInfoView.GridColor = Color.Gray;
 
-            // Settings
-            dgvOrders.AllowUserToAddRows = false;
-            dgvOrders.AllowUserToDeleteRows = false;
-            dgvOrders.AllowUserToResizeRows = false;
+            OrderInfoView.AllowUserToAddRows = false;
+            OrderInfoView.AllowUserToDeleteRows = false;
+            OrderInfoView.AllowUserToResizeRows = false;
+            OrderInfoView.EnableHeadersVisualStyles = false;
+            OrderInfoView.RowHeadersVisible = false;
+            OrderInfoView.ReadOnly = true;
 
-            dgvOrders.EnableHeadersVisualStyles = false;
-            dgvOrders.RowHeadersVisible = false;
-            dgvOrders.ReadOnly = true;
-
-            // IMPORTANT
-            // Do NOT use Fill
-            dgvOrders.AutoSizeColumnsMode =
+            OrderInfoView.AutoSizeColumnsMode =
                 DataGridViewAutoSizeColumnsMode.None;
 
-            // ==========================================
-            // FIXED COLUMN WIDTH
-            // ==========================================
+            OrderInfoView.Columns[0].Width = 205;
+            OrderInfoView.Columns[1].Width = 205;
+            OrderInfoView.Columns[2].Width = 205;
+            OrderInfoView.Columns[3].Width = 205;
+            OrderInfoView.Columns[4].Width = 205;
+            OrderInfoView.Columns[5].Width = 205;
 
-            dgvOrders.Columns[0].Width = 205; // ID
-            dgvOrders.Columns[1].Width = 205; // Date
-            dgvOrders.Columns[2].Width = 205; // Customer
-            dgvOrders.Columns[3].Width = 205; // Total Amount
-            dgvOrders.Columns[4].Width = 205; // Status
-            dgvOrders.Columns[5].Width = 205; // Action
-
-            // Prevent user resizing columns
-            foreach (DataGridViewColumn column in dgvOrders.Columns)
+            foreach (DataGridViewColumn column in OrderInfoView.Columns)
             {
-                column.Resizable =
-                    DataGridViewTriState.False;
+                column.Resizable = DataGridViewTriState.False;
             }
 
-            // ==========================================
-            // SELECTION COLOR
-            // ==========================================
-
-            dgvOrders.DefaultCellStyle.SelectionBackColor =
+            OrderInfoView.DefaultCellStyle.SelectionBackColor =
                 Color.FromArgb(0, 123, 255);
 
-            dgvOrders.DefaultCellStyle.SelectionForeColor =
+            OrderInfoView.DefaultCellStyle.SelectionForeColor =
                 Color.White;
         }
 
-
-        // =====================================================
-        // DRAW ACTION BUTTONS
-        // =====================================================
-
-        private void dgvOrders_CellPainting(
+        private void guna2DataGridView2_CellPainting(
             object sender,
             DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
 
-            // Only Action column
-            if (dgvOrders.Columns[e.ColumnIndex].HeaderText != "Action")
+            if (OrderInfoView.Columns[e.ColumnIndex].HeaderText != "Action")
                 return;
 
-            // Paint normal background
             e.PaintBackground(e.CellBounds, false);
 
             int buttonWidth = 55;
             int buttonHeight = 26;
             int spacing = 5;
 
-            int totalWidth =
-                (buttonWidth * 3) +
-                (spacing * 2);
+            int totalWidth = (buttonWidth * 3) + (spacing * 2);
 
             int startX =
                 e.CellBounds.X +
@@ -213,197 +127,109 @@ namespace InventoryManagementSystem.Forms
                 e.CellBounds.Y +
                 (e.CellBounds.Height - buttonHeight) / 2;
 
-            // ==========================================
-            // BUTTON RECTANGLES
-            // ==========================================
-
             Rectangle viewButton = new Rectangle(
                 startX,
                 startY,
                 buttonWidth,
-                buttonHeight
-            );
+                buttonHeight);
 
             Rectangle editButton = new Rectangle(
                 startX + buttonWidth + spacing,
                 startY,
                 buttonWidth,
-                buttonHeight
-            );
+                buttonHeight);
 
             Rectangle deleteButton = new Rectangle(
                 startX + (buttonWidth + spacing) * 2,
                 startY,
                 buttonWidth,
-                buttonHeight
-            );
-
-            // ==========================================
-            // VIEW BUTTON
-            // ==========================================
+                buttonHeight);
 
             using (SolidBrush brush =
                 new SolidBrush(Color.FromArgb(235, 245, 255)))
             {
-                e.Graphics.FillRectangle(
-                    brush,
-                    viewButton
-                );
+                e.Graphics.FillRectangle(brush, viewButton);
+                e.Graphics.FillRectangle(brush, editButton);
             }
-
-            using (Font font =
-                new Font("Segoe UI", 9F))
-            using (SolidBrush brush =
-                new SolidBrush(Color.FromArgb(0, 123, 255)))
-            {
-                StringFormat format = new StringFormat
-                {
-                    Alignment = StringAlignment.Center,
-                    LineAlignment = StringAlignment.Center
-                };
-
-                e.Graphics.DrawString(
-                    "View",
-                    font,
-                    brush,
-                    viewButton,
-                    format
-                );
-            }
-
-            // ==========================================
-            // EDIT BUTTON
-            // ==========================================
-
-            using (SolidBrush brush =
-                new SolidBrush(Color.FromArgb(235, 245, 255)))
-            {
-                e.Graphics.FillRectangle(
-                    brush,
-                    editButton
-                );
-            }
-
-            using (Font font =
-                new Font("Segoe UI", 9F))
-            using (SolidBrush brush =
-                new SolidBrush(Color.FromArgb(0, 123, 255)))
-            {
-                StringFormat format = new StringFormat
-                {
-                    Alignment = StringAlignment.Center,
-                    LineAlignment = StringAlignment.Center
-                };
-
-                e.Graphics.DrawString(
-                    "Edit",
-                    font,
-                    brush,
-                    editButton,
-                    format
-                );
-            }
-
-            // ==========================================
-            // DELETE BUTTON
-            // ==========================================
 
             using (SolidBrush brush =
                 new SolidBrush(Color.FromArgb(255, 235, 235)))
             {
-                e.Graphics.FillRectangle(
-                    brush,
-                    deleteButton
-                );
+                e.Graphics.FillRectangle(brush, deleteButton);
             }
 
-            using (Font font =
-                new Font("Segoe UI", 9F))
-            using (SolidBrush brush =
+            using (Font font = new Font("Segoe UI", 9F))
+            using (SolidBrush blueBrush =
+                new SolidBrush(Color.FromArgb(0, 123, 255)))
+            using (SolidBrush redBrush =
                 new SolidBrush(Color.Red))
+            using (StringFormat format = new StringFormat())
             {
-                StringFormat format = new StringFormat
-                {
-                    Alignment = StringAlignment.Center,
-                    LineAlignment = StringAlignment.Center
-                };
+                format.Alignment = StringAlignment.Center;
+                format.LineAlignment = StringAlignment.Center;
+
+                e.Graphics.DrawString(
+                    "View",
+                    font,
+                    blueBrush,
+                    viewButton,
+                    format);
+
+                e.Graphics.DrawString(
+                    "Edit",
+                    font,
+                    blueBrush,
+                    editButton,
+                    format);
 
                 e.Graphics.DrawString(
                     "Delete",
                     font,
-                    brush,
+                    redBrush,
                     deleteButton,
-                    format
-                );
+                    format);
             }
 
             e.Handled = true;
         }
 
-
-        // =====================================================
-        // ACTION BUTTON CLICK
-        // =====================================================
-
-        private void dgvOrders_CellClick(
+        private void guna2DataGridView2_CellClick(
             object sender,
             DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
 
-            // Only Action column
-            if (dgvOrders.Columns[e.ColumnIndex].HeaderText != "Action")
+            if (OrderInfoView.Columns[e.ColumnIndex].HeaderText != "Action")
                 return;
 
-            // Get Action cell position
             Rectangle cellRect =
-                dgvOrders.GetCellDisplayRectangle(
+                OrderInfoView.GetCellDisplayRectangle(
                     e.ColumnIndex,
                     e.RowIndex,
-                    false
-                );
+                    false);
 
             Point mousePosition =
-                dgvOrders.PointToClient(
-                    Cursor.Position
-                );
+                OrderInfoView.PointToClient(Cursor.Position);
 
-            int x =
-                mousePosition.X -
-                cellRect.X;
-
-            // ==========================================
-            // BUTTON SIZE
-            // ==========================================
+            int x = mousePosition.X - cellRect.X;
 
             int buttonWidth = 55;
             int spacing = 5;
 
             string orderID =
-                dgvOrders.Rows[e.RowIndex]
+                OrderInfoView.Rows[e.RowIndex]
                 .Cells[0]
                 .Value?.ToString();
 
-            // ==========================================
-            // VIEW
-            // ==========================================
-
-            if (x >= 0 &&
-                x < buttonWidth)
+            if (x >= 0 && x < buttonWidth)
             {
                 MessageBox.Show(
                     "View Order: " + orderID,
                     "View Order",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
+                    MessageBoxIcon.Information);
             }
-
-            // ==========================================
-            // EDIT
-            // ==========================================
-
             else if (
                 x >= buttonWidth + spacing &&
                 x < (buttonWidth * 2) + spacing)
@@ -412,109 +238,61 @@ namespace InventoryManagementSystem.Forms
                     "Edit Order: " + orderID,
                     "Edit Order",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
+                    MessageBoxIcon.Information);
             }
-
-            // ==========================================
-            // DELETE
-            // ==========================================
-
             else if (
                 x >= (buttonWidth + spacing) * 2)
             {
-                DialogResult result =
-                    MessageBox.Show(
-                        "Are you sure you want to delete "
-                        + orderID
-                        + "?",
-                        "Delete Order",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning
-                    );
+                DialogResult result = MessageBox.Show(
+                    "Are you sure you want to delete " + orderID + "?",
+                    "Delete Order",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
-                    dgvOrders.Rows.RemoveAt(
-                        e.RowIndex
-                    );
+                    OrderInfoView.Rows.RemoveAt(e.RowIndex);
                 }
             }
         }
 
-
-        // =====================================================
-        // EXISTING EVENTS
-        // =====================================================
-
-        private void dgvOrders_CellContentClick(
+        private void guna2DataGridView2_CellContentClick(
             object sender,
             DataGridViewCellEventArgs e)
         {
         }
 
-
         private void FormOrder_Load(
             object sender,
             EventArgs e)
         {
+            OrderInfoView.ThemeStyle.HeaderStyle.BackColor =
+                Color.FromArgb(15, 23, 42);
         }
-
-
-        // =====================================================
-        // CREATE ORDER BUTTON
-        // =====================================================
 
         private void guna2Button1_Click(
             object sender,
             EventArgs e)
         {
-            // Get the main dashboard form
             Form mainForm =
                 this.TopLevelControl as Form
                 ?? Form.ActiveForm
                 ?? this;
 
-            // ==========================================
-            // CREATE DARK OVERLAY
-            // ==========================================
-
             using (Form overlay = new Form())
             {
-                overlay.StartPosition =
-                    FormStartPosition.Manual;
-
-                overlay.FormBorderStyle =
-                    FormBorderStyle.None;
-
+                overlay.StartPosition = FormStartPosition.Manual;
+                overlay.FormBorderStyle = FormBorderStyle.None;
                 overlay.Opacity = 0.50d;
-
-                overlay.BackColor =
-                    Color.Black;
-
+                overlay.BackColor = Color.Black;
                 overlay.ShowInTaskbar = false;
 
-                // ==========================================
-                // POSITION OVER MAIN DASHBOARD
-                // ==========================================
-
                 overlay.Location =
-                    mainForm.PointToScreen(
-                        Point.Empty
-                    );
+                    mainForm.PointToScreen(Point.Empty);
 
-                overlay.Size =
-                    mainForm.ClientSize;
-
-                // ==========================================
-                // SHOW OVERLAY
-                // ==========================================
+                overlay.Size = mainForm.ClientSize;
 
                 overlay.Show(mainForm);
-
-                // ==========================================
-                // OPEN CREATE ORDER FORM
-                // ==========================================
 
                 using (FormCreateOrder createOrderForm =
                     new FormCreateOrder())
@@ -522,9 +300,7 @@ namespace InventoryManagementSystem.Forms
                     createOrderForm.StartPosition =
                         FormStartPosition.CenterParent;
 
-                    createOrderForm.ShowDialog(
-                        overlay
-                    );
+                    createOrderForm.ShowDialog(overlay);
                 }
             }
         }

@@ -116,7 +116,7 @@ namespace InventoryManagementSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
-            LoadForm(new FormCustomer(), sender);
+            //LoadForm(new FormCustomer(), sender);
         }
 
         private void panelDesktopPane_Paint(object sender, PaintEventArgs e)
@@ -126,7 +126,7 @@ namespace InventoryManagementSystem
 
         private void btnSupplers_Click(object sender, EventArgs e)
         {
-            LoadForm(new FormSuppliers(), sender);
+            //LoadForm(new FormSuppliers(), sender);
         }
 
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
@@ -181,7 +181,7 @@ namespace InventoryManagementSystem
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            LoadForm(new FormOrder(), sender);
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)

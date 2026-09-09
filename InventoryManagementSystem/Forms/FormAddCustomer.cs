@@ -17,7 +17,7 @@ namespace InventoryManagementSystem.Forms
             InitializeComponent();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void guna2Button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }

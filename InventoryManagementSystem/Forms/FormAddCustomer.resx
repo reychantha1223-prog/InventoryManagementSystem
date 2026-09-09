@@ -118,32 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnCancel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADHSURBVDhPjZI9
-        CgJBDEYf/hzPO3gHSw8gFqJgJeKKf4joVWysFbyCYB+JzMgSMzP7QZpk38tuWAT6Ag+BiUCLQgTaAjOB
-        m0BPG08BCVXlJAE+1J6/anNea2itPYkDa43iYGMGR4GOgXfmmdVvUU5ShM0WKzkJ7ItwTELSDI4Jkq0D
-        u8f9SxDY19Y61w/rJnGwZpIErD+W/RyVdJvA34MlDnv5SXKwWeBLBBZmsPSunVhU6eBdgmMcyUubQ4G7
-        wDgHxwTJNDCDD215IgVyWcHIAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAE7SURBVDhPdZPN
-        SgNBEIQjEg8Gz4IX7yb4JgZvvk38uSeGiI+Q6MmLeDJ5CvXiKwiK0ZvKJxVrht5xt2DYnp6q3una3lar
-        ANADxsAj8OmlWLleyc8ANoBL4Ad4BabAidfMuW/gQtw68cKEAbBZIfxxOi4mzrxSxG/WwUFFVQOgb+4k
-        JdSzEscluQSw5uepNV1tZI76+3ftCOAIeAN23Y40Ix08ybBSEGHxF3ALrDt3BTwo+EjXB7aBO2C/QZyN
-        s6FLBUttnNwCnoEXFWkSm3sGvKcWZuFgx0XUY63YvNzCucmdcKgimr6bBrFMlKFDbbr+JKs2Amn1yerg
-        60uzlxIaTyX6JbkEcGjuOCY1yhpPHWhIcjuBo2unN98D7ZKgIhMT5Ml1+JkUq2eZqsGriiPsyUgOe0a0
-        FA9zzwG/pw4FzRfaDwcAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADnhSURBVHhe7d0J
+        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADnhSURBVHhe7d0J
         lB1XfefxluUNW933VqvlRRYETFiCWULYwhIwEDKBBHKGIGxIcAYTlIUIJHXd6pbDmGcgGDxOZiAz7CRg
         FmMmrDYEYkggZjUKhoCAoMit7vrX02YZY8u2Fktvzu1uGPv/SrZa3X3rVtX3c87vnJxAon+9uvdf/V5V
         3TswAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADTf6emOUwc3yEMT

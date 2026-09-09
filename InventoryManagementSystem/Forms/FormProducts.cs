@@ -13,7 +13,6 @@ namespace InventoryManagementSystem.Forms
 
         private void FormProducts_Load(object sender, EventArgs e)
         {
-            txtProduct.ForeColor = Color.Gray;
             SetupComboBoxes();
             SetupDataGridView();
             LoadSampleData();
@@ -84,38 +83,15 @@ namespace InventoryManagementSystem.Forms
             dataGridView1.Rows.Add("1", "Laptop", "Electronics", "$999", "15", "In Stock", "Gaming Laptop", "Edit", "Delete");
             dataGridView1.Rows.Add("2", "T-Shirt", "Clothing", "$19", "50", "In Stock", "Cotton T-Shirt", "Edit", "Delete");
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBox1.SelectedIndex > 0)
-            {
-                string selectedCategory = comboBox1.SelectedItem.ToString();
-                // Perform filtering or logic here
-            }
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Perform stock filtering logic here
-        }
-
-        // Unused layout events
-        private void panel1_Paint(object sender, PaintEventArgs e) { }
-        private void panel2_Paint(object sender, PaintEventArgs e) { }
-        private void panel3_Paint(object sender, PaintEventArgs e) { }
-        private void panel7_Paint(object sender, PaintEventArgs e) { }
-        private void label1_Click(object sender, EventArgs e) { }
         private bool isFirstClick = true;
-        private void textBox1_Click(object sender, EventArgs e)
+        private void txtProduct_Click(object sender, EventArgs e)
         {
-
-        }
-
-
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            if (isFirstClick)
+            {
+                txtProducts.ForeColor = Color.Black;
+                txtProducts.Clear();
+                isFirstClick = false;
+            }
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -146,17 +122,7 @@ namespace InventoryManagementSystem.Forms
             }
         }
 
-        private void txtProduct_Click(object sender, EventArgs e)
-        {
-            if (isFirstClick)
-            {
-                txtProduct.ForeColor = Color.Black;
-                txtProduct.Clear();
-                isFirstClick = false;
-            }
-        }
-
-        private void txtProduct_TextChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

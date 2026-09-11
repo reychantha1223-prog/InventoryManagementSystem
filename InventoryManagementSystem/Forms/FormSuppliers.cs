@@ -12,17 +12,12 @@ namespace InventoryManagementSystem.Forms
         {
             InitializeComponent();
 
-            guna2TextBox1.Click += guna2TextBox1_Click;
-            guna2Button1.Click += guna2Button1_Click;
         }
 
         private void FormSuppliers_Load(object sender, EventArgs e)
         {
             supplierinfoView.ThemeStyle.HeaderStyle.BackColor =
                 Color.FromArgb(15, 23, 42);
-
-            guna2TextBox1.Text = "Search supplier...";
-            guna2TextBox1.ForeColor = Color.Gray;
 
             isFirstClick = true;
 
@@ -49,10 +44,6 @@ namespace InventoryManagementSystem.Forms
             }
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-        }
-
         private void guna2ComboBox1_SelectedIndexChanged(
             object sender,
             EventArgs e)
@@ -64,17 +55,22 @@ namespace InventoryManagementSystem.Forms
             EventArgs e)
         {
         }
-        private void guna2Button1_Click_1(object sender, EventArgs e) 
+
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
             Form mainForm =
-                this.TopLevelControl as Form
+                TopLevelControl as Form
                 ?? Form.ActiveForm
                 ?? this;
 
             using (Form overlay = new Form())
             {
-                overlay.StartPosition = FormStartPosition.Manual;
-                overlay.FormBorderStyle = FormBorderStyle.None;
+                overlay.StartPosition =
+                    FormStartPosition.Manual;
+
+                overlay.FormBorderStyle =
+                    FormBorderStyle.None;
+
                 overlay.Opacity = 0.50d;
                 overlay.BackColor = Color.Black;
                 overlay.ShowInTaskbar = false;
@@ -82,17 +78,18 @@ namespace InventoryManagementSystem.Forms
                 overlay.Location =
                     mainForm.PointToScreen(Point.Empty);
 
-                overlay.Size = mainForm.ClientSize;
+                overlay.Size =
+                    mainForm.ClientSize;
 
                 overlay.Show(mainForm);
 
-                using (FormAddSupplier addSupplierForm =
-                    new FormAddSupplier())
+                using (FormAddSupplier supplierForm =
+                       new FormAddSupplier())
                 {
-                    addSupplierForm.StartPosition =
+                    supplierForm.StartPosition =
                         FormStartPosition.CenterParent;
 
-                    addSupplierForm.ShowDialog(overlay);
+                    supplierForm.ShowDialog(overlay);
                 }
             }
         }

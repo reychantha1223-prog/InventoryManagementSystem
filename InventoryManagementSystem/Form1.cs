@@ -119,11 +119,6 @@ namespace InventoryManagementSystem
             LoadForm(new FormCustomer(), sender);
         }
 
-        private void panelDesktopPane_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnSupplers_Click(object sender, EventArgs e)
         {
             LoadForm(new FormSuppliers(), sender);

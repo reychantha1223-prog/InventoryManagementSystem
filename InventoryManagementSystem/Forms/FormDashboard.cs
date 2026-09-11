@@ -42,21 +42,45 @@ namespace InventoryManagementSystem.Forms
 
         private void ConfigureRecentProductView()
         {
-            recentProductView.ThemeStyle.HeaderStyle.BackColor =
-                Color.FromArgb(15, 23, 42);
+            // 1. Set Guna Theme to Custom
+            recentProductView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default; // or Light / Custom depending on Guna version
 
-            recentProductView.ThemeStyle.HeaderStyle.Font =
-                new Font("Segoe UI", 10F, FontStyle.Bold);
+            // 2. Define Header Colors
+            Color headerBg = Color.FromArgb(200, 220, 248);
+            Color headerFg = Color.FromArgb(25, 50, 90);
 
-            recentProductView.ThemeStyle.RowsStyle.Font =
-                new Font("Segoe UI", 10.5F);
+            // Apply Header Colors
+            recentProductView.ThemeStyle.HeaderStyle.BackColor = headerBg;
+            recentProductView.ThemeStyle.HeaderStyle.ForeColor = headerFg;
 
+            // 3. Configure Row Selection Colors
+            recentProductView.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(240, 246, 255);
+            recentProductView.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
+
+            // 4. Set Selection Mode & Disable Visual Styles (This removes the blue header highlight!)
+            recentProductView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            recentProductView.EnableHeadersVisualStyles = false;
+            recentProductView.ColumnHeadersDefaultCellStyle.SelectionBackColor = headerBg;
+            recentProductView.ColumnHeadersDefaultCellStyle.SelectionForeColor = headerFg;
+            // 1. Header Styling (Light Ice Blue background with Navy text)
+            recentProductView.EnableHeadersVisualStyles = false;
+            recentProductView.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(200, 220, 248);
+            recentProductView.ThemeStyle.HeaderStyle.ForeColor = Color.FromArgb(25, 50, 90);
+            recentProductView.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+
+            // 2. Row Styling
+            recentProductView.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 10.5F);
+            recentProductView.RowTemplate.Height = 32;
+
+            // 3. Sizing & Resizing Rules
             recentProductView.AllowUserToResizeColumns = false;
             recentProductView.AllowUserToResizeRows = false;
-            recentProductView.ColumnHeadersHeightSizeMode =
-                DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            recentProductView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             recentProductView.ColumnHeadersHeight = 38;
-            recentProductView.RowTemplate.Height = 32;
+
+            // 4. Clean Header Look (Removes thick borders & selection highlights on headers)
+            recentProductView.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            // Match header selection colors to the normal header colors
 
             List<Product> products = new List<Product>
             {
@@ -66,7 +90,8 @@ namespace InventoryManagementSystem.Forms
                 new Product { ID = 4, Name = "Monitor", Price = 249.99m, Stock = 5, Category = "Electronics", Status = "Low Stock", CreatedAt = DateTime.Now },
                 new Product { ID = 5, Name = "Printer", Price = 180.00m, Stock = 0, Category = "Office", Status = "Out of Stock", CreatedAt = DateTime.Now }
             };
-
+            // Deselect any automatically selected cell/column header
+            recentProductView.ClearSelection();
             recentProductView.DataSource = null;
             recentProductView.DataSource = products;
         }
@@ -96,22 +121,27 @@ namespace InventoryManagementSystem.Forms
 
         private void gunaChart1_Load(object sender, EventArgs e)
         {
+
             GunaDoughnutDataset stockDataset = new GunaDoughnutDataset
             {
                 Label = "Stock Overview"
             };
-
-            stockDataset.FillColors.Add(Color.FromArgb(46, 204, 113));
-            stockDataset.FillColors.Add(Color.FromArgb(243, 156, 18));
-            stockDataset.FillColors.Add(Color.FromArgb(231, 76, 60));
-
+            stockDataset.FillColors.Clear();
+            stockDataset.DataPoints.Clear();
+            stockDataset.FillColors.Add(Color.FromArgb(34, 197, 94));
             stockDataset.DataPoints.Add("In Stock", 120);
+            stockDataset.FillColors.Add(Color.FromArgb(245, 158, 11));
             stockDataset.DataPoints.Add("Low Stock", 40);
+            stockDataset.FillColors.Add(Color.Red);
             stockDataset.DataPoints.Add("Out of Stock", 15);
-
             chartStockOverview.Datasets.Clear();
             chartStockOverview.Datasets.Add(stockDataset);
             chartStockOverview.Update();
+        }
+
+        private void chartStockOverview_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

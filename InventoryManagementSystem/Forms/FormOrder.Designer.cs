@@ -56,9 +56,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(88, 45);
+            this.label2.Location = new System.Drawing.Point(117, 55);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(180, 16);
+            this.label2.Size = new System.Drawing.Size(229, 19);
             this.label2.TabIndex = 22;
             this.label2.Text = "Manage your customer orders";
             // 
@@ -66,18 +67,20 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(81, 7);
+            this.label1.Location = new System.Drawing.Point(108, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 37);
+            this.label1.Size = new System.Drawing.Size(151, 46);
             this.label1.TabIndex = 21;
             this.label1.Text = "Orders";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(17, 9);
+            this.pictureBox1.Location = new System.Drawing.Point(23, 11);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(53, 53);
+            this.pictureBox1.Size = new System.Drawing.Size(71, 65);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 29;
             this.pictureBox1.TabStop = false;
@@ -92,9 +95,10 @@
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
             this.guna2Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(1065, 12);
+            this.guna2Button1.Location = new System.Drawing.Point(1420, 15);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
+            this.guna2Button1.Size = new System.Drawing.Size(240, 55);
             this.guna2Button1.TabIndex = 30;
             this.guna2Button1.Text = "＋ Add order";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
@@ -113,13 +117,18 @@
             this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.IconLeftOffset = new System.Drawing.Point(5, 0);
-            this.guna2TextBox1.Location = new System.Drawing.Point(17, 87);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2TextBox1.Location = new System.Drawing.Point(23, 107);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.guna2TextBox1.Name = "guna2TextBox1";
+<<<<<<< HEAD
             this.guna2TextBox1.Padding = new System.Windows.Forms.Padding(51, 0, 13, 0);
             this.guna2TextBox1.PlaceholderText = "Search order";
+=======
+            this.guna2TextBox1.Padding = new System.Windows.Forms.Padding(68, 0, 17, 0);
+            this.guna2TextBox1.PlaceholderText = "";
+>>>>>>> 6b838bf447fe3761f6f16342ff8b310bde3cb2f4
             this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(607, 39);
+            this.guna2TextBox1.Size = new System.Drawing.Size(809, 48);
             this.guna2TextBox1.TabIndex = 31;
             this.guna2TextBox1.TextOffset = new System.Drawing.Point(30, 0);
             // 
@@ -129,10 +138,10 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(19, 90);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Location = new System.Drawing.Point(25, 111);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(32, 33);
+            this.button2.Size = new System.Drawing.Size(43, 41);
             this.button2.TabIndex = 32;
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -146,9 +155,10 @@
             this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
             this.guna2Button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(650, 87);
+            this.guna2Button2.Location = new System.Drawing.Point(867, 107);
+            this.guna2Button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(101, 39);
+            this.guna2Button2.Size = new System.Drawing.Size(135, 48);
             this.guna2Button2.TabIndex = 33;
             this.guna2Button2.Text = "Search";
             // 
@@ -163,9 +173,10 @@
             this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(810, 87);
+            this.guna2ComboBox1.Location = new System.Drawing.Point(1080, 107);
+            this.guna2ComboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(172, 36);
+            this.guna2ComboBox1.Size = new System.Drawing.Size(228, 36);
             this.guna2ComboBox1.TabIndex = 34;
             // 
             // guna2ComboBox2
@@ -179,9 +190,10 @@
             this.guna2ComboBox2.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.guna2ComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2ComboBox2.ItemHeight = 30;
-            this.guna2ComboBox2.Location = new System.Drawing.Point(1082, 87);
+            this.guna2ComboBox2.Location = new System.Drawing.Point(1443, 107);
+            this.guna2ComboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2ComboBox2.Name = "guna2ComboBox2";
-            this.guna2ComboBox2.Size = new System.Drawing.Size(163, 36);
+            this.guna2ComboBox2.Size = new System.Drawing.Size(216, 36);
             this.guna2ComboBox2.TabIndex = 35;
             // 
             // OrderInfoView
@@ -212,47 +224,64 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.OrderInfoView.DefaultCellStyle = dataGridViewCellStyle3;
             this.OrderInfoView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.OrderInfoView.Location = new System.Drawing.Point(17, 144);
+            this.OrderInfoView.Location = new System.Drawing.Point(23, 177);
+            this.OrderInfoView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.OrderInfoView.Name = "OrderInfoView";
             this.OrderInfoView.RowHeadersVisible = false;
-            this.OrderInfoView.Size = new System.Drawing.Size(1228, 626);
+            this.OrderInfoView.RowHeadersWidth = 51;
+            this.OrderInfoView.Size = new System.Drawing.Size(1637, 770);
             this.OrderInfoView.TabIndex = 44;
             this.OrderInfoView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.OrderInfoView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OrderInfoView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.OrderInfoView.ThemeStyle.HeaderStyle.Height = 19;
             this.OrderInfoView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // Column1
             // 
             this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Name";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Contect Person";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Phone";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Email";
+            this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             // 
+<<<<<<< HEAD
+=======
+            // Column6
+            // 
+            this.Column6.HeaderText = "Action";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            // 
+>>>>>>> 6b838bf447fe3761f6f16342ff8b310bde3cb2f4
             // FormOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1262, 798);
+            this.ClientSize = new System.Drawing.Size(1683, 982);
             this.Controls.Add(this.OrderInfoView);
             this.Controls.Add(this.guna2ComboBox2);
             this.Controls.Add(this.guna2ComboBox1);
@@ -263,6 +292,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormOrder";

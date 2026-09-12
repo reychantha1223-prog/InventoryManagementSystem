@@ -58,13 +58,13 @@ namespace InventoryManagementSystem.Forms
             ProductView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
 
             // Define Custom Colors (High-Contrast Ice Blue)
-            Color headerBg = Color.FromArgb(200, 220, 248);
-            Color headerFg = Color.FromArgb(25, 50, 90);
+            Color headerBg = ColorTranslator.FromHtml("#1E90FF");
+            Color headerFg = Color.White;
 
             // 2. Apply Header Styling
             ProductView.ThemeStyle.HeaderStyle.BackColor = headerBg;
             ProductView.ThemeStyle.HeaderStyle.ForeColor = headerFg;
-            ProductView.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            ProductView.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             ProductView.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
 
             // 3. Prevent Header Selection Blue Highlight (Force colors)
@@ -73,7 +73,7 @@ namespace InventoryManagementSystem.Forms
             ProductView.ColumnHeadersDefaultCellStyle.SelectionForeColor = headerFg;
 
             // 4. Apply Row Styling
-            ProductView.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 10.5F);
+            ProductView.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 12F);
             ProductView.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(51, 65, 85);
             ProductView.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(240, 246, 255); // Clean light-blue row focus
             ProductView.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
@@ -85,8 +85,8 @@ namespace InventoryManagementSystem.Forms
             ProductView.AllowUserToResizeRows = false;
             ProductView.RowHeadersVisible = false;
             ProductView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            ProductView.ColumnHeadersHeight = 38;
-            ProductView.RowTemplate.Height = 35;
+            ProductView.ColumnHeadersHeight = 40;
+            ProductView.RowTemplate.Height = 42;
 
             // 6. Clear existing columns before binding
             ProductView.Columns.Clear();

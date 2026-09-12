@@ -37,13 +37,13 @@ namespace InventoryManagementSystem.Forms
             CategoryView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
 
             // Define Custom Colors (High-Contrast Ice Blue)
-            Color headerBg = Color.FromArgb(200, 220, 248);
-            Color headerFg = Color.FromArgb(25, 50, 90);
+            Color headerBg = ColorTranslator.FromHtml("#1E90FF");
+            Color headerFg = Color.White;
 
             // 2. Apply Header Styling
             CategoryView.ThemeStyle.HeaderStyle.BackColor = headerBg;
             CategoryView.ThemeStyle.HeaderStyle.ForeColor = headerFg;
-            CategoryView.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            CategoryView.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             CategoryView.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
 
             // 3. Prevent Header Selection Blue Highlight (Force colors)
@@ -52,7 +52,7 @@ namespace InventoryManagementSystem.Forms
             CategoryView.ColumnHeadersDefaultCellStyle.SelectionForeColor = headerFg;
 
             // 4. Apply Row Styling
-            CategoryView.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 10.5F);
+            CategoryView.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 12F);
             CategoryView.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(51, 65, 85);
             CategoryView.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(240, 246, 255); // Clean light-blue row focus
             CategoryView.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
@@ -64,8 +64,8 @@ namespace InventoryManagementSystem.Forms
             CategoryView.AllowUserToResizeRows = false;
             CategoryView.RowHeadersVisible = false;
             CategoryView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            CategoryView.ColumnHeadersHeight = 38;
-            CategoryView.RowTemplate.Height = 35;
+            CategoryView.ColumnHeadersHeight = 40;
+            CategoryView.RowTemplate.Height = 42;
 
             // 6. Clear existing columns before binding
             CategoryView.Columns.Clear();

@@ -51,19 +51,19 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnAddCategory = new Guna.UI2.WinForms.Guna2Button();
             this.CategoryView = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.FilterCategory = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.txtProducts = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2ContainerControl5 = new Guna.UI2.WinForms.Guna2ContainerControl();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FilterCategory = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.txtProducts = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2ContainerControl5 = new Guna.UI2.WinForms.Guna2ContainerControl();
+            this.button1 = new System.Windows.Forms.Button();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.guna2ContainerControl2.SuspendLayout();
@@ -332,6 +332,42 @@
             this.CategoryView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CategoryView.ThemeStyle.RowsStyle.Height = 24;
             // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "ID";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Name";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Total Products";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
+            // Column16
+            // 
+            this.Column16.HeaderText = "Descriptions";
+            this.Column16.MinimumWidth = 6;
+            this.Column16.Name = "Column16";
+            // 
+            // Column17
+            // 
+            this.Column17.HeaderText = "Status";
+            this.Column17.MinimumWidth = 6;
+            this.Column17.Name = "Column17";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Create_At";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
             // FilterCategory
             // 
             this.FilterCategory.BackColor = System.Drawing.Color.Transparent;
@@ -402,6 +438,19 @@
             this.guna2ContainerControl5.TabIndex = 39;
             this.guna2ContainerControl5.Text = "guna2ContainerControl5";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(46, 48);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(33, 26);
+            this.button1.TabIndex = 40;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // guna2Button3
             // 
             this.guna2Button3.BorderRadius = 8;
@@ -435,55 +484,6 @@
             this.guna2Button2.Size = new System.Drawing.Size(113, 45);
             this.guna2Button2.TabIndex = 25;
             this.guna2Button2.Text = "Edit";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(46, 48);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(33, 26);
-            this.button1.TabIndex = 40;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "ID";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "Name";
-            this.Column11.MinimumWidth = 6;
-            this.Column11.Name = "Column11";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Total Products";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column16
-            // 
-            this.Column16.HeaderText = "Descriptions";
-            this.Column16.MinimumWidth = 6;
-            this.Column16.Name = "Column16";
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "Status";
-            this.Column17.MinimumWidth = 6;
-            this.Column17.Name = "Column17";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Create_At";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
             // 
             // FormCategory
             // 

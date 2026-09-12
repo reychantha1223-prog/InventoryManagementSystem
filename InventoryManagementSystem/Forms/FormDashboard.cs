@@ -66,10 +66,10 @@ namespace InventoryManagementSystem.Forms
             recentProductView.EnableHeadersVisualStyles = false;
             recentProductView.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(200, 220, 248);
             recentProductView.ThemeStyle.HeaderStyle.ForeColor = Color.FromArgb(25, 50, 90);
-            recentProductView.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            recentProductView.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
 
             // 2. Row Styling
-            recentProductView.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 10.5F);
+            recentProductView.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 11.5F);
             recentProductView.RowTemplate.Height = 32;
 
             // 3. Sizing & Resizing Rules

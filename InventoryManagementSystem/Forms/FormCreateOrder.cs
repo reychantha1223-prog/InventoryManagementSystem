@@ -51,5 +51,24 @@ namespace InventoryManagementSystem.Forms
         {
             this.Close();
         }
+
+        private void FormCreateOrder_Load(object sender, EventArgs e)
+        {
+            this.Size = new Size(this.Width, 760); 
+            // 1. Force main background to White
+            guna2DateTimePicker1.FillColor = Color.White;
+
+            // 2. Force Checked state background to White (Prevents Guna runtime gray override)
+            guna2DateTimePicker1.CheckedState.FillColor = Color.White;
+
+            // 3. Keep text and icon visible on white background
+            guna2DateTimePicker1.ForeColor = Color.Black;
+            guna2DateTimePicker1.CheckedState.ForeColor = Color.Black;
+
+            // 4. Add a clean border to match your other textboxes
+            guna2DateTimePicker1.BorderColor = Color.FromArgb(217, 221, 226);
+            guna2DateTimePicker1.BorderThickness = 1;
+            guna2DateTimePicker1.BorderRadius = 5;
+        }
     }
 }

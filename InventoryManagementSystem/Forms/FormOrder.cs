@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
@@ -7,344 +9,84 @@ namespace InventoryManagementSystem.Forms
 {
     public partial class FormOrder : Form
     {
+        public class Order
+        {
+            public int ID { get; set; }
+            [DisplayName("Order Number")]
+            public string OrderNumber { get; set; }
+            [DisplayName("Customer Name")]
+            public string CustomerName { get; set; }
+            [DisplayName("Total Amount")]
+            public decimal TotalAmount { get; set; }
+            public string Status { get; set; }
+            public DateTime OrderDate { get; set; }
+        }
+        private void ConfigureOrderView()
+        {
+            // 1. Force Guna to use Custom Theme Preset
+            OrderView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+
+            // Define Custom Colors (Dodger Blue Header Theme: #1E90FF)
+            Color headerBg = ColorTranslator.FromHtml("#1E90FF"); // Dodger Blue
+            Color headerFg = Color.White;                        // White text for high contrast
+
+            // 2. Apply Header Styling
+            OrderView.ThemeStyle.HeaderStyle.BackColor = headerBg;
+            OrderView.ThemeStyle.HeaderStyle.ForeColor = headerFg;
+            OrderView.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            OrderView.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+
+            // 3. Prevent Header Selection Highlight (Force Dodger Blue)
+            OrderView.EnableHeadersVisualStyles = false;
+            OrderView.ColumnHeadersDefaultCellStyle.SelectionBackColor = headerBg;
+            OrderView.ColumnHeadersDefaultCellStyle.SelectionForeColor = headerFg;
+
+            // 4. Apply Row Styling (12F Text Size)
+            OrderView.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 12F);
+            OrderView.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(51, 65, 85);
+            OrderView.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(240, 246, 255); // Ice blue row selection
+            OrderView.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
+
+            // 5. Resizing and Layout Setup
+            OrderView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            OrderView.AllowUserToAddRows = false;
+            OrderView.AllowUserToResizeColumns = false;
+            OrderView.AllowUserToResizeRows = false;
+            OrderView.RowHeadersVisible = false;
+            OrderView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            OrderView.ColumnHeadersHeight = 40;
+            OrderView.RowTemplate.Height = 42;
+
+            // 6. Clear existing columns before binding
+            OrderView.Columns.Clear();
+
+            // Load Sample Order Data
+            List<Order> orders = new List<Order>
+            {
+                new Order { ID = 1, OrderNumber = "ORD-2026-001", CustomerName = "John Doe", TotalAmount = 1025.49m, Status = "Completed", OrderDate = DateTime.Now.AddDays(-2) },
+                new Order { ID = 2, OrderNumber = "ORD-2026-002", CustomerName = "Jane Smith", TotalAmount = 275.50m, Status = "Pending", OrderDate = DateTime.Now.AddDays(-1) },
+                new Order { ID = 3, OrderNumber = "ORD-2026-003", CustomerName = "Robert Johnson", TotalAmount = 45.00m, Status = "Processing", OrderDate = DateTime.Now },
+                new Order { ID = 4, OrderNumber = "ORD-2026-004", CustomerName = "Emily Davis", TotalAmount = 499.98m, Status = "Completed", OrderDate = DateTime.Now },
+                new Order { ID = 5, OrderNumber = "ORD-2026-005", CustomerName = "Michael Brown", TotalAmount = 180.00m, Status = "Cancelled", OrderDate = DateTime.Now }
+            };
+
+            // 7. Bind Data and Remove Initial Blue Box Highlight
+            OrderView.DataSource = null;
+            OrderView.DataSource = orders;
+            OrderView.ClearSelection();
+        }
         public FormOrder()
         {
             InitializeComponent();
-
-            OrderInfoView.AutoGenerateColumns = false;
-
-            OrderInfoView.Columns[0].DataPropertyName = "ID";
-            OrderInfoView.Columns[1].DataPropertyName = "Date";
-            OrderInfoView.Columns[2].DataPropertyName = "Customer";
-            OrderInfoView.Columns[3].DataPropertyName = "Total Amount";
-            OrderInfoView.Columns[4].DataPropertyName = "Status";
-
-            SetupActionColumns();
-
-            OrderInfoView.CellFormatting +=
-                OrderInfoView_CellFormatting;
-
-            OrderInfoView.CellMouseMove +=
-                OrderInfoView_CellMouseMove;
-
-            OrderInfoView.CellContentClick +=
-                OrderInfoView_CellContentClick;
-
-            LoadSampleOrders();
         }
 
-        private void LoadSampleOrders()
+       
+
+       
+
+        private void FormOrder_Load(object sender,EventArgs e)
         {
-            DataTable dt = new DataTable();
-
-            dt.Columns.Add("ID");
-            dt.Columns.Add("Date");
-            dt.Columns.Add("Customer");
-            dt.Columns.Add("Total Amount");
-            dt.Columns.Add("Status");
-
-            dt.Rows.Add(
-                "ORD-001",
-                "2025-09-01",
-                "Sok Dara",
-                "$120.00",
-                "Pending");
-
-            dt.Rows.Add(
-                "ORD-002",
-                "2025-08-30",
-                "Chan Vibol",
-                "$250.00",
-                "Paid");
-
-            dt.Rows.Add(
-                "ORD-003",
-                "2025-08-28",
-                "Srey Neang",
-                "$80.00",
-                "Shipped");
-
-            dt.Rows.Add(
-                "ORD-004",
-                "2025-08-27",
-                "Long Ratha",
-                "$175.00",
-                "Pending");
-
-            dt.Rows.Add(
-                "ORD-005",
-                "2025-08-25",
-                "Kim Sovan",
-                "$320.00",
-                "Delivered");
-
-            OrderInfoView.DataSource = dt;
-
-            SetupOrderGrid();
-        }
-
-        private void SetupActionColumns()
-        {
-            if (OrderInfoView.Columns.Contains("Action"))
-            {
-                OrderInfoView.Columns.Remove("Action");
-            }
-
-            if (OrderInfoView.Columns.Contains("View"))
-            {
-                OrderInfoView.Columns.Remove("View");
-            }
-
-            if (OrderInfoView.Columns.Contains("Edit"))
-            {
-                OrderInfoView.Columns.Remove("Edit");
-            }
-
-            if (OrderInfoView.Columns.Contains("Delete"))
-            {
-                OrderInfoView.Columns.Remove("Delete");
-            }
-
-            DataGridViewButtonColumn viewColumn =
-                new DataGridViewButtonColumn();
-
-            viewColumn.Name = "View";
-            viewColumn.HeaderText = "View";
-            viewColumn.Text = "View";
-            viewColumn.UseColumnTextForButtonValue = true;
-            viewColumn.FlatStyle = FlatStyle.Flat;
-
-            viewColumn.DefaultCellStyle.BackColor =
-                Color.FromArgb(235, 245, 255);
-
-            viewColumn.DefaultCellStyle.ForeColor =
-                Color.FromArgb(0, 123, 255);
-
-            viewColumn.DefaultCellStyle.Alignment =
-                DataGridViewContentAlignment.MiddleCenter;
-
-            OrderInfoView.Columns.Add(viewColumn);
-
-            DataGridViewButtonColumn editColumn =
-                new DataGridViewButtonColumn();
-
-            editColumn.Name = "Edit";
-            editColumn.HeaderText = "Edit";
-            editColumn.Text = "Edit";
-            editColumn.UseColumnTextForButtonValue = true;
-            editColumn.FlatStyle = FlatStyle.Flat;
-
-            editColumn.DefaultCellStyle.BackColor =
-                Color.FromArgb(235, 245, 255);
-
-            editColumn.DefaultCellStyle.ForeColor =
-                Color.FromArgb(0, 123, 255);
-
-            editColumn.DefaultCellStyle.Alignment =
-                DataGridViewContentAlignment.MiddleCenter;
-
-            OrderInfoView.Columns.Add(editColumn);
-
-            DataGridViewButtonColumn deleteColumn =
-                new DataGridViewButtonColumn();
-
-            deleteColumn.Name = "Delete";
-            deleteColumn.HeaderText = "Delete";
-            deleteColumn.Text = "Delete";
-            deleteColumn.UseColumnTextForButtonValue = true;
-            deleteColumn.FlatStyle = FlatStyle.Flat;
-
-            deleteColumn.DefaultCellStyle.BackColor =
-                Color.FromArgb(255, 235, 235);
-
-            deleteColumn.DefaultCellStyle.ForeColor =
-                Color.FromArgb(220, 53, 69);
-
-            deleteColumn.DefaultCellStyle.Alignment =
-                DataGridViewContentAlignment.MiddleCenter;
-
-            OrderInfoView.Columns.Add(deleteColumn);
-        }
-
-        private void SetupOrderGrid()
-        {
-            OrderInfoView.ClearSelection();
-
-            OrderInfoView.ColumnHeadersHeightSizeMode =
-                DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-
-            OrderInfoView.ColumnHeadersHeight = 40;
-
-            OrderInfoView.ColumnHeadersDefaultCellStyle.Font =
-                new Font("Segoe UI", 11F, FontStyle.Bold);
-
-            OrderInfoView.ColumnHeadersDefaultCellStyle.Alignment =
-                DataGridViewContentAlignment.MiddleLeft;
-
-            OrderInfoView.RowTemplate.Height = 35;
-
-            OrderInfoView.DefaultCellStyle.Font =
-                new Font("Segoe UI", 10F);
-
-            OrderInfoView.DefaultCellStyle.Alignment =
-                DataGridViewContentAlignment.MiddleLeft;
-
-            OrderInfoView.CellBorderStyle =
-                DataGridViewCellBorderStyle.Single;
-
-            OrderInfoView.GridColor = Color.Gray;
-
-            OrderInfoView.AllowUserToAddRows = false;
-            OrderInfoView.AllowUserToDeleteRows = false;
-            OrderInfoView.AllowUserToResizeRows = false;
-
-            OrderInfoView.EnableHeadersVisualStyles = false;
-            OrderInfoView.RowHeadersVisible = false;
-            OrderInfoView.ReadOnly = true;
-
-            OrderInfoView.AutoSizeColumnsMode =
-                DataGridViewAutoSizeColumnsMode.Fill;
-
-            OrderInfoView.SelectionMode =
-                DataGridViewSelectionMode.CellSelect;
-
-            OrderInfoView.MultiSelect = false;
-
-            OrderInfoView.Columns[0].FillWeight = 90;
-            OrderInfoView.Columns[1].FillWeight = 100;
-            OrderInfoView.Columns[2].FillWeight = 120;
-            OrderInfoView.Columns[3].FillWeight = 100;
-            OrderInfoView.Columns[4].FillWeight = 100;
-            OrderInfoView.Columns[5].FillWeight = 60;
-            OrderInfoView.Columns[6].FillWeight = 60;
-            OrderInfoView.Columns[7].FillWeight = 70;
-
-            foreach (DataGridViewColumn column
-                     in OrderInfoView.Columns)
-            {
-                column.Resizable =
-                    DataGridViewTriState.False;
-            }
-
-            OrderInfoView.DefaultCellStyle.SelectionBackColor =
-                Color.FromArgb(0, 123, 255);
-
-            OrderInfoView.DefaultCellStyle.SelectionForeColor =
-                Color.White;
-        }
-
-        private void OrderInfoView_CellFormatting(
-            object sender,
-            DataGridViewCellFormattingEventArgs e)
-        {
-            if (e.RowIndex < 0 || e.ColumnIndex != 4)
-                return;
-
-            switch (e.Value?.ToString())
-            {
-                case "Pending":
-                    
-
-                    e.CellStyle.ForeColor =
-                        Color.FromArgb(133, 100, 4);
-                    break;
-
-                case "Paid":
-                    
-
-                    e.CellStyle.ForeColor =
-                        Color.FromArgb(21, 87, 36);
-                    break;
-
-                case "Shipped":
-                    
-
-                    e.CellStyle.ForeColor =
-                        Color.FromArgb(12, 84, 96);
-                    break;
-
-                case "Delivered":
-                    
-
-                    e.CellStyle.ForeColor =
-                        Color.FromArgb(46, 125, 50);
-                    break;
-            }
-
-            e.CellStyle.Alignment =
-                DataGridViewContentAlignment.MiddleCenter;
-        }
-
-        private void OrderInfoView_CellMouseMove(
-            object sender,
-            DataGridViewCellMouseEventArgs e)
-        {
-            if (e.ColumnIndex >= 4 && e.ColumnIndex <= 7)
-            {
-                OrderInfoView.Cursor = Cursors.Hand;
-            }
-            else
-            {
-                OrderInfoView.Cursor = Cursors.Default;
-            }
-        }
-
-        private void OrderInfoView_CellContentClick(
-            object sender,
-            DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0 || e.ColumnIndex < 5)
-                return;
-
-            string orderID =
-                OrderInfoView.Rows[e.RowIndex]
-                .Cells[0]
-                .Value?.ToString();
-
-            string columnName =
-                OrderInfoView.Columns[e.ColumnIndex].Name;
-
-            if (columnName == "View")
-            {
-                MessageBox.Show(
-                    "View Order: " + orderID,
-                    "View Order",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-            }
-            else if (columnName == "Edit")
-            {
-                MessageBox.Show(
-                    "Edit Order: " + orderID,
-                    "Edit Order",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-            }
-            else if (columnName == "Delete")
-            {
-                DialogResult result =
-                    MessageBox.Show(
-                        "Are you sure you want to delete "
-                        + orderID + "?",
-                        "Delete Order",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning);
-
-                if (result == DialogResult.Yes)
-                {
-                    OrderInfoView.Rows.RemoveAt(e.RowIndex);
-                }
-            }
-        }
-
-        private void FormOrder_Load(
-            object sender,
-            EventArgs e)
-        {
-            OrderInfoView.ThemeStyle.HeaderStyle.BackColor =
-                Color.FromArgb(15, 23, 42);
-
-            OrderInfoView.ClearSelection();
+            ConfigureOrderView();
         }
 
         private void guna2Button1_Click(

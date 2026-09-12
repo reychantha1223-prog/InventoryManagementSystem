@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Media;
 using System.Windows.Forms;
 
 namespace InventoryManagementSystem.Forms
@@ -95,21 +96,15 @@ namespace InventoryManagementSystem.Forms
 
             if (username == "admin" && password == "admin")
             {
+                SystemSounds.Asterisk.Play();
                 Form1 mainForm = new Form1();
                 mainForm.Show();
                 Hide();
             }
             else
             {
-                MessageBox.Show(
-                    "Invalid username or password!",
-                    "Login Failed",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                txtPassword.Focus();
-                txtPassword.SelectAll();
+                lblMessage.Text = "Invalid username or password! Please try again";
+                SystemSounds.Hand.Play();
             }
         }
 

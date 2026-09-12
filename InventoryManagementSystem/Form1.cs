@@ -131,7 +131,9 @@ namespace InventoryManagementSystem
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            FormLogin login = new FormLogin();
+            login.Show();
         }
 
         private void panelMenu_Paint(object sender, PaintEventArgs e)

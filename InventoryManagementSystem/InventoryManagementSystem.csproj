@@ -95,6 +95,12 @@
     <Compile Include="Forms\FormCategory.Designer.cs">
       <DependentUpon>FormCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormConfirmDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormConfirmDelete.Designer.cs">
+      <DependentUpon>FormConfirmDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormCreateOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +169,9 @@
     <EmbeddedResource Include="Forms\FormCategory.resx">
       <DependentUpon>FormCategory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormConfirmDelete.resx">
+      <DependentUpon>FormConfirmDelete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormCreateOrder.resx">
       <DependentUpon>FormCreateOrder.cs</DependentUpon>
     </EmbeddedResource>
@@ -217,6 +226,7 @@
     <Content Include="Images\package.png" />
     <Content Include="Images\padlock %281%29.png" />
     <Content Include="Images\show.png" />
+    <Content Include="Images\trash.png" />
     <Content Include="Images\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

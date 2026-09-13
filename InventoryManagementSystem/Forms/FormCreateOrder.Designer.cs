@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreateOrder));
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblAddOrder = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -41,32 +41,37 @@
             this.guna2ColorTransition1 = new Guna.UI2.WinForms.Guna2ColorTransition(this.components);
             this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtProduct = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtCustomer = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.guna2NumericUpDown1 = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.lblCustomerRequired = new System.Windows.Forms.Label();
+            this.lblPriceRequired = new System.Windows.Forms.Label();
+            this.lblQtyRequired = new System.Windows.Forms.Label();
+            this.lblProductRequired = new System.Windows.Forms.Label();
+            this.numQuantity = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.numPrice = new Guna.UI2.WinForms.Guna2NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2NumericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblAddOrder
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 13.8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(124, 21);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 29);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "Add Orders";
+            this.lblAddOrder.AutoSize = true;
+            this.lblAddOrder.Font = new System.Drawing.Font("Microsoft JhengHei UI", 13.8F, System.Drawing.FontStyle.Bold);
+            this.lblAddOrder.Location = new System.Drawing.Point(124, 21);
+            this.lblAddOrder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAddOrder.Name = "lblAddOrder";
+            this.lblAddOrder.Size = new System.Drawing.Size(142, 29);
+            this.lblAddOrder.TabIndex = 30;
+            this.lblAddOrder.Text = "Add Orders";
             // 
             // pictureBox1
             // 
@@ -188,47 +193,49 @@
             this.guna2TextBox1.Size = new System.Drawing.Size(588, 44);
             this.guna2TextBox1.TabIndex = 44;
             // 
-            // guna2TextBox3
+            // txtProduct
             // 
-            this.guna2TextBox3.BorderRadius = 8;
-            this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox3.DefaultText = "";
-            this.guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.guna2TextBox3.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Location = new System.Drawing.Point(35, 331);
-            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.guna2TextBox3.Name = "guna2TextBox3";
-            this.guna2TextBox3.PlaceholderText = "";
-            this.guna2TextBox3.SelectedText = "";
-            this.guna2TextBox3.Size = new System.Drawing.Size(588, 44);
-            this.guna2TextBox3.TabIndex = 50;
+            this.txtProduct.BorderRadius = 8;
+            this.txtProduct.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtProduct.DefaultText = "";
+            this.txtProduct.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtProduct.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtProduct.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtProduct.ForeColor = System.Drawing.Color.Black;
+            this.txtProduct.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtProduct.Location = new System.Drawing.Point(35, 331);
+            this.txtProduct.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtProduct.Name = "txtProduct";
+            this.txtProduct.PlaceholderText = "";
+            this.txtProduct.SelectedText = "";
+            this.txtProduct.Size = new System.Drawing.Size(588, 44);
+            this.txtProduct.TabIndex = 50;
+            this.txtProduct.TextChanged += new System.EventHandler(this.txtProduct_TextChanged);
             // 
-            // guna2TextBox2
+            // txtCustomer
             // 
-            this.guna2TextBox2.BorderRadius = 8;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.guna2TextBox2.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Location = new System.Drawing.Point(32, 153);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PlaceholderText = "";
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.Size = new System.Drawing.Size(589, 44);
-            this.guna2TextBox2.TabIndex = 49;
+            this.txtCustomer.BorderRadius = 8;
+            this.txtCustomer.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCustomer.DefaultText = "";
+            this.txtCustomer.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCustomer.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCustomer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtCustomer.ForeColor = System.Drawing.Color.Black;
+            this.txtCustomer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCustomer.Location = new System.Drawing.Point(32, 153);
+            this.txtCustomer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtCustomer.Name = "txtCustomer";
+            this.txtCustomer.PlaceholderText = "";
+            this.txtCustomer.SelectedText = "";
+            this.txtCustomer.Size = new System.Drawing.Size(589, 44);
+            this.txtCustomer.TabIndex = 49;
+            this.txtCustomer.TextChanged += new System.EventHandler(this.txtCustomer_TextChanged);
             // 
             // label6
             // 
@@ -280,75 +287,45 @@
             this.label9.TabIndex = 55;
             this.label9.Text = "Quatity";
             // 
-            // guna2NumericUpDown1
+            // btnSave
             // 
-            this.guna2NumericUpDown1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2NumericUpDown1.BorderRadius = 8;
-            this.guna2NumericUpDown1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2NumericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.guna2NumericUpDown1.Location = new System.Drawing.Point(338, 417);
-            this.guna2NumericUpDown1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.guna2NumericUpDown1.Name = "guna2NumericUpDown1";
-            this.guna2NumericUpDown1.Size = new System.Drawing.Size(285, 44);
-            this.guna2NumericUpDown1.TabIndex = 56;
-            this.guna2NumericUpDown1.UpDownButtonFillColor = System.Drawing.SystemColors.Control;
+            this.btnSave.BorderRadius = 8;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSave.FillColor = System.Drawing.Color.DodgerBlue;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(474, 807);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(149, 45);
+            this.btnSave.TabIndex = 59;
+            this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // guna2TextBox4
+            // btnCancel
             // 
-            this.guna2TextBox4.BorderRadius = 8;
-            this.guna2TextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox4.DefaultText = "";
-            this.guna2TextBox4.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.guna2TextBox4.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox4.Location = new System.Drawing.Point(34, 417);
-            this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.guna2TextBox4.Name = "guna2TextBox4";
-            this.guna2TextBox4.PlaceholderText = "";
-            this.guna2TextBox4.SelectedText = "";
-            this.guna2TextBox4.Size = new System.Drawing.Size(285, 44);
-            this.guna2TextBox4.TabIndex = 57;
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.BorderRadius = 8;
-            this.guna2Button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.DodgerBlue;
-            this.guna2Button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(474, 807);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(149, 45);
-            this.guna2Button2.TabIndex = 59;
-            this.guna2Button2.Text = "Save";
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BorderColor = System.Drawing.Color.Red;
-            this.guna2Button1.BorderRadius = 8;
-            this.guna2Button1.BorderThickness = 1;
-            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.Red;
-            this.guna2Button1.Location = new System.Drawing.Point(295, 807);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(149, 45);
-            this.guna2Button1.TabIndex = 58;
-            this.guna2Button1.Text = "Cancel";
+            this.btnCancel.BorderColor = System.Drawing.Color.Red;
+            this.btnCancel.BorderRadius = 8;
+            this.btnCancel.BorderThickness = 1;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCancel.FillColor = System.Drawing.Color.Transparent;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnCancel.ForeColor = System.Drawing.Color.Red;
+            this.btnCancel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnCancel.Location = new System.Drawing.Point(295, 807);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.PressedColor = System.Drawing.Color.Silver;
+            this.btnCancel.Size = new System.Drawing.Size(149, 45);
+            this.btnCancel.TabIndex = 58;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // guna2TextBox5
             // 
@@ -382,23 +359,103 @@
             this.label10.TabIndex = 60;
             this.label10.Text = "Descriptions";
             // 
+            // lblCustomerRequired
+            // 
+            this.lblCustomerRequired.AutoSize = true;
+            this.lblCustomerRequired.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerRequired.ForeColor = System.Drawing.Color.Red;
+            this.lblCustomerRequired.Location = new System.Drawing.Point(454, 120);
+            this.lblCustomerRequired.Name = "lblCustomerRequired";
+            this.lblCustomerRequired.Size = new System.Drawing.Size(162, 23);
+            this.lblCustomerRequired.TabIndex = 67;
+            this.lblCustomerRequired.Text = "This field is required";
+            this.lblCustomerRequired.Visible = false;
+            // 
+            // lblPriceRequired
+            // 
+            this.lblPriceRequired.AutoSize = true;
+            this.lblPriceRequired.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPriceRequired.ForeColor = System.Drawing.Color.Red;
+            this.lblPriceRequired.Location = new System.Drawing.Point(125, 384);
+            this.lblPriceRequired.Name = "lblPriceRequired";
+            this.lblPriceRequired.Size = new System.Drawing.Size(186, 23);
+            this.lblPriceRequired.TabIndex = 68;
+            this.lblPriceRequired.Text = "Must be greater than 0";
+            this.lblPriceRequired.Visible = false;
+            // 
+            // lblQtyRequired
+            // 
+            this.lblQtyRequired.AutoSize = true;
+            this.lblQtyRequired.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQtyRequired.ForeColor = System.Drawing.Color.Red;
+            this.lblQtyRequired.Location = new System.Drawing.Point(430, 385);
+            this.lblQtyRequired.Name = "lblQtyRequired";
+            this.lblQtyRequired.Size = new System.Drawing.Size(186, 23);
+            this.lblQtyRequired.TabIndex = 69;
+            this.lblQtyRequired.Text = "Must be greater than 0";
+            this.lblQtyRequired.Visible = false;
+            // 
+            // lblProductRequired
+            // 
+            this.lblProductRequired.AutoSize = true;
+            this.lblProductRequired.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductRequired.ForeColor = System.Drawing.Color.Red;
+            this.lblProductRequired.Location = new System.Drawing.Point(454, 298);
+            this.lblProductRequired.Name = "lblProductRequired";
+            this.lblProductRequired.Size = new System.Drawing.Size(162, 23);
+            this.lblProductRequired.TabIndex = 70;
+            this.lblProductRequired.Text = "This field is required";
+            this.lblProductRequired.Visible = false;
+            // 
+            // numQuantity
+            // 
+            this.numQuantity.BackColor = System.Drawing.Color.Transparent;
+            this.numQuantity.BorderRadius = 8;
+            this.numQuantity.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.numQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.numQuantity.Location = new System.Drawing.Point(338, 417);
+            this.numQuantity.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numQuantity.Name = "numQuantity";
+            this.numQuantity.Size = new System.Drawing.Size(285, 44);
+            this.numQuantity.TabIndex = 56;
+            this.numQuantity.UpDownButtonFillColor = System.Drawing.SystemColors.Control;
+            this.numQuantity.ValueChanged += new System.EventHandler(this.numQuantity_ValueChanged);
+            // 
+            // numPrice
+            // 
+            this.numPrice.BackColor = System.Drawing.Color.Transparent;
+            this.numPrice.BorderRadius = 8;
+            this.numPrice.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.numPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.numPrice.Location = new System.Drawing.Point(38, 417);
+            this.numPrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numPrice.Name = "numPrice";
+            this.numPrice.Size = new System.Drawing.Size(285, 44);
+            this.numPrice.TabIndex = 71;
+            this.numPrice.UpDownButtonFillColor = System.Drawing.SystemColors.Control;
+            this.numPrice.ValueChanged += new System.EventHandler(this.numPrice_ValueChanged);
+            // 
             // FormCreateOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 881);
+            this.Controls.Add(this.numPrice);
+            this.Controls.Add(this.lblProductRequired);
+            this.Controls.Add(this.lblQtyRequired);
+            this.Controls.Add(this.lblPriceRequired);
+            this.Controls.Add(this.lblCustomerRequired);
             this.Controls.Add(this.guna2TextBox5);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.guna2Button2);
-            this.Controls.Add(this.guna2Button1);
-            this.Controls.Add(this.guna2TextBox4);
-            this.Controls.Add(this.guna2NumericUpDown1);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.numQuantity);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.guna2ComboBox1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.guna2TextBox3);
-            this.Controls.Add(this.guna2TextBox2);
+            this.Controls.Add(this.txtProduct);
+            this.Controls.Add(this.txtCustomer);
             this.Controls.Add(this.guna2TextBox1);
             this.Controls.Add(this.guna2DateTimePicker1);
             this.Controls.Add(this.label7);
@@ -407,24 +464,24 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblAddOrder);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormCreateOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormCreateOrder";
+            this.Text = "Add Order";
             this.Load += new System.EventHandler(this.FormCreateOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2NumericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
@@ -435,17 +492,22 @@
         private Guna.UI2.WinForms.Guna2ColorTransition guna2ColorTransition1;
         private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2TextBox txtProduct;
+        private Guna.UI2.WinForms.Guna2TextBox txtCustomer;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private Guna.UI2.WinForms.Guna2NumericUpDown guna2NumericUpDown1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
         private System.Windows.Forms.Label label10;
+        public System.Windows.Forms.Label lblAddOrder;
+        public Guna.UI2.WinForms.Guna2Button btnSave;
+        public Guna.UI2.WinForms.Guna2Button btnCancel;
+        private System.Windows.Forms.Label lblCustomerRequired;
+        private System.Windows.Forms.Label lblPriceRequired;
+        private System.Windows.Forms.Label lblQtyRequired;
+        private System.Windows.Forms.Label lblProductRequired;
+        private Guna.UI2.WinForms.Guna2NumericUpDown numQuantity;
+        private Guna.UI2.WinForms.Guna2NumericUpDown numPrice;
     }
 }

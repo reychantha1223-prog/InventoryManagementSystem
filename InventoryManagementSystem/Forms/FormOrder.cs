@@ -44,7 +44,7 @@ namespace InventoryManagementSystem.Forms
             // 4. Apply Row Styling (12F Text Size)
             OrderView.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 12F);
             OrderView.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(51, 65, 85);
-            OrderView.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(240, 246, 255); // Ice blue row selection
+            OrderView.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(212, 230, 254);
             OrderView.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
 
             // 5. Resizing and Layout Setup
@@ -125,6 +125,86 @@ namespace InventoryManagementSystem.Forms
                         FormStartPosition.CenterParent;
 
                     createOrderForm.ShowDialog(overlay);
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            FormConfirmDelete ConDelete = new FormConfirmDelete();
+            ConDelete.ShowDialog();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            Form mainForm = this.TopLevelControl as Form ?? Form.ActiveForm ?? this;
+
+            using (Form overlay = new Form())
+            {
+                overlay.StartPosition = FormStartPosition.Manual;
+                overlay.FormBorderStyle = FormBorderStyle.None;
+                overlay.Opacity = 0.50d; // Controls dark overlay intensity
+                overlay.BackColor = Color.Black;
+                overlay.ShowInTaskbar = false;
+
+                // Cover the exact client area of the main form
+                overlay.Location = mainForm.PointToScreen(Point.Empty);
+                overlay.Size = mainForm.ClientSize;
+
+                // Display overlay over main form
+                overlay.Show(mainForm);
+
+                // Open FormCreateOrder in edit mode centered on top of overlay
+                using (FormCreateOrder addOrder = new FormCreateOrder())
+                {
+                    addOrder.lblAddOrder.Text = "Update Order";
+                    addOrder.Text = "Update Order";
+
+                    addOrder.StartPosition = FormStartPosition.CenterParent;
+                    addOrder.ShowDialog(overlay);
+                }
+            }
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            Form mainForm = this.TopLevelControl as Form ?? Form.ActiveForm ?? this;
+
+            using (Form overlay = new Form())
+            {
+                overlay.StartPosition = FormStartPosition.Manual;
+                overlay.FormBorderStyle = FormBorderStyle.None;
+                overlay.Opacity = 0.50d; // Controls dark overlay intensity
+                overlay.BackColor = Color.Black;
+                overlay.ShowInTaskbar = false;
+
+                // Cover the exact client area of the main form
+                overlay.Location = mainForm.PointToScreen(Point.Empty);
+                overlay.Size = mainForm.ClientSize;
+
+                // Display overlay over main form
+                overlay.Show(mainForm);
+
+                // Open FormCreateOrder in view mode centered on top of overlay
+                using (FormCreateOrder viewOrder = new FormCreateOrder())
+                {
+                    // Set header labels and window title
+                    viewOrder.lblAddOrder.Text = "View Order";
+                    viewOrder.Text = "View Order";
+
+                    // Hide the Cancel button
+                    viewOrder.btnCancel.Visible = false;
+
+                    // Change Save button into the Red Close button
+                    viewOrder.btnSave.Text = "Close";
+                    viewOrder.btnSave.FillColor = System.Drawing.Color.Red;
+                    viewOrder.btnSave.ForeColor = System.Drawing.Color.White;
+
+                    // Make Close button close the dialog
+                    viewOrder.btnSave.Click += (s, args) => { viewOrder.Close(); };
+
+                    viewOrder.StartPosition = FormStartPosition.CenterParent;
+                    viewOrder.ShowDialog(overlay);
                 }
             }
         }

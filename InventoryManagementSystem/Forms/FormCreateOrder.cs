@@ -70,5 +70,80 @@ namespace InventoryManagementSystem.Forms
             guna2DateTimePicker1.BorderThickness = 1;
             guna2DateTimePicker1.BorderRadius = 5;
         }
+        private bool ValidateInputs()
+        {
+            bool isValid = true;
+
+            // 1. Validate Customer
+            if (string.IsNullOrWhiteSpace(txtCustomer.Text))
+            {
+                lblCustomerRequired.Text = "This field is required";
+                lblCustomerRequired.Visible = true;
+                txtCustomer.Focus();
+                isValid = false;
+            }
+            else lblCustomerRequired.Visible = false;
+
+            // 2. Validate Product
+            if (string.IsNullOrWhiteSpace(txtProduct.Text))
+            {
+                lblProductRequired.Text = "This field is required";
+                lblProductRequired.Visible = true;
+                if (isValid) txtProduct.Focus();
+                isValid = false;
+            }
+            else lblProductRequired.Visible = false;
+
+            // 3. Validate Price
+            if (numPrice.Value <= 0)
+            {
+                lblPriceRequired.Text = "Must be greater than 0";
+                lblPriceRequired.Visible = true;
+                if (isValid) numPrice.Focus();
+                isValid = false;
+            }
+            else lblPriceRequired.Visible = false;
+
+            // 4. Validate Quantity
+            if (numQuantity.Value <= 0)
+            {
+                lblQtyRequired.Text = "Must be greater than 0";
+                lblQtyRequired.Visible = true;
+                if (isValid) numQuantity.Focus();
+                isValid = false;
+            }
+            else lblQtyRequired.Visible = false;
+
+            return isValid;
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!ValidateInputs()) return;
+        }
+
+        private void txtCustomer_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtCustomer.Text)) lblCustomerRequired.Visible = false;
+        }
+
+        private void txtProduct_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtProduct.Text)) lblProductRequired.Visible = false;
+        }
+
+        private void numPrice_ValueChanged(object sender, EventArgs e)
+        {
+            if (numPrice.Value > 0) lblPriceRequired.Visible = false;
+        }
+
+        private void numQuantity_ValueChanged(object sender, EventArgs e)
+        {
+            if (numQuantity.Value > 0) lblQtyRequired.Visible = false;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

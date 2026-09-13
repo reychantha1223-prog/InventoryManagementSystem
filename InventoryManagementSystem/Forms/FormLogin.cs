@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Media;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace InventoryManagementSystem.Forms
 {
@@ -18,12 +19,7 @@ namespace InventoryManagementSystem.Forms
 
             eyeicon.Image = Properties.Resources.hide;
             eyeicon.SizeMode = PictureBoxSizeMode.Zoom;
-
-            txtUsername.KeyDown += txtUsername_KeyDown;
-            txtPassword.KeyDown += txtPassword_KeyDown;
-            txtUsername.PreviewKeyDown += txtUsername_PreviewKeyDown;
-
-            AcceptButton = button1;
+            AcceptButton = btnLogin;
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
@@ -54,41 +50,6 @@ namespace InventoryManagementSystem.Forms
         {
             txtPassword.Focus();
         }
-
-        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-                e.Handled = true;
-
-                txtPassword.Focus();
-            }
-        }
-        private void txtUsername_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.IsInputKey = true;
-            }
-        }
-
-        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-                e.Handled = true;
-
-                Login();
-            }
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            Login();
-        }
-
         private void Login()
         {
             string username = txtUsername.Text.Trim();
@@ -108,16 +69,63 @@ namespace InventoryManagementSystem.Forms
             }
         }
 
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            bool isValid = true;
+
+            // Validate Username
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
+            {
+                lblUsernameRequired.Visible = true;
+                txtUsername.Focus();
+                isValid = false;
+            }
+            else
+            {
+                lblUsernameRequired.Visible = false;
+            }
+
+            // Validate Password
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                lblPasswordRequired.Visible = true;
+
+                // Only focus Password if Username didn't already steal focus
+                if (isValid)
+                {
+                    txtPassword.Focus();
+                }
+
+                isValid = false;
+            }
+            else
+            {
+                lblPasswordRequired.Visible = false;
+            }
+
+            if (!isValid) return;
+            Login();
+        }
+
         private void FormLogin_Load(object sender, EventArgs e)
         {
+            txtUsername.Select();
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(txtUsername.Text))
+            {
+                lblUsernameRequired.Visible = false;
+            }
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                lblPasswordRequired.Visible = false;
+            }
         }
     }
 }

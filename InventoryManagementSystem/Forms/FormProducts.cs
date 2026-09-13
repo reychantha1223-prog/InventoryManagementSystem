@@ -75,8 +75,8 @@ namespace InventoryManagementSystem.Forms
             // 4. Apply Row Styling
             ProductView.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 12F);
             ProductView.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(51, 65, 85);
-            ProductView.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(240, 246, 255); // Clean light-blue row focus
-            ProductView.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
+            ProductView.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(212, 230, 254);
+            //ProductView.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(33, 37, 41);
 
             // 5. Resizing and Layout Setup
             ProductView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -137,6 +137,45 @@ namespace InventoryManagementSystem.Forms
                 {
                     addProductForm.StartPosition = FormStartPosition.CenterParent;
                     addProductForm.ShowDialog(overlay);
+                }
+            }
+        }
+
+        private void btnDeleteProduct_Click(object sender, EventArgs e)
+        {
+            FormConfirmDelete ConDelete = new FormConfirmDelete();
+            ConDelete.ShowDialog();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            Form mainForm = this.TopLevelControl as Form ?? Form.ActiveForm ?? this;
+
+            using (Form overlay = new Form())
+            {
+                overlay.StartPosition = FormStartPosition.Manual;
+                overlay.FormBorderStyle = FormBorderStyle.None;
+                overlay.Opacity = 0.50d; // Controls dark overlay intensity
+                overlay.BackColor = Color.Black;
+                overlay.ShowInTaskbar = false;
+
+                // Cover the exact client area of the main window
+                overlay.Location = mainForm.PointToScreen(Point.Empty);
+                overlay.Size = mainForm.ClientSize;
+
+                // Display overlay over main form
+                overlay.Show(mainForm);
+
+                // Open FormAddProduct in edit mode centered on top of overlay
+                using (FormAddProduct addProduct = new FormAddProduct())
+                {
+                    addProduct.lblAddProduct.Text = "Update Product";
+                    addProduct.Text = "Update Product";
+
+                    // Pass your existing product data here before showing (e.g., addProduct.LoadProductData(productId);)
+
+                    addProduct.StartPosition = FormStartPosition.CenterParent;
+                    addProduct.ShowDialog(overlay); // Show modal dialog over overlay
                 }
             }
         }

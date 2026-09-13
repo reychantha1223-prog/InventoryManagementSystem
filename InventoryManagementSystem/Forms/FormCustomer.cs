@@ -39,7 +39,7 @@ namespace InventoryManagementSystem.Forms
             // 4. Apply Row Styling
             CustomerView.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 12F);
             CustomerView.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(51, 65, 85);
-            CustomerView.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(240, 246, 255); // Clean light-blue row focus
+            CustomerView.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(212, 230, 254);
             CustomerView.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
 
             // 5. Resizing and Layout Setup
@@ -115,6 +115,45 @@ namespace InventoryManagementSystem.Forms
                 {
                     addCustomerForm.StartPosition = FormStartPosition.CenterParent;
                     addCustomerForm.ShowDialog(overlay);
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            FormConfirmDelete ConDelete = new FormConfirmDelete();
+            ConDelete.ShowDialog();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            Form mainForm = this.TopLevelControl as Form ?? Form.ActiveForm ?? this;
+
+            using (Form overlay = new Form())
+            {
+                overlay.StartPosition = FormStartPosition.Manual;
+                overlay.FormBorderStyle = FormBorderStyle.None;
+                overlay.Opacity = 0.50d; // Dim intensity
+                overlay.BackColor = Color.Black;
+                overlay.ShowInTaskbar = false;
+
+                // Cover the exact client area of the main window
+                overlay.Location = mainForm.PointToScreen(Point.Empty);
+                overlay.Size = mainForm.ClientSize;
+
+                // Display overlay over main form
+                overlay.Show(mainForm);
+
+                // Open FormAddCustomer in edit mode on top of overlay
+                using (FormAddCustomer addCustomer = new FormAddCustomer())
+                {
+                    addCustomer.lblAddCustomer.Text = "Update Customer";
+                    addCustomer.Text = "Update Customer";
+
+                    // Pass any customer data here if needed (e.g., addCustomer.LoadCustomerData(customerId);)
+
+                    addCustomer.StartPosition = FormStartPosition.CenterParent;
+                    addCustomer.ShowDialog(overlay); // Show as modal dialog over overlay
                 }
             }
         }

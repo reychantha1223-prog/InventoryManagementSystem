@@ -54,7 +54,7 @@ namespace InventoryManagementSystem.Forms
             // 4. Apply Row Styling
             CategoryView.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 12F);
             CategoryView.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(51, 65, 85);
-            CategoryView.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(240, 246, 255); // Clean light-blue row focus
+            CategoryView.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(212, 230, 254);
             CategoryView.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
 
             // 5. Resizing and Layout Setup
@@ -109,6 +109,43 @@ namespace InventoryManagementSystem.Forms
                 {
                     addCategoryForm.StartPosition = FormStartPosition.CenterParent;
                     addCategoryForm.ShowDialog(overlay);
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            FormConfirmDelete ConDelete = new FormConfirmDelete();
+            ConDelete.ShowDialog();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            Form mainForm = this.TopLevelControl as Form ?? Form.ActiveForm ?? this;
+
+            using (Form overlay = new Form())
+            {
+                overlay.StartPosition = FormStartPosition.Manual;
+                overlay.FormBorderStyle = FormBorderStyle.None;
+                overlay.Opacity = 0.50d; // Controls dark overlay intensity
+                overlay.BackColor = Color.Black;
+                overlay.ShowInTaskbar = false;
+
+                // Cover the exact client area of the main form
+                overlay.Location = mainForm.PointToScreen(Point.Empty);
+                overlay.Size = mainForm.ClientSize;
+
+                // Display overlay over main form
+                overlay.Show(mainForm);
+
+                // Open FormAddCategory in edit mode centered on top of overlay
+                using (FormAddCategory addCategory = new FormAddCategory())
+                {
+                    addCategory.lblAddCategory.Text = "Update Category";
+                    addCategory.Text = "Update Category";
+
+                    addCategory.StartPosition = FormStartPosition.CenterParent;
+                    addCategory.ShowDialog(overlay);
                 }
             }
         }

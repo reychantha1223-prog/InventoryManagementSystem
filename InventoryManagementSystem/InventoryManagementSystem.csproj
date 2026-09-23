@@ -59,11 +59,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\ConfirmLogout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\ConfirmLogout.Designer.cs">
+      <DependentUpon>ConfirmLogout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MessageUpdatePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MessageUpdatePassword.Designer.cs">
+      <DependentUpon>MessageUpdatePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainLayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainLayout.Designer.cs">
+      <DependentUpon>MainLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAccount.Designer.cs">
+      <DependentUpon>FormAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormAddCategory.cs">
       <SubType>Form</SubType>
@@ -94,6 +112,12 @@
     </Compile>
     <Compile Include="Forms\FormCategory.Designer.cs">
       <DependentUpon>FormCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormChangePassword.Designer.cs">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormConfirmDelete.cs">
       <SubType>Form</SubType>
@@ -149,10 +173,37 @@
     <Compile Include="Forms\FormSuppliers.Designer.cs">
       <DependentUpon>FormSuppliers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Authentication.cs" />
+    <Compile Include="Models\AuthenticationRepository.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\DashboardSummary.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Supplier.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Repositories\AccountRepository.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\CustomerRepository.cs" />
+    <Compile Include="Repositories\DashboardRepository.cs" />
+    <Compile Include="Repositories\ICategoryRepository.cs" />
+    <Compile Include="Repositories\IOrderRepository.cs" />
+    <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\SupplierRepository.cs" />
+    <EmbeddedResource Include="Forms\ConfirmLogout.resx">
+      <DependentUpon>ConfirmLogout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MessageUpdatePassword.resx">
+      <DependentUpon>MessageUpdatePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainLayout.resx">
+      <DependentUpon>MainLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAccount.resx">
+      <DependentUpon>FormAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormAddCategory.resx">
       <DependentUpon>FormAddCategory.cs</DependentUpon>
@@ -168,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormCategory.resx">
       <DependentUpon>FormCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormChangePassword.resx">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormConfirmDelete.resx">
       <DependentUpon>FormConfirmDelete.cs</DependentUpon>

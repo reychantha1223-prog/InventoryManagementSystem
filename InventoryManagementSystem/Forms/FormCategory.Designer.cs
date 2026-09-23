@@ -34,36 +34,36 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2ContainerControl1 = new Guna.UI2.WinForms.Guna2ContainerControl();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblTotalCategories = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.guna2ContainerControl2 = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblInactiveCategories = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.guna2ContainerControl3 = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblActiveCategories = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.guna2ContainerControl4 = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblEmptyCategories = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAddCategory = new Guna.UI2.WinForms.Guna2Button();
             this.CategoryView = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FilterCategory = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.txtProducts = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cmbStatusFilter = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
+            this.txtSearchCategory = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ContainerControl5 = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.button1 = new System.Windows.Forms.Button();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descriptions = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2ContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.guna2ContainerControl2.SuspendLayout();
@@ -90,7 +90,7 @@
             // 
             this.guna2ContainerControl1.BackColor = System.Drawing.Color.Transparent;
             this.guna2ContainerControl1.BorderRadius = 20;
-            this.guna2ContainerControl1.Controls.Add(this.label8);
+            this.guna2ContainerControl1.Controls.Add(this.lblTotalCategories);
             this.guna2ContainerControl1.Controls.Add(this.pictureBox4);
             this.guna2ContainerControl1.Controls.Add(this.label9);
             this.guna2ContainerControl1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
@@ -100,16 +100,15 @@
             this.guna2ContainerControl1.TabIndex = 29;
             this.guna2ContainerControl1.Text = "guna2ContainerControl1";
             // 
-            // label8
+            // lblTotalCategories
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(40)))), ((int)(((byte)(217)))));
-            this.label8.Location = new System.Drawing.Point(26, 86);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(140, 81);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "324";
+            this.lblTotalCategories.AutoSize = true;
+            this.lblTotalCategories.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCategories.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(40)))), ((int)(((byte)(217)))));
+            this.lblTotalCategories.Location = new System.Drawing.Point(26, 86);
+            this.lblTotalCategories.Name = "lblTotalCategories";
+            this.lblTotalCategories.Size = new System.Drawing.Size(0, 81);
+            this.lblTotalCategories.TabIndex = 5;
             // 
             // pictureBox4
             // 
@@ -137,7 +136,7 @@
             this.guna2ContainerControl2.BackColor = System.Drawing.Color.Transparent;
             this.guna2ContainerControl2.BorderRadius = 20;
             this.guna2ContainerControl2.Controls.Add(this.pictureBox2);
-            this.guna2ContainerControl2.Controls.Add(this.label6);
+            this.guna2ContainerControl2.Controls.Add(this.lblInactiveCategories);
             this.guna2ContainerControl2.Controls.Add(this.label7);
             this.guna2ContainerControl2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.guna2ContainerControl2.Location = new System.Drawing.Point(873, 90);
@@ -156,16 +155,15 @@
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
             // 
-            // label6
+            // lblInactiveCategories
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.label6.Location = new System.Drawing.Point(22, 86);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 81);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "6";
+            this.lblInactiveCategories.AutoSize = true;
+            this.lblInactiveCategories.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInactiveCategories.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.lblInactiveCategories.Location = new System.Drawing.Point(22, 86);
+            this.lblInactiveCategories.Name = "lblInactiveCategories";
+            this.lblInactiveCategories.Size = new System.Drawing.Size(0, 81);
+            this.lblInactiveCategories.TabIndex = 5;
             // 
             // label7
             // 
@@ -183,7 +181,7 @@
             this.guna2ContainerControl3.BackColor = System.Drawing.Color.Transparent;
             this.guna2ContainerControl3.BorderRadius = 20;
             this.guna2ContainerControl3.Controls.Add(this.pictureBox5);
-            this.guna2ContainerControl3.Controls.Add(this.label10);
+            this.guna2ContainerControl3.Controls.Add(this.lblActiveCategories);
             this.guna2ContainerControl3.Controls.Add(this.label11);
             this.guna2ContainerControl3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(249)))), ((int)(((byte)(242)))));
             this.guna2ContainerControl3.Location = new System.Drawing.Point(453, 90);
@@ -202,16 +200,15 @@
             this.pictureBox5.TabIndex = 6;
             this.pictureBox5.TabStop = false;
             // 
-            // label10
+            // lblActiveCategories
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(128)))), ((int)(((byte)(61)))));
-            this.label10.Location = new System.Drawing.Point(20, 86);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(105, 81);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "90";
+            this.lblActiveCategories.AutoSize = true;
+            this.lblActiveCategories.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActiveCategories.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(128)))), ((int)(((byte)(61)))));
+            this.lblActiveCategories.Location = new System.Drawing.Point(20, 86);
+            this.lblActiveCategories.Name = "lblActiveCategories";
+            this.lblActiveCategories.Size = new System.Drawing.Size(0, 81);
+            this.lblActiveCategories.TabIndex = 5;
             // 
             // label11
             // 
@@ -229,7 +226,7 @@
             this.guna2ContainerControl4.BackColor = System.Drawing.Color.Transparent;
             this.guna2ContainerControl4.BorderRadius = 20;
             this.guna2ContainerControl4.Controls.Add(this.pictureBox1);
-            this.guna2ContainerControl4.Controls.Add(this.label2);
+            this.guna2ContainerControl4.Controls.Add(this.lblEmptyCategories);
             this.guna2ContainerControl4.Controls.Add(this.label5);
             this.guna2ContainerControl4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(235)))));
             this.guna2ContainerControl4.Location = new System.Drawing.Point(1295, 90);
@@ -248,16 +245,15 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
-            // label2
+            // lblEmptyCategories
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(64)))), ((int)(((byte)(14)))));
-            this.label2.Location = new System.Drawing.Point(20, 86);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 81);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "34";
+            this.lblEmptyCategories.AutoSize = true;
+            this.lblEmptyCategories.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmptyCategories.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(64)))), ((int)(((byte)(14)))));
+            this.lblEmptyCategories.Location = new System.Drawing.Point(20, 86);
+            this.lblEmptyCategories.Name = "lblEmptyCategories";
+            this.lblEmptyCategories.Size = new System.Drawing.Size(0, 81);
+            this.lblEmptyCategories.TabIndex = 5;
             // 
             // label5
             // 
@@ -303,12 +299,12 @@
             this.CategoryView.ColumnHeadersHeight = 18;
             this.CategoryView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.CategoryView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column10,
-            this.Column11,
-            this.Column2,
-            this.Column16,
-            this.Column17,
-            this.Column1});
+            this.ID,
+            this.colName,
+            this.TotalProduct,
+            this.Descriptions,
+            this.Status,
+            this.CreatedAt});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -331,99 +327,69 @@
             this.CategoryView.ThemeStyle.HeaderStyle.Height = 18;
             this.CategoryView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CategoryView.ThemeStyle.RowsStyle.Height = 24;
+            this.CategoryView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CategoryView_CellContentClick);
+            this.CategoryView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.CategoryView_CellFormatting);
+            this.CategoryView.Paint += new System.Windows.Forms.PaintEventHandler(this.CategoryView_Paint);
             // 
-            // Column10
+            // cmbStatusFilter
             // 
-            this.Column10.HeaderText = "ID";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
+            this.cmbStatusFilter.BackColor = System.Drawing.Color.Transparent;
+            this.cmbStatusFilter.BorderRadius = 10;
+            this.cmbStatusFilter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbStatusFilter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbStatusFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbStatusFilter.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbStatusFilter.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbStatusFilter.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbStatusFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbStatusFilter.ItemHeight = 30;
+            this.cmbStatusFilter.Location = new System.Drawing.Point(756, 347);
+            this.cmbStatusFilter.Name = "cmbStatusFilter";
+            this.cmbStatusFilter.Size = new System.Drawing.Size(333, 36);
+            this.cmbStatusFilter.TabIndex = 37;
+            this.cmbStatusFilter.SelectedIndexChanged += new System.EventHandler(this.cmbStatusFilter_SelectedIndexChanged);
             // 
-            // Column11
+            // btnSearch
             // 
-            this.Column11.HeaderText = "Name";
-            this.Column11.MinimumWidth = 6;
-            this.Column11.Name = "Column11";
+            this.btnSearch.BorderRadius = 10;
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSearch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSearch.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnSearch.Font = new System.Drawing.Font("Arial", 10.8F);
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(607, 347);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(119, 48);
+            this.btnSearch.TabIndex = 36;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // Column2
+            // txtSearchCategory
             // 
-            this.Column2.HeaderText = "Total Products";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column16
-            // 
-            this.Column16.HeaderText = "Descriptions";
-            this.Column16.MinimumWidth = 6;
-            this.Column16.Name = "Column16";
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "Status";
-            this.Column17.MinimumWidth = 6;
-            this.Column17.Name = "Column17";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Create_At";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // FilterCategory
-            // 
-            this.FilterCategory.BackColor = System.Drawing.Color.Transparent;
-            this.FilterCategory.BorderRadius = 10;
-            this.FilterCategory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.FilterCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.FilterCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.FilterCategory.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.FilterCategory.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.FilterCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FilterCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.FilterCategory.ItemHeight = 30;
-            this.FilterCategory.Location = new System.Drawing.Point(756, 347);
-            this.FilterCategory.Name = "FilterCategory";
-            this.FilterCategory.Size = new System.Drawing.Size(333, 36);
-            this.FilterCategory.TabIndex = 37;
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.ForestGreen;
-            this.guna2Button1.Font = new System.Drawing.Font("Arial", 10.8F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(607, 347);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(119, 48);
-            this.guna2Button1.TabIndex = 36;
-            this.guna2Button1.Text = "Search";
-            // 
-            // txtProducts
-            // 
-            this.txtProducts.BorderRadius = 10;
-            this.txtProducts.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtProducts.DefaultText = "";
-            this.txtProducts.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtProducts.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtProducts.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtProducts.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtProducts.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtProducts.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProducts.ForeColor = System.Drawing.Color.Black;
-            this.txtProducts.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtProducts.Location = new System.Drawing.Point(34, 35);
-            this.txtProducts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtProducts.Name = "txtProducts";
-            this.txtProducts.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.txtProducts.PlaceholderText = "Search category";
-            this.txtProducts.SelectedText = "";
-            this.txtProducts.Size = new System.Drawing.Size(517, 48);
-            this.txtProducts.TabIndex = 35;
-            this.txtProducts.TextOffset = new System.Drawing.Point(32, 0);
+            this.txtSearchCategory.BorderRadius = 10;
+            this.txtSearchCategory.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearchCategory.DefaultText = "";
+            this.txtSearchCategory.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearchCategory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearchCategory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchCategory.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchCategory.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearchCategory.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchCategory.ForeColor = System.Drawing.Color.Black;
+            this.txtSearchCategory.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearchCategory.Location = new System.Drawing.Point(34, 35);
+            this.txtSearchCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSearchCategory.Name = "txtSearchCategory";
+            this.txtSearchCategory.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.txtSearchCategory.PlaceholderText = "Search categories";
+            this.txtSearchCategory.SelectedText = "";
+            this.txtSearchCategory.Size = new System.Drawing.Size(517, 48);
+            this.txtSearchCategory.TabIndex = 35;
+            this.txtSearchCategory.TextOffset = new System.Drawing.Point(32, 0);
+            this.txtSearchCategory.TextChanged += new System.EventHandler(this.txtSearchCategory_TextChanged);
             // 
             // guna2ContainerControl5
             // 
@@ -431,7 +397,7 @@
             this.guna2ContainerControl5.Controls.Add(this.button1);
             this.guna2ContainerControl5.Controls.Add(this.btnDelete);
             this.guna2ContainerControl5.Controls.Add(this.btnEdit);
-            this.guna2ContainerControl5.Controls.Add(this.txtProducts);
+            this.guna2ContainerControl5.Controls.Add(this.txtSearchCategory);
             this.guna2ContainerControl5.Location = new System.Drawing.Point(32, 312);
             this.guna2ContainerControl5.Name = "guna2ContainerControl5";
             this.guna2ContainerControl5.Size = new System.Drawing.Size(1625, 703);
@@ -487,6 +453,48 @@
             this.btnEdit.Text = "Edit";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            // 
+            // colName
+            // 
+            this.colName.DataPropertyName = "Name";
+            this.colName.HeaderText = "Name";
+            this.colName.MinimumWidth = 6;
+            this.colName.Name = "colName";
+            // 
+            // TotalProduct
+            // 
+            this.TotalProduct.DataPropertyName = "Total Products";
+            this.TotalProduct.HeaderText = "Total Products";
+            this.TotalProduct.MinimumWidth = 6;
+            this.TotalProduct.Name = "TotalProduct";
+            // 
+            // Descriptions
+            // 
+            this.Descriptions.DataPropertyName = "Descriptions";
+            this.Descriptions.HeaderText = "Descriptions";
+            this.Descriptions.MinimumWidth = 6;
+            this.Descriptions.Name = "Descriptions";
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            // 
+            // CreatedAt
+            // 
+            this.CreatedAt.DataPropertyName = "Create_At";
+            this.CreatedAt.HeaderText = "Create_At";
+            this.CreatedAt.MinimumWidth = 6;
+            this.CreatedAt.Name = "CreatedAt";
+            // 
             // FormCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -494,8 +502,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(252)))));
             this.ClientSize = new System.Drawing.Size(1682, 1043);
             this.Controls.Add(this.CategoryView);
-            this.Controls.Add(this.FilterCategory);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.cmbStatusFilter);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.guna2ContainerControl5);
             this.Controls.Add(this.btnAddCategory);
             this.Controls.Add(this.guna2ContainerControl4);
@@ -528,35 +536,35 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl1;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblTotalCategories;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl2;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblInactiveCategories;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl3;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblActiveCategories;
         private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl4;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblEmptyCategories;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2Button btnAddCategory;
         private Guna.UI2.WinForms.Guna2DataGridView CategoryView;
-        private Guna.UI2.WinForms.Guna2ComboBox FilterCategory;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2TextBox txtProducts;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbStatusFilter;
+        private Guna.UI2.WinForms.Guna2Button btnSearch;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearchCategory;
         private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl5;
         private Guna.UI2.WinForms.Guna2Button btnDelete;
         private Guna.UI2.WinForms.Guna2Button btnEdit;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalProduct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descriptions;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedAt;
     }
 }

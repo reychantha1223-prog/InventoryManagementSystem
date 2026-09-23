@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCustomer));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -41,10 +41,10 @@
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FilterCategory = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.cmbSortCustomer = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtProducts = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtSearchCustomer = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ContainerControl5 = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
@@ -90,16 +90,16 @@
             // 
             // CustomerView
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.CustomerView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CustomerView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.CustomerView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CustomerView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.CustomerView.ColumnHeadersHeight = 18;
             this.CustomerView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.CustomerView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -108,14 +108,14 @@
             this.Column12,
             this.Column13,
             this.Column15});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CustomerView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CustomerView.DefaultCellStyle = dataGridViewCellStyle9;
             this.CustomerView.GridColor = System.Drawing.Color.Silver;
             this.CustomerView.Location = new System.Drawing.Point(70, 206);
             this.CustomerView.Name = "CustomerView";
@@ -130,6 +130,7 @@
             this.CustomerView.ThemeStyle.HeaderStyle.Height = 18;
             this.CustomerView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerView.ThemeStyle.RowsStyle.Height = 24;
+            this.CustomerView.Paint += new System.Windows.Forms.PaintEventHandler(this.CustomerView_Paint);
             // 
             // Column10
             // 
@@ -161,39 +162,41 @@
             this.Column15.MinimumWidth = 6;
             this.Column15.Name = "Column15";
             // 
-            // FilterCategory
+            // cmbSortCustomer
             // 
-            this.FilterCategory.BackColor = System.Drawing.Color.Transparent;
-            this.FilterCategory.BorderRadius = 10;
-            this.FilterCategory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.FilterCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.FilterCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.FilterCategory.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.FilterCategory.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.FilterCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FilterCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.FilterCategory.ItemHeight = 30;
-            this.FilterCategory.Location = new System.Drawing.Point(760, 137);
-            this.FilterCategory.Name = "FilterCategory";
-            this.FilterCategory.Size = new System.Drawing.Size(242, 36);
-            this.FilterCategory.TabIndex = 32;
+            this.cmbSortCustomer.BackColor = System.Drawing.Color.Transparent;
+            this.cmbSortCustomer.BorderRadius = 10;
+            this.cmbSortCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbSortCustomer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbSortCustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSortCustomer.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbSortCustomer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbSortCustomer.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSortCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbSortCustomer.ItemHeight = 30;
+            this.cmbSortCustomer.Location = new System.Drawing.Point(760, 137);
+            this.cmbSortCustomer.Name = "cmbSortCustomer";
+            this.cmbSortCustomer.Size = new System.Drawing.Size(242, 36);
+            this.cmbSortCustomer.TabIndex = 32;
+            this.cmbSortCustomer.SelectedIndexChanged += new System.EventHandler(this.cmbSortCustomer_SelectedIndexChanged);
             // 
-            // guna2Button1
+            // btnSearch
             // 
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.ForestGreen;
-            this.guna2Button1.Font = new System.Drawing.Font("Arial", 10.8F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(611, 137);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(119, 48);
-            this.guna2Button1.TabIndex = 31;
-            this.guna2Button1.Text = "Search";
+            this.btnSearch.BorderRadius = 10;
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSearch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSearch.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnSearch.Font = new System.Drawing.Font("Arial", 10.8F);
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(611, 137);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(119, 48);
+            this.btnSearch.TabIndex = 31;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // button1
             // 
@@ -208,28 +211,29 @@
             this.button1.TabIndex = 28;
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // txtProducts
+            // txtSearchCustomer
             // 
-            this.txtProducts.BorderRadius = 10;
-            this.txtProducts.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtProducts.DefaultText = "";
-            this.txtProducts.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtProducts.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtProducts.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtProducts.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtProducts.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtProducts.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProducts.ForeColor = System.Drawing.Color.Black;
-            this.txtProducts.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtProducts.Location = new System.Drawing.Point(70, 137);
-            this.txtProducts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtProducts.Name = "txtProducts";
-            this.txtProducts.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.txtProducts.PlaceholderText = "Search customer";
-            this.txtProducts.SelectedText = "";
-            this.txtProducts.Size = new System.Drawing.Size(517, 48);
-            this.txtProducts.TabIndex = 30;
-            this.txtProducts.TextOffset = new System.Drawing.Point(32, 0);
+            this.txtSearchCustomer.BorderRadius = 10;
+            this.txtSearchCustomer.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearchCustomer.DefaultText = "";
+            this.txtSearchCustomer.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearchCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearchCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchCustomer.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchCustomer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearchCustomer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchCustomer.ForeColor = System.Drawing.Color.Black;
+            this.txtSearchCustomer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearchCustomer.Location = new System.Drawing.Point(70, 137);
+            this.txtSearchCustomer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSearchCustomer.Name = "txtSearchCustomer";
+            this.txtSearchCustomer.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.txtSearchCustomer.PlaceholderText = "Search customer";
+            this.txtSearchCustomer.SelectedText = "";
+            this.txtSearchCustomer.Size = new System.Drawing.Size(517, 48);
+            this.txtSearchCustomer.TabIndex = 30;
+            this.txtSearchCustomer.TextOffset = new System.Drawing.Point(32, 0);
+            this.txtSearchCustomer.TextChanged += new System.EventHandler(this.txtSearchCustomer_TextChanged);
             // 
             // guna2ContainerControl5
             // 
@@ -304,10 +308,10 @@
             this.ClientSize = new System.Drawing.Size(1699, 1042);
             this.Controls.Add(this.btnAddCustomer);
             this.Controls.Add(this.CustomerView);
-            this.Controls.Add(this.FilterCategory);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.cmbSortCustomer);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.txtProducts);
+            this.Controls.Add(this.txtSearchCustomer);
             this.Controls.Add(this.guna2ContainerControl5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
@@ -331,10 +335,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2DataGridView CustomerView;
-        private Guna.UI2.WinForms.Guna2ComboBox FilterCategory;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbSortCustomer;
+        private Guna.UI2.WinForms.Guna2Button btnSearch;
         private System.Windows.Forms.Button button1;
-        private Guna.UI2.WinForms.Guna2TextBox txtProducts;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearchCustomer;
         private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl5;
         private Guna.UI2.WinForms.Guna2Button btnDelete;
         private Guna.UI2.WinForms.Guna2Button btnEdit;

@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConfirmDelete));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblDeleteTitle = new System.Windows.Forms.Label();
+            this.lblQuestion = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnConfirmDelete = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblItemName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,28 +59,28 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(265, 22);
             this.dateTimePicker1.TabIndex = 1;
             // 
-            // label1
+            // lblDeleteTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(191, 159);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(210, 37);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Delete Product";
+            this.lblDeleteTitle.AutoSize = true;
+            this.lblDeleteTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeleteTitle.Location = new System.Drawing.Point(191, 159);
+            this.lblDeleteTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDeleteTitle.Name = "lblDeleteTitle";
+            this.lblDeleteTitle.Size = new System.Drawing.Size(210, 37);
+            this.lblDeleteTitle.TabIndex = 3;
+            this.lblDeleteTitle.Text = "Delete Product";
             // 
-            // label2
+            // lblQuestion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(115, 206);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(359, 23);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Are you sure you want to delete this product?";
+            this.lblQuestion.AutoSize = true;
+            this.lblQuestion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestion.ForeColor = System.Drawing.Color.DimGray;
+            this.lblQuestion.Location = new System.Drawing.Point(115, 206);
+            this.lblQuestion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblQuestion.Name = "lblQuestion";
+            this.lblQuestion.Size = new System.Drawing.Size(286, 23);
+            this.lblQuestion.TabIndex = 4;
+            this.lblQuestion.Text = "Are you sure you want to delete this";
             // 
             // label3
             // 
@@ -94,24 +94,27 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "This action cannot be undone.";
             // 
-            // guna2Button1
+            // btnConfirmDelete
             // 
-            this.guna2Button1.BorderRadius = 8;
-            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.Location = new System.Drawing.Point(311, 382);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(187, 55);
-            this.guna2Button1.TabIndex = 6;
-            this.guna2Button1.Text = "Delete";
+            this.btnConfirmDelete.BorderRadius = 8;
+            this.btnConfirmDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmDelete.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnConfirmDelete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnConfirmDelete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnConfirmDelete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnConfirmDelete.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.btnConfirmDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmDelete.ForeColor = System.Drawing.Color.White;
+            this.btnConfirmDelete.HoverState.FillColor = System.Drawing.Color.Red;
+            this.btnConfirmDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirmDelete.Image")));
+            this.btnConfirmDelete.Location = new System.Drawing.Point(311, 382);
+            this.btnConfirmDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConfirmDelete.Name = "btnConfirmDelete";
+            this.btnConfirmDelete.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnConfirmDelete.Size = new System.Drawing.Size(187, 55);
+            this.btnConfirmDelete.TabIndex = 6;
+            this.btnConfirmDelete.Text = "Delete";
+            this.btnConfirmDelete.Click += new System.EventHandler(this.btnConfirmDelete_Click);
             // 
             // btnCancel
             // 
@@ -133,17 +136,15 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // label4
+            // lblItemName
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(179, 294);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(228, 46);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Iphone 17 pm";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblItemName.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblItemName.Location = new System.Drawing.Point(179, 294);
+            this.lblItemName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblItemName.Name = "lblItemName";
+            this.lblItemName.Size = new System.Drawing.Size(0, 46);
+            this.lblItemName.TabIndex = 8;
+            this.lblItemName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormConfirmDelete
             // 
@@ -151,12 +152,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(600, 481);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblItemName);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.btnConfirmDelete);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblQuestion);
+            this.Controls.Add(this.lblDeleteTitle);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.pictureBox1);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -168,6 +169,7 @@
             this.Name = "FormConfirmDelete";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Confirm Delete";
+            this.Load += new System.EventHandler(this.FormConfirmDelete_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -178,11 +180,11 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDeleteTitle;
+        private System.Windows.Forms.Label lblQuestion;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnConfirmDelete;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblItemName;
     }
 }

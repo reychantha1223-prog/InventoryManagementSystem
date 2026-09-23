@@ -1,74 +1,134 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
+using InventoryManagementSystem.Models;
+using InventoryManagementSystem.Repositories;
 
 namespace InventoryManagementSystem.Forms
 {
     public partial class FormAddCustomer : Form
     {
+        private readonly CustomerRepository _repository = new CustomerRepository();
+        private readonly Customer _customerToEdit;
+        private readonly Action _onSaveSuccess;
+
         public FormAddCustomer()
         {
             InitializeComponent();
         }
 
-        private void guna2Button2_Click(object sender, EventArgs e)
+        public FormAddCustomer(Customer customer, Action onSaveSuccess = null) : this()
         {
-            this.Close();
+            this._customerToEdit = customer;
+            this._onSaveSuccess = onSaveSuccess;
         }
 
         private void FormAddCustomer_Load(object sender, EventArgs e)
         {
-
+            this.Text = "Update Customer";
+            if (_customerToEdit != null)
+            {
+                if (lblAddCustomer != null) lblAddCustomer.Text = "Update Customer";
+                txtName.Text = _customerToEdit.Name;
+                txtPhone.Text = _customerToEdit.Phone;
+                txtEmail.Text = _customerToEdit.Email;
+                txtAddress.Text = _customerToEdit.Address;
+            }
+            else
+            {
+                if (lblAddCustomer != null) lblAddCustomer.Text = "Add Customer";
+                btnSave.Text = "Save";
+            }
         }
+
         private bool ValidateInputs()
         {
             bool isValid = true;
 
-            // 1. Validate Name
+            if (lblNameRequired != null) lblNameRequired.Visible = false;
+            if (lblPhoneRequired != null) lblPhoneRequired.Visible = false;
+            if (lblAddressRequired != null) lblAddressRequired.Visible = false;
+
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
-                lblNameRequired.Text = "This field is required";
-                lblNameRequired.Visible = true;
+                if (lblNameRequired != null)
+                {
+                    lblNameRequired.Text = "This field is required";
+                    lblNameRequired.Visible = true;
+                }
                 txtName.Focus();
                 isValid = false;
             }
 
-            // 2. Validate Phone
             if (string.IsNullOrWhiteSpace(txtPhone.Text))
             {
-                lblPhoneRequired.Text = "This field is required";
-                lblPhoneRequired.Visible = true;
+                if (lblPhoneRequired != null)
+                {
+                    lblPhoneRequired.Text = "This field is required";
+                    lblPhoneRequired.Visible = true;
+                }
                 if (isValid) txtPhone.Focus();
                 isValid = false;
             }
 
-            // 3. Validate Address
             if (string.IsNullOrWhiteSpace(txtAddress.Text))
             {
-                lblAddressRequired.Text = "This field is required";
-                lblAddressRequired.Visible = true;
+                if (lblAddressRequired != null)
+                {
+                    lblAddressRequired.Text = "This field is required";
+                    lblAddressRequired.Visible = true;
+                }
                 if (isValid) txtAddress.Focus();
                 isValid = false;
             }
 
             return isValid;
         }
-        private void btnSave_Click(object sender, EventArgs e)
+
+        private async void btnSave_Click(object sender, EventArgs e)
         {
             if (!ValidateInputs()) return;
-            
+
+            btnSave.Enabled = false;
+
+            try
+            {
+                Customer customerData = new Customer
+                {
+                    ID = _customerToEdit?.ID ?? 0,
+                    Name = txtName.Text.Trim(),
+                    Phone = txtPhone.Text.Trim(),
+                    Email = txtEmail.Text.Trim(),
+                    Address = txtAddress.Text.Trim()
+                };
+
+                if (_customerToEdit != null)
+                {
+                    await _repository.UpdateCustomerAsync(customerData);
+                }
+                else
+                {
+                    await _repository.AddCustomerAsync(customerData);
+                }
+
+                _onSaveSuccess?.Invoke();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Database error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btnSave.Enabled = true;
+            }
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtName.Text))
+            if (!string.IsNullOrWhiteSpace(txtName.Text) && lblNameRequired != null)
             {
                 lblNameRequired.Visible = false;
             }
@@ -76,7 +136,7 @@ namespace InventoryManagementSystem.Forms
 
         private void txtPhone_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtPhone.Text))
+            if (!string.IsNullOrWhiteSpace(txtPhone.Text) && lblPhoneRequired != null)
             {
                 lblPhoneRequired.Visible = false;
             }
@@ -84,7 +144,7 @@ namespace InventoryManagementSystem.Forms
 
         private void txtAddress_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtAddress.Text))
+            if (!string.IsNullOrWhiteSpace(txtAddress.Text) && lblAddressRequired != null)
             {
                 lblAddressRequired.Visible = false;
             }

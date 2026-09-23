@@ -39,8 +39,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cmbCategory = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.txtDescription = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.lblNameRequired = new System.Windows.Forms.Label();
@@ -48,6 +48,10 @@
             this.numStock = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.lblPriceRequired = new System.Windows.Forms.Label();
             this.lblStockRequired = new System.Windows.Forms.Label();
+            this.cmbSupplier = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblCategoryRequired = new System.Windows.Forms.Label();
+            this.lblSupplierRequired = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStock)).BeginInit();
@@ -163,43 +167,43 @@
             this.txtName.TabIndex = 16;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
-            // guna2ComboBox1
+            // cmbCategory
             // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderRadius = 8;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2ComboBox1.ItemHeight = 32;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(36, 266);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(589, 38);
-            this.guna2ComboBox1.TabIndex = 17;
+            this.cmbCategory.BackColor = System.Drawing.Color.Transparent;
+            this.cmbCategory.BorderRadius = 8;
+            this.cmbCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategory.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbCategory.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cmbCategory.ForeColor = System.Drawing.Color.Black;
+            this.cmbCategory.ItemHeight = 32;
+            this.cmbCategory.Location = new System.Drawing.Point(36, 266);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(270, 38);
+            this.cmbCategory.TabIndex = 17;
             // 
-            // guna2TextBox4
+            // txtDescription
             // 
-            this.guna2TextBox4.BorderRadius = 8;
-            this.guna2TextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox4.DefaultText = "";
-            this.guna2TextBox4.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.guna2TextBox4.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox4.Location = new System.Drawing.Point(35, 567);
-            this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox4.Multiline = true;
-            this.guna2TextBox4.Name = "guna2TextBox4";
-            this.guna2TextBox4.PlaceholderText = "";
-            this.guna2TextBox4.SelectedText = "";
-            this.guna2TextBox4.Size = new System.Drawing.Size(590, 131);
-            this.guna2TextBox4.TabIndex = 20;
+            this.txtDescription.BorderRadius = 8;
+            this.txtDescription.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtDescription.DefaultText = "";
+            this.txtDescription.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtDescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtDescription.ForeColor = System.Drawing.Color.Black;
+            this.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDescription.Location = new System.Drawing.Point(35, 567);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.PlaceholderText = "";
+            this.txtDescription.SelectedText = "";
+            this.txtDescription.Size = new System.Drawing.Size(590, 131);
+            this.txtDescription.TabIndex = 20;
             // 
             // btnCancel
             // 
@@ -243,14 +247,14 @@
             // 
             // lblNameRequired
             // 
-            this.lblNameRequired.AutoSize = true;
             this.lblNameRequired.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNameRequired.ForeColor = System.Drawing.Color.Red;
-            this.lblNameRequired.Location = new System.Drawing.Point(450, 137);
+            this.lblNameRequired.Location = new System.Drawing.Point(331, 137);
             this.lblNameRequired.Name = "lblNameRequired";
-            this.lblNameRequired.Size = new System.Drawing.Size(162, 23);
+            this.lblNameRequired.Size = new System.Drawing.Size(281, 23);
             this.lblNameRequired.TabIndex = 65;
             this.lblNameRequired.Text = "This field is required";
+            this.lblNameRequired.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.lblNameRequired.Visible = false;
             // 
             // numPrice
@@ -262,6 +266,11 @@
             this.numPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.numPrice.Location = new System.Drawing.Point(35, 364);
             this.numPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numPrice.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
             this.numPrice.Name = "numPrice";
             this.numPrice.Size = new System.Drawing.Size(589, 44);
             this.numPrice.TabIndex = 68;
@@ -277,6 +286,11 @@
             this.numStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.numStock.Location = new System.Drawing.Point(35, 467);
             this.numStock.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numStock.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
             this.numStock.Name = "numStock";
             this.numStock.Size = new System.Drawing.Size(589, 44);
             this.numStock.TabIndex = 69;
@@ -307,11 +321,66 @@
             this.lblStockRequired.Text = "Must be greater than 0";
             this.lblStockRequired.Visible = false;
             // 
+            // cmbSupplier
+            // 
+            this.cmbSupplier.BackColor = System.Drawing.Color.Transparent;
+            this.cmbSupplier.BorderRadius = 8;
+            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSupplier.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbSupplier.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cmbSupplier.ForeColor = System.Drawing.Color.Black;
+            this.cmbSupplier.ItemHeight = 32;
+            this.cmbSupplier.Location = new System.Drawing.Point(355, 266);
+            this.cmbSupplier.Name = "cmbSupplier";
+            this.cmbSupplier.Size = new System.Drawing.Size(270, 38);
+            this.cmbSupplier.TabIndex = 72;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.label1.Location = new System.Drawing.Point(357, 231);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 22);
+            this.label1.TabIndex = 73;
+            this.label1.Text = "Supplier";
+            // 
+            // lblCategoryRequired
+            // 
+            this.lblCategoryRequired.AutoSize = true;
+            this.lblCategoryRequired.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoryRequired.ForeColor = System.Drawing.Color.Red;
+            this.lblCategoryRequired.Location = new System.Drawing.Point(135, 232);
+            this.lblCategoryRequired.Name = "lblCategoryRequired";
+            this.lblCategoryRequired.Size = new System.Drawing.Size(162, 23);
+            this.lblCategoryRequired.TabIndex = 74;
+            this.lblCategoryRequired.Text = "This field is required";
+            this.lblCategoryRequired.Visible = false;
+            this.lblCategoryRequired.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // lblSupplierRequired
+            // 
+            this.lblSupplierRequired.AutoSize = true;
+            this.lblSupplierRequired.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSupplierRequired.ForeColor = System.Drawing.Color.Red;
+            this.lblSupplierRequired.Location = new System.Drawing.Point(453, 231);
+            this.lblSupplierRequired.Name = "lblSupplierRequired";
+            this.lblSupplierRequired.Size = new System.Drawing.Size(162, 23);
+            this.lblSupplierRequired.TabIndex = 75;
+            this.lblSupplierRequired.Text = "This field is required";
+            this.lblSupplierRequired.Visible = false;
+            // 
             // FormAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 830);
+            this.Controls.Add(this.lblSupplierRequired);
+            this.Controls.Add(this.lblCategoryRequired);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbSupplier);
             this.Controls.Add(this.lblStockRequired);
             this.Controls.Add(this.lblPriceRequired);
             this.Controls.Add(this.numStock);
@@ -319,8 +388,8 @@
             this.Controls.Add(this.lblNameRequired);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.guna2TextBox4);
-            this.Controls.Add(this.guna2ComboBox1);
+            this.Controls.Add(this.txtDescription);
+            this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -357,8 +426,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2TextBox txtName;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbCategory;
+        private Guna.UI2.WinForms.Guna2TextBox txtDescription;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
         private Guna.UI2.WinForms.Guna2Button btnSave;
         public System.Windows.Forms.Label lblAddProduct;
@@ -367,5 +436,9 @@
         private Guna.UI2.WinForms.Guna2NumericUpDown numStock;
         private System.Windows.Forms.Label lblPriceRequired;
         private System.Windows.Forms.Label lblStockRequired;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbSupplier;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblCategoryRequired;
+        private System.Windows.Forms.Label lblSupplierRequired;
     }
 }

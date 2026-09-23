@@ -121,7 +121,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAETVSURBVHhe7d0J
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAETVSURBVHhe7d0J
         uCVVee9/FMc4oiZqzL2JSW5MjEkcktwn+ed/owlNMzXYjA7MSDMIgjJGRVBmEYgIAgmDNBgFvYABRcYw
         tUDTAQWa6XSfvde7Dk3bqH2G7nP6DFXvfdbm0DTvqu7e+5yqvav2/v6e5/PwPJzTe1XVrlprnb2r1rvF
         FoSQUkeXLHm1ivyuDgx8UEW2Uef2UOcWqHPHJ96fkYhclIj8Ryryo1TkttS5n6UiS1KRvlSklor8xphI
@@ -418,10 +418,10 @@
         X/u60FajzfD8vMgx6v2B6v2ujW17YWB/Fx/TE1L+/D8yVEwLrzTUNAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="guna2Button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnConfirmDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAC3KSURBVHhe7d0L
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAC3KSURBVHhe7d0L
         1OV3Xd/7JnHAWyFBTHGRAFolQcGKCV7bhFq1mIhogUQodZngpcJJgtIjJOKlkhQUFwl4PJUmFoqYhKC2
         JlK1chLUtpJwVxMvVUpC0SoJ4OXAJJC8u3bnaTt8HIa57Ofz3/v3e7/WYi0WJDPv72/v7++Zy7P3/ht/
         Q5IkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIk

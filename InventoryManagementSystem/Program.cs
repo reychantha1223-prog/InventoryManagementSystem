@@ -1,23 +1,43 @@
-﻿using InventoryManagementSystem.Forms;
+﻿using InventoryManagementSystem;
+using InventoryManagementSystem.Forms;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace InventoryManagementSystem
+static class Program
 {
-    internal static class Program
+    [STAThread]
+    static void Main()
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+        using (FormLoading loading = new FormLoading())
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            loading.ShowDialog();
+        }
+
+        bool keepRunning = true;
+
+        while (keepRunning)
+        {
+            using (FormLogin login = new FormLogin())
+            {
+                if (login.ShowDialog() == DialogResult.OK)
+                {
+                    using (MainLayout mainLayout = new MainLayout())
+                    {
+                        DialogResult result = mainLayout.ShowDialog();
+
+                        if (result != DialogResult.OK)
+                        {
+                            keepRunning = false;
+                        }
+                    }
+                }
+                else
+                {
+                    keepRunning = false;
+                }
+            }
         }
     }
 }

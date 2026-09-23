@@ -1,135 +1,192 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventoryManagementSystem.Models;
+using InventoryManagementSystem.Repositories;
 
 namespace InventoryManagementSystem.Forms
 {
     public partial class FormAddSupplier : Form
     {
+        private readonly SupplierRepository _repository = new SupplierRepository();
+        private readonly Supplier _supplierToEdit;
+        private readonly Action _onSaveSuccess;
+
         public FormAddSupplier()
         {
             InitializeComponent();
         }
 
+        public FormAddSupplier(Supplier supplier, Action onSaveSuccess = null) : this()
+        {
+            this._supplierToEdit = supplier;
+            this._onSaveSuccess = onSaveSuccess;
+        }
+
         private void FormAddSupplier_Load(object sender, EventArgs e)
         {
-
-        }
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        private bool ValidateInputs()
-        {
-            bool isValid = true;
-
-            // Reset default label text
-            lblNameRequired.Text = "This field is required";
-            lblEmailRequired.Text = "This field is required";
-            lblContactRequired.Text = "This field is required";
-            lblAddRequired.Text = "This field is required";
-            lblPhoneRequired.Text = "This field is required";
-
-            // 1. Validate Supplier Name
-            if (string.IsNullOrWhiteSpace(txtName.Text))
-            {
-                lblNameRequired.Visible = true;
-                txtName.Focus();
-                isValid = false;
-            }
-            else
-            {
-                lblNameRequired.Visible = false;
-            }
-
-            // 2. Validate Email
-            if (string.IsNullOrWhiteSpace(txtEmail.Text))
-            {
-                lblEmailRequired.Text = "This field is required";
-                lblEmailRequired.Visible = true;
-                if (isValid) txtEmail.Focus();
-                isValid = false;
-            }
-            else
+            if (lblEmailRequired != null)
             {
                 lblEmailRequired.Visible = false;
             }
 
-            // 3. Validate Contact Person
+            if (_supplierToEdit != null)
+            {
+                this.Text = "Update Supplier";
+                if (lblAddSupplier != null) lblAddSupplier.Text = "Update Supplier";
+
+                txtName.Text = _supplierToEdit.Name ?? string.Empty;
+                txtContact.Text = _supplierToEdit.ContactPerson ?? string.Empty;
+                txtPhone.Text = _supplierToEdit.Phone ?? string.Empty;
+                txtEmail.Text = (_supplierToEdit.Email == "N/A") ? string.Empty : (_supplierToEdit.Email ?? string.Empty);
+                txtAddress.Text = _supplierToEdit.Address ?? string.Empty;
+            }
+            else
+            {
+                this.Text = "Add Supplier";
+                if (lblAddSupplier != null) lblAddSupplier.Text = "Add Supplier";
+                if (btnSave != null) btnSave.Text = "Save";
+            }
+        }
+
+        private bool ValidateInputs()
+        {
+            bool isValid = true;
+
+            if (lblNameRequired != null) lblNameRequired.Visible = false;
+            if (lblContactRequired != null) lblContactRequired.Visible = false;
+            if (lblPhoneRequired != null) lblPhoneRequired.Visible = false;
+            if (lblEmailRequired != null) lblEmailRequired.Visible = false; 
+            if (lblAddRequired != null) lblAddRequired.Visible = false;
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                if (lblNameRequired != null)
+                {
+                    lblNameRequired.Text = "This field is required";
+                    lblNameRequired.Visible = true;
+                }
+                txtName.Focus();
+                isValid = false;
+            }
             if (string.IsNullOrWhiteSpace(txtContact.Text))
             {
-                lblContactRequired.Text = "This field is required";
-                lblContactRequired.Visible = true;
+                if (lblContactRequired != null)
+                {
+                    lblContactRequired.Text = "This field is required";
+                    lblContactRequired.Visible = true;
+                }
                 if (isValid) txtContact.Focus();
                 isValid = false;
             }
-            else
-            {
-                lblContactRequired.Visible = false;
-            }
-
-            // 4. Validate Address
-            if (string.IsNullOrWhiteSpace(txtAddress.Text))
-            {
-                lblAddRequired.Text = "This field is required";
-                lblAddRequired.Visible = true;
-                if (isValid) txtAddress.Focus();
-                isValid = false;
-            }
-            else
-            {
-                lblAddRequired.Visible = false;
-            }
-
-            // 5. Validate Phone
             if (string.IsNullOrWhiteSpace(txtPhone.Text))
             {
-                lblPhoneRequired.Text = "This field is required";
-                lblPhoneRequired.Visible = true;
+                if (lblPhoneRequired != null)
+                {
+                    lblPhoneRequired.Text = "This field is required";
+                    lblPhoneRequired.Visible = true;
+                }
                 if (isValid) txtPhone.Focus();
                 isValid = false;
             }
-            else
+            if (string.IsNullOrWhiteSpace(txtAddress.Text))
             {
-                lblPhoneRequired.Visible = false;
+                if (lblAddRequired != null)
+                {
+                    lblAddRequired.Text = "This field is required";
+                    lblAddRequired.Visible = true;
+                }
+                if (isValid) txtAddress.Focus();
+                isValid = false;
             }
 
             return isValid;
         }
-        private void btnSave_Click(object sender, EventArgs e)
+
+        private async void btnSave_Click(object sender, EventArgs e)
         {
             if (!ValidateInputs()) return;
+
+            btnSave.Enabled = false;
+
+            try
+            {
+                Supplier supplierData = new Supplier
+                {
+                    ID = _supplierToEdit?.ID ?? 0,
+                    Name = txtName.Text.Trim(),
+                    ContactPerson = txtContact.Text.Trim(),
+                    Phone = txtPhone.Text.Trim(),
+                    Email = txtEmail.Text.Trim(),
+                    Address = txtAddress.Text.Trim()
+                };
+
+                if (_supplierToEdit != null && _supplierToEdit.ID > 0)
+                {
+                    await _repository.UpdateSupplierAsync(supplierData);
+                }
+                else
+                {
+                    await _repository.AddSupplierAsync(supplierData);
+                }
+
+                _onSaveSuccess?.Invoke();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Database error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btnSave.Enabled = true;
+            }
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtName.Text)) lblNameRequired.Visible = false;
-        }
-
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(txtEmail.Text)) lblEmailRequired.Visible = false;
+            if (!string.IsNullOrWhiteSpace(txtName.Text) && lblNameRequired != null)
+            {
+                lblNameRequired.Visible = false;
+            }
         }
 
         private void txtContact_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtContact.Text)) lblContactRequired.Visible = false;
+            if (!string.IsNullOrWhiteSpace(txtContact.Text) && lblContactRequired != null)
+            {
+                lblContactRequired.Visible = false;
+            }
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {   
+            if (!string.IsNullOrWhiteSpace(txtPhone.Text) && lblPhoneRequired != null)
+            {
+                lblPhoneRequired.Visible = false;
+            }
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtEmail.Text) && lblEmailRequired != null)
+            {
+                lblEmailRequired.Visible = false;
+            }
         }
 
         private void txtAddress_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtAddress.Text)) lblAddRequired.Visible = false;
+            if (!string.IsNullOrWhiteSpace(txtAddress.Text) && lblAddRequired != null)
+            {
+                lblAddRequired.Visible = false;
+            }
         }
 
-        private void txtPhone_TextChanged(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtPhone.Text)) lblPhoneRequired.Visible = false;
+            this.Close();
         }
     }
 }

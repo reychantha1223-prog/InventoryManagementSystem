@@ -39,17 +39,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.guna2ColorTransition1 = new Guna.UI2.WinForms.Guna2ColorTransition(this.components);
-            this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.dtpOrderDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.txtTotalAmount = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtProduct = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtCustomer = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cmbCustomer = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cmbStatus = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtDescription = new Guna.UI2.WinForms.Guna2TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.lblCustomerRequired = new System.Windows.Forms.Label();
             this.lblPriceRequired = new System.Windows.Forms.Label();
@@ -154,44 +154,45 @@
         System.Drawing.Color.Blue,
         System.Drawing.Color.Orange};
             // 
-            // guna2DateTimePicker1
+            // dtpOrderDate
             // 
-            this.guna2DateTimePicker1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2DateTimePicker1.BorderColor = System.Drawing.Color.LightGray;
-            this.guna2DateTimePicker1.BorderRadius = 10;
-            this.guna2DateTimePicker1.Checked = true;
-            this.guna2DateTimePicker1.FillColor = System.Drawing.Color.White;
-            this.guna2DateTimePicker1.FocusedColor = System.Drawing.Color.Transparent;
-            this.guna2DateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(33, 242);
-            this.guna2DateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(588, 44);
-            this.guna2DateTimePicker1.TabIndex = 41;
-            this.guna2DateTimePicker1.Value = new System.DateTime(2026, 9, 8, 23, 44, 28, 538);
+            this.dtpOrderDate.BackColor = System.Drawing.Color.Transparent;
+            this.dtpOrderDate.BorderColor = System.Drawing.Color.LightGray;
+            this.dtpOrderDate.BorderRadius = 10;
+            this.dtpOrderDate.Checked = true;
+            this.dtpOrderDate.FillColor = System.Drawing.Color.White;
+            this.dtpOrderDate.FocusedColor = System.Drawing.Color.Transparent;
+            this.dtpOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dtpOrderDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpOrderDate.Location = new System.Drawing.Point(33, 242);
+            this.dtpOrderDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpOrderDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpOrderDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpOrderDate.Name = "dtpOrderDate";
+            this.dtpOrderDate.Size = new System.Drawing.Size(588, 44);
+            this.dtpOrderDate.TabIndex = 41;
+            this.dtpOrderDate.Value = new System.DateTime(2026, 9, 8, 23, 44, 28, 538);
             // 
-            // guna2TextBox1
+            // txtTotalAmount
             // 
-            this.guna2TextBox1.BorderRadius = 8;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(35, 520);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(588, 44);
-            this.guna2TextBox1.TabIndex = 44;
+            this.txtTotalAmount.BorderRadius = 8;
+            this.txtTotalAmount.Cursor = System.Windows.Forms.Cursors.No;
+            this.txtTotalAmount.DefaultText = "";
+            this.txtTotalAmount.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTotalAmount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTotalAmount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTotalAmount.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtTotalAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtTotalAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTotalAmount.Location = new System.Drawing.Point(35, 520);
+            this.txtTotalAmount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTotalAmount.Name = "txtTotalAmount";
+            this.txtTotalAmount.PlaceholderText = "";
+            this.txtTotalAmount.ReadOnly = true;
+            this.txtTotalAmount.SelectedText = "";
+            this.txtTotalAmount.Size = new System.Drawing.Size(588, 44);
+            this.txtTotalAmount.TabIndex = 44;
             // 
             // txtProduct
             // 
@@ -215,27 +216,26 @@
             this.txtProduct.TabIndex = 50;
             this.txtProduct.TextChanged += new System.EventHandler(this.txtProduct_TextChanged);
             // 
-            // txtCustomer
+            // cmbCustomer
             // 
-            this.txtCustomer.BorderRadius = 8;
-            this.txtCustomer.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCustomer.DefaultText = "";
-            this.txtCustomer.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCustomer.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtCustomer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtCustomer.ForeColor = System.Drawing.Color.Black;
-            this.txtCustomer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCustomer.Location = new System.Drawing.Point(32, 153);
-            this.txtCustomer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtCustomer.Name = "txtCustomer";
-            this.txtCustomer.PlaceholderText = "";
-            this.txtCustomer.SelectedText = "";
-            this.txtCustomer.Size = new System.Drawing.Size(589, 44);
-            this.txtCustomer.TabIndex = 49;
-            this.txtCustomer.TextChanged += new System.EventHandler(this.txtCustomer_TextChanged);
+            this.cmbCustomer.BorderRadius = 8;
+            this.cmbCustomer.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.cmbCustomer.DefaultText = "";
+            this.cmbCustomer.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.cmbCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.cmbCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.cmbCustomer.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.cmbCustomer.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cmbCustomer.ForeColor = System.Drawing.Color.Black;
+            this.cmbCustomer.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbCustomer.Location = new System.Drawing.Point(32, 153);
+            this.cmbCustomer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmbCustomer.Name = "cmbCustomer";
+            this.cmbCustomer.PlaceholderText = "";
+            this.cmbCustomer.SelectedText = "";
+            this.cmbCustomer.Size = new System.Drawing.Size(589, 44);
+            this.cmbCustomer.TabIndex = 49;
             // 
             // label6
             // 
@@ -248,22 +248,22 @@
             this.label6.TabIndex = 51;
             this.label6.Text = "Status";
             // 
-            // guna2ComboBox1
+            // cmbStatus
             // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderRadius = 8;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(34, 603);
-            this.guna2ComboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(588, 36);
-            this.guna2ComboBox1.TabIndex = 52;
+            this.cmbStatus.BackColor = System.Drawing.Color.Transparent;
+            this.cmbStatus.BorderRadius = 8;
+            this.cmbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbStatus.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbStatus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cmbStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbStatus.ItemHeight = 30;
+            this.cmbStatus.Location = new System.Drawing.Point(34, 603);
+            this.cmbStatus.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(588, 36);
+            this.cmbStatus.TabIndex = 52;
             // 
             // label8
             // 
@@ -283,9 +283,9 @@
             this.label9.Location = new System.Drawing.Point(338, 385);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 22);
+            this.label9.Size = new System.Drawing.Size(77, 22);
             this.label9.TabIndex = 55;
-            this.label9.Text = "Quatity";
+            this.label9.Text = "Quantity";
             // 
             // btnSave
             // 
@@ -327,27 +327,27 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // guna2TextBox5
+            // txtDescription
             // 
-            this.guna2TextBox5.BorderRadius = 8;
-            this.guna2TextBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox5.DefaultText = "";
-            this.guna2TextBox5.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox5.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox5.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.guna2TextBox5.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox5.Location = new System.Drawing.Point(35, 688);
-            this.guna2TextBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox5.Multiline = true;
-            this.guna2TextBox5.Name = "guna2TextBox5";
-            this.guna2TextBox5.PlaceholderText = "";
-            this.guna2TextBox5.SelectedText = "";
-            this.guna2TextBox5.Size = new System.Drawing.Size(588, 86);
-            this.guna2TextBox5.TabIndex = 61;
+            this.txtDescription.BorderRadius = 8;
+            this.txtDescription.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtDescription.DefaultText = "";
+            this.txtDescription.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtDescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtDescription.ForeColor = System.Drawing.Color.Black;
+            this.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDescription.Location = new System.Drawing.Point(35, 688);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.PlaceholderText = "";
+            this.txtDescription.SelectedText = "";
+            this.txtDescription.Size = new System.Drawing.Size(588, 86);
+            this.txtDescription.TabIndex = 61;
             // 
             // label10
             // 
@@ -385,14 +385,14 @@
             // 
             // lblQtyRequired
             // 
-            this.lblQtyRequired.AutoSize = true;
             this.lblQtyRequired.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQtyRequired.ForeColor = System.Drawing.Color.Red;
-            this.lblQtyRequired.Location = new System.Drawing.Point(430, 385);
+            this.lblQtyRequired.Location = new System.Drawing.Point(422, 385);
             this.lblQtyRequired.Name = "lblQtyRequired";
-            this.lblQtyRequired.Size = new System.Drawing.Size(186, 23);
+            this.lblQtyRequired.Size = new System.Drawing.Size(194, 23);
             this.lblQtyRequired.TabIndex = 69;
             this.lblQtyRequired.Text = "Must be greater than 0";
+            this.lblQtyRequired.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.lblQtyRequired.Visible = false;
             // 
             // lblProductRequired
@@ -439,25 +439,26 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(657, 881);
             this.Controls.Add(this.numPrice);
             this.Controls.Add(this.lblProductRequired);
             this.Controls.Add(this.lblQtyRequired);
             this.Controls.Add(this.lblPriceRequired);
             this.Controls.Add(this.lblCustomerRequired);
-            this.Controls.Add(this.guna2TextBox5);
+            this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.numQuantity);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.guna2ComboBox1);
+            this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtProduct);
-            this.Controls.Add(this.txtCustomer);
-            this.Controls.Add(this.guna2TextBox1);
-            this.Controls.Add(this.guna2DateTimePicker1);
+            this.Controls.Add(this.cmbCustomer);
+            this.Controls.Add(this.txtTotalAmount);
+            this.Controls.Add(this.dtpOrderDate);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -466,9 +467,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblAddOrder);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormCreateOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Order";
@@ -490,15 +493,15 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2ColorTransition guna2ColorTransition1;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpOrderDate;
+        private Guna.UI2.WinForms.Guna2TextBox txtTotalAmount;
         private Guna.UI2.WinForms.Guna2TextBox txtProduct;
-        private Guna.UI2.WinForms.Guna2TextBox txtCustomer;
+        private Guna.UI2.WinForms.Guna2TextBox cmbCustomer;
         private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbStatus;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
+        private Guna.UI2.WinForms.Guna2TextBox txtDescription;
         private System.Windows.Forms.Label label10;
         public System.Windows.Forms.Label lblAddOrder;
         public Guna.UI2.WinForms.Guna2Button btnSave;

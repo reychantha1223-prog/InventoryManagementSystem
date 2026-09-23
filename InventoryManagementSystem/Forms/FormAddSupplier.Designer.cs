@@ -61,9 +61,9 @@
             this.label2.Location = new System.Drawing.Point(137, 70);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(259, 22);
+            this.label2.Size = new System.Drawing.Size(248, 22);
             this.label2.TabIndex = 31;
-            this.label2.Text = "Fill in the customer detail below";
+            this.label2.Text = "Fill in the supplier detail below";
             // 
             // lblAddSupplier
             // 
@@ -394,6 +394,7 @@
             this.Name = "FormAddSupplier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Supplier";
+            this.Load += new System.EventHandler(this.FormAddSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

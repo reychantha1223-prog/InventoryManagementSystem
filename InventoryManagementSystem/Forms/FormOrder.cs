@@ -1,34 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventoryManagementSystem.Repositories;
 
 namespace InventoryManagementSystem.Forms
 {
     public partial class FormOrder : Form
     {
-        public class Order
+        private readonly OrderRepository _orderRepo = new OrderRepository();
+
+        public FormOrder()
         {
-            public int ID { get; set; }
-            [DisplayName("Order Number")]
-            public string OrderNumber { get; set; }
-            [DisplayName("Customer Name")]
-            public string CustomerName { get; set; }
-            [DisplayName("Total Amount")]
-            public decimal TotalAmount { get; set; }
-            public string Status { get; set; }
-            public DateTime OrderDate { get; set; }
+            InitializeComponent();
+
+            // Subscribe to the grid paint event for rendering "No orders found" message natively
+            OrderView.Paint += OrderView_Paint;
         }
+
+        private async void FormOrder_Load(object sender, EventArgs e)
+        {
+            ConfigureOrderView();
+            PopulateStatusFilter();
+            await ApplyFilterAsync();
+        }
+
         private void ConfigureOrderView()
         {
             // 1. Force Guna to use Custom Theme Preset
             OrderView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
 
             // Define Custom Colors (Dodger Blue Header Theme: #1E90FF)
-            Color headerBg = ColorTranslator.FromHtml("#1E90FF"); // Dodger Blue
-            Color headerFg = Color.White;                        // White text for high contrast
+            Color headerBg = ColorTranslator.FromHtml("#1E90FF");
+            Color headerFg = Color.White;
 
             // 2. Apply Header Styling
             OrderView.ThemeStyle.HeaderStyle.BackColor = headerBg;
@@ -36,12 +41,12 @@ namespace InventoryManagementSystem.Forms
             OrderView.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             OrderView.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
 
-            // 3. Prevent Header Selection Highlight (Force Dodger Blue)
+            // 3. Prevent Header Selection Highlight
             OrderView.EnableHeadersVisualStyles = false;
             OrderView.ColumnHeadersDefaultCellStyle.SelectionBackColor = headerBg;
             OrderView.ColumnHeadersDefaultCellStyle.SelectionForeColor = headerFg;
 
-            // 4. Apply Row Styling (12F Text Size)
+            // 4. Apply Row Styling
             OrderView.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 12F);
             OrderView.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(51, 65, 85);
             OrderView.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(212, 230, 254);
@@ -57,154 +62,250 @@ namespace InventoryManagementSystem.Forms
             OrderView.ColumnHeadersHeight = 40;
             OrderView.RowTemplate.Height = 42;
 
-            // 6. Clear existing columns before binding
+            // Clear existing columns before binding
             OrderView.Columns.Clear();
+        }
 
-            // Load Sample Order Data
-            List<Order> orders = new List<Order>
+        private void PopulateStatusFilter()
+        {
+            if (cmbStatusFilter != null)
             {
-                new Order { ID = 1, OrderNumber = "ORD-2026-001", CustomerName = "John Doe", TotalAmount = 1025.49m, Status = "Completed", OrderDate = DateTime.Now.AddDays(-2) },
-                new Order { ID = 2, OrderNumber = "ORD-2026-002", CustomerName = "Jane Smith", TotalAmount = 275.50m, Status = "Pending", OrderDate = DateTime.Now.AddDays(-1) },
-                new Order { ID = 3, OrderNumber = "ORD-2026-003", CustomerName = "Robert Johnson", TotalAmount = 45.00m, Status = "Processing", OrderDate = DateTime.Now },
-                new Order { ID = 4, OrderNumber = "ORD-2026-004", CustomerName = "Emily Davis", TotalAmount = 499.98m, Status = "Completed", OrderDate = DateTime.Now },
-                new Order { ID = 5, OrderNumber = "ORD-2026-005", CustomerName = "Michael Brown", TotalAmount = 180.00m, Status = "Cancelled", OrderDate = DateTime.Now }
-            };
-
-            // 7. Bind Data and Remove Initial Blue Box Highlight
-            OrderView.DataSource = null;
-            OrderView.DataSource = orders;
-            OrderView.ClearSelection();
-        }
-        public FormOrder()
-        {
-            InitializeComponent();
+                cmbStatusFilter.Items.Clear();
+                cmbStatusFilter.Items.Add("All");
+                cmbStatusFilter.Items.Add("Pending");
+                cmbStatusFilter.Items.Add("Processing");
+                cmbStatusFilter.Items.Add("Completed");
+                cmbStatusFilter.Items.Add("Cancelled");
+                cmbStatusFilter.SelectedIndex = 0;
+            }
         }
 
-       
-
-       
-
-        private void FormOrder_Load(object sender,EventArgs e)
+        public async Task ApplyFilterAsync()
         {
-            ConfigureOrderView();
+            try
+            {
+                string search = txtSearch != null ? txtSearch.Text.Trim() : "";
+                string status = cmbStatusFilter?.SelectedItem != null ? cmbStatusFilter.SelectedItem.ToString() : "All";
+
+                DataTable dt = await _orderRepo.GetAllOrdersAsync(search, status);
+
+                OrderView.DataSource = null;
+                OrderView.DataSource = dt;
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    // Configure Grid Headers
+                    if (OrderView.Columns["ID"] != null) OrderView.Columns["ID"].HeaderText = "ID";
+                    if (OrderView.Columns["OrderNumber"] != null) OrderView.Columns["OrderNumber"].HeaderText = "Order Number";
+                    if (OrderView.Columns["CustomerName"] != null) OrderView.Columns["CustomerName"].HeaderText = "Customer Name";
+                    if (OrderView.Columns["Status"] != null) OrderView.Columns["Status"].HeaderText = "Status";
+
+                    if (OrderView.Columns["TotalAmount"] != null)
+                    {
+                        OrderView.Columns["TotalAmount"].HeaderText = "Total Amount";
+                        OrderView.Columns["TotalAmount"].DefaultCellStyle.Format = "$#,##0.00";
+                    }
+
+                    if (OrderView.Columns["OrderDate"] != null)
+                    {
+                        OrderView.Columns["OrderDate"].HeaderText = "Order Date";
+                        OrderView.Columns["OrderDate"].DefaultCellStyle.Format = "G";
+                    }
+
+                    OrderView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    OrderView.ClearSelection();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error fetching orders: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void guna2Button1_Click(
-            object sender,
-            EventArgs e)
+        // Draw centered empty text when DataGridView contains zero records
+        private void OrderView_Paint(object sender, PaintEventArgs e)
         {
-            Form mainForm =
-                TopLevelControl as Form
-                ?? Form.ActiveForm
-                ?? this;
+            if (OrderView.Rows.Count == 0)
+            {
+                string message = "No orders found";
+
+                // Enable crisp text rendering
+                e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+
+                using (Font font = new Font("Segoe UI", 12F, FontStyle.Regular))
+                using (SolidBrush brush = new SolidBrush(Color.FromArgb(100, 116, 139)))
+                {
+                    SizeF textSize = e.Graphics.MeasureString(message, font);
+                    float x = (OrderView.Width - textSize.Width) / 2;
+                    float y = OrderView.ColumnHeadersHeight + 35;
+
+                    e.Graphics.DrawString(message, font, brush, x, y);
+                }
+            }
+        }
+
+        private async void guna2Button1_Click(object sender, EventArgs e)
+        {
+            Form mainForm = TopLevelControl as Form ?? Form.ActiveForm ?? this;
 
             using (Form overlay = new Form())
             {
-                overlay.StartPosition =
-                    FormStartPosition.Manual;
-
-                overlay.FormBorderStyle =
-                    FormBorderStyle.None;
-
+                overlay.StartPosition = FormStartPosition.Manual;
+                overlay.FormBorderStyle = FormBorderStyle.None;
                 overlay.Opacity = 0.50d;
                 overlay.BackColor = Color.Black;
                 overlay.ShowInTaskbar = false;
-
-                overlay.Location =
-                    mainForm.PointToScreen(Point.Empty);
-
-                overlay.Size =
-                    mainForm.ClientSize;
+                overlay.Location = mainForm.PointToScreen(Point.Empty);
+                overlay.Size = mainForm.ClientSize;
 
                 overlay.Show(mainForm);
 
-                using (FormCreateOrder createOrderForm =
-                       new FormCreateOrder())
+                using (FormCreateOrder createOrderForm = new FormCreateOrder(async () => await ApplyFilterAsync()))
                 {
-                    createOrderForm.StartPosition =
-                        FormStartPosition.CenterParent;
-
-                    createOrderForm.ShowDialog(overlay);
+                    createOrderForm.StartPosition = FormStartPosition.CenterParent;
+                    if (createOrderForm.ShowDialog(overlay) == DialogResult.OK)
+                    {
+                        await ApplyFilterAsync();
+                    }
                 }
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            FormConfirmDelete ConDelete = new FormConfirmDelete();
-            ConDelete.ShowDialog();
+            if (OrderView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an order to delete.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var selectedRow = OrderView.SelectedRows[0];
+            int selectedOrderId = Convert.ToInt32(selectedRow.Cells[OrderView.Columns.Contains("ID") ? "ID" : "Order ID"].Value);
+            string orderDisplayName = $"Order #{selectedOrderId}";
+            using (var deleteForm = new FormConfirmDelete(selectedOrderId, orderDisplayName, async () =>
+            {
+                await ApplyFilterAsync();
+            }))
+            {
+                deleteForm.ShowDialog(this);
+            }
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private async void btnEdit_Click(object sender, EventArgs e)
         {
+            if (OrderView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an order to edit.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int selectedOrderId = Convert.ToInt32(OrderView.SelectedRows[0].Cells["Order ID"].Value);
             Form mainForm = this.TopLevelControl as Form ?? Form.ActiveForm ?? this;
 
             using (Form overlay = new Form())
             {
                 overlay.StartPosition = FormStartPosition.Manual;
                 overlay.FormBorderStyle = FormBorderStyle.None;
-                overlay.Opacity = 0.50d; // Controls dark overlay intensity
+                overlay.Opacity = 0.50d;
                 overlay.BackColor = Color.Black;
                 overlay.ShowInTaskbar = false;
-
-                // Cover the exact client area of the main form
                 overlay.Location = mainForm.PointToScreen(Point.Empty);
                 overlay.Size = mainForm.ClientSize;
 
-                // Display overlay over main form
                 overlay.Show(mainForm);
 
-                // Open FormCreateOrder in edit mode centered on top of overlay
-                using (FormCreateOrder addOrder = new FormCreateOrder())
+                using (FormCreateOrder editOrderForm = new FormCreateOrder(selectedOrderId, async () => await ApplyFilterAsync()))
                 {
-                    addOrder.lblAddOrder.Text = "Update Order";
-                    addOrder.Text = "Update Order";
+                    if (editOrderForm.Controls.Find("lblAddOrder", true).Length > 0)
+                        editOrderForm.Controls.Find("lblAddOrder", true)[0].Text = "Update Order";
 
-                    addOrder.StartPosition = FormStartPosition.CenterParent;
-                    addOrder.ShowDialog(overlay);
+                    editOrderForm.Text = "Update Order";
+                    editOrderForm.StartPosition = FormStartPosition.CenterParent;
+
+                    if (editOrderForm.ShowDialog(overlay) == DialogResult.OK)
+                    {
+                        await ApplyFilterAsync();
+                    }
                 }
             }
         }
 
         private void btnView_Click(object sender, EventArgs e)
         {
+            if (OrderView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an order to view.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int selectedOrderId = Convert.ToInt32(OrderView.SelectedRows[0].Cells["Order ID"].Value);
             Form mainForm = this.TopLevelControl as Form ?? Form.ActiveForm ?? this;
 
             using (Form overlay = new Form())
             {
                 overlay.StartPosition = FormStartPosition.Manual;
                 overlay.FormBorderStyle = FormBorderStyle.None;
-                overlay.Opacity = 0.50d; // Controls dark overlay intensity
+                overlay.Opacity = 0.50d;
                 overlay.BackColor = Color.Black;
                 overlay.ShowInTaskbar = false;
-
-                // Cover the exact client area of the main form
                 overlay.Location = mainForm.PointToScreen(Point.Empty);
                 overlay.Size = mainForm.ClientSize;
 
-                // Display overlay over main form
                 overlay.Show(mainForm);
 
-                // Open FormCreateOrder in view mode centered on top of overlay
-                using (FormCreateOrder viewOrder = new FormCreateOrder())
+                using (FormCreateOrder viewOrderForm = new FormCreateOrder(selectedOrderId, isViewOnly: true))
                 {
-                    // Set header labels and window title
-                    viewOrder.lblAddOrder.Text = "View Order";
-                    viewOrder.Text = "View Order";
+                    viewOrderForm.StartPosition = FormStartPosition.CenterParent;
+                    viewOrderForm.ShowDialog(overlay);
+                }
+            }
+        }
 
-                    // Hide the Cancel button
-                    viewOrder.btnCancel.Visible = false;
+        private async void btnSearch_Click(object sender, EventArgs e)
+        {
+            await ApplyFilterAsync();
+        }
 
-                    // Change Save button into the Red Close button
-                    viewOrder.btnSave.Text = "Close";
-                    viewOrder.btnSave.FillColor = System.Drawing.Color.Red;
-                    viewOrder.btnSave.ForeColor = System.Drawing.Color.White;
+        private async void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            await ApplyFilterAsync();
+        }
 
-                    // Make Close button close the dialog
-                    viewOrder.btnSave.Click += (s, args) => { viewOrder.Close(); };
+        private async void cmbStatusFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            await ApplyFilterAsync();
+        }
 
-                    viewOrder.StartPosition = FormStartPosition.CenterParent;
-                    viewOrder.ShowDialog(overlay);
+        private void OrderView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (OrderView.Columns[e.ColumnIndex].Name.Equals("Status", StringComparison.OrdinalIgnoreCase) ||
+                OrderView.Columns[e.ColumnIndex].HeaderText.Equals("Status", StringComparison.OrdinalIgnoreCase))
+            {
+                if (e.Value != null)
+                {
+                    string status = e.Value.ToString().Trim();
+
+                    e.CellStyle.Font = new Font(OrderView.Font.FontFamily, 11f, FontStyle.Bold);
+
+                    switch (status.ToLower())
+                    {
+                        case "pending":
+                            e.CellStyle.ForeColor = Color.DarkOrange;
+                            break;
+                        case "processing":
+                            e.CellStyle.ForeColor = Color.DodgerBlue;
+                            break;
+                        case "completed":
+                            e.CellStyle.ForeColor = Color.Green;
+                            break;
+                        case "cancelled":
+                        case "canceled":
+                            e.CellStyle.ForeColor = Color.Red;
+                            break;
+                        default:
+                            e.CellStyle.ForeColor = Color.DarkGray;
+                            break;
+                    }
                 }
             }
         }

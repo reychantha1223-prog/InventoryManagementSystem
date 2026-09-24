@@ -42,6 +42,7 @@
     <Reference Include="System">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
@@ -59,11 +60,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\DbConnection.cs" />
     <Compile Include="Forms\ConfirmLogout.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ConfirmLogout.Designer.cs">
       <DependentUpon>ConfirmLogout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormInvoices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormInvoices.Designer.cs">
+      <DependentUpon>FormInvoices.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MessageUpdatePassword.cs">
       <SubType>Form</SubType>
@@ -195,6 +203,9 @@
     <Compile Include="Repositories\SupplierRepository.cs" />
     <EmbeddedResource Include="Forms\ConfirmLogout.resx">
       <DependentUpon>ConfirmLogout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormInvoices.resx">
+      <DependentUpon>FormInvoices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MessageUpdatePassword.resx">
       <DependentUpon>MessageUpdatePassword.cs</DependentUpon>

@@ -2,13 +2,14 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 using System.Threading.Tasks;
 
 namespace InventoryManagementSystem.Repositories
 {
     public class AccountRepository
     {
-        private readonly string connectionString = "Server=.;Database=IMSDB;Trusted_Connection=True;TrustServerCertificate=True;";
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["IMSDB"].ConnectionString;
 
         // Get user profile details by UserID using the Authentication model
         public async Task<Authentication> GetUserProfileAsync(int userId)

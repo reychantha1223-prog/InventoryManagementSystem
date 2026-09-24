@@ -1,14 +1,17 @@
-﻿using System;
+﻿using InventoryManagementSystem.Models;
+using InventoryManagementSystem.Repositories;
+using System;
+using System.Configuration;
 using System.Data;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using InventoryManagementSystem.Models;
-using InventoryManagementSystem.Repositories;
 
 namespace InventoryManagementSystem.Forms
 {
     public partial class FormAddProduct : Form
     {
+        private readonly string connectionString =
+            ConfigurationManager.ConnectionStrings["IMSDB"].ConnectionString;
         private readonly ProductRepository _productRepository = new ProductRepository();
         private Product currentProduct = new Product();
         private readonly Action onSaveSuccess;

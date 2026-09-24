@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Configuration;
 using System.Threading.Tasks;
 using InventoryManagementSystem.Models;
 
@@ -8,7 +9,7 @@ namespace InventoryManagementSystem.Repositories
 {
     public class DashboardRepository
     {
-        private readonly string connectionString = "Server=.;Database=IMSDB;Trusted_Connection=True;TrustServerCertificate=True;";
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["IMSDB"].ConnectionString;
 
         // 1. Get Metric Card Summaries
         public async Task<DashboardSummary> GetDashboardSummaryAsync()

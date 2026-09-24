@@ -1,15 +1,18 @@
-﻿using System;
+﻿using InventoryManagementSystem.Models;
+using InventoryManagementSystem.Repositories;
+using System;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using InventoryManagementSystem.Models;
-using InventoryManagementSystem.Repositories;
 
 namespace InventoryManagementSystem.Forms
 {
     public partial class FormCategory : Form
     {
+        private readonly string connectionString =
+            ConfigurationManager.ConnectionStrings["IMSDB"].ConnectionString;
         private readonly ICategoryRepository _categoryRepository;
 
         public FormCategory(ICategoryRepository categoryRepository = null)
@@ -17,8 +20,7 @@ namespace InventoryManagementSystem.Forms
             InitializeComponent();
 
             // Default fallback if direct parameter isn't supplied (e.g., WinForms Designer)
-            string connectionString = "Server=localhost;Database=IMSDB;Trusted_Connection=True;TrustServerCertificate=True;";
-            _categoryRepository = categoryRepository ?? new CategoryRepository(connectionString);
+            _categoryRepository = categoryRepository ?? new CategoryRepository();
         }
 
         private async void FormCategory_Load(object sender, EventArgs e)

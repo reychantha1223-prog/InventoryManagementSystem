@@ -2,11 +2,14 @@
 using System.Windows.Forms;
 using InventoryManagementSystem.Models;
 using InventoryManagementSystem.Repositories;
+using System.Configuration;
 
 namespace InventoryManagementSystem.Forms
 {
     public partial class FormAddCategory : Form
     {
+        private readonly string connectionString =
+            ConfigurationManager.ConnectionStrings["IMSDB"].ConnectionString;
         private readonly ICategoryRepository _categoryRepository;
         private readonly Category _currentCategory;
         private readonly Action _onSaveSuccess;
@@ -14,9 +17,7 @@ namespace InventoryManagementSystem.Forms
         public FormAddCategory(ICategoryRepository categoryRepository = null, Category categoryToEdit = null, Action onSaveSuccess = null)
         {
             InitializeComponent();
-
-            string connectionString = "Server=localhost;Database=IMSDB;Trusted_Connection=True;TrustServerCertificate=True;";
-            _categoryRepository = categoryRepository ?? new CategoryRepository(connectionString);
+            _categoryRepository = categoryRepository ?? new CategoryRepository();
 
             _currentCategory = categoryToEdit ?? new Category();
             _onSaveSuccess = onSaveSuccess;

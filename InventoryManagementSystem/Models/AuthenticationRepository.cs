@@ -2,12 +2,13 @@
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 using InventoryManagementSystem.Models;
+using System.Configuration;
 
 namespace InventoryManagementSystem.Repositories
 {
     public class AuthenticationRepository
     {
-        private readonly string connectionString = "Server=.;Database=IMSDB;Trusted_Connection=True;TrustServerCertificate=True;";
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["IMSDB"].ConnectionString;
 
         // Holds global session state for logged-in user
         public static Authentication CurrentUser { get; private set; }

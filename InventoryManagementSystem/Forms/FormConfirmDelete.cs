@@ -1,15 +1,17 @@
-﻿using System;
+﻿using InventoryManagementSystem.Models;
+using System;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using InventoryManagementSystem.Models;
 
 namespace InventoryManagementSystem.Forms
 {
     public partial class FormConfirmDelete : Form
     {
-        private readonly string connectionString = "Server=localhost;Database=IMSDB;Trusted_Connection=True;TrustServerCertificate=True;";
+        private readonly string connectionString =
+            ConfigurationManager.ConnectionStrings["IMSDB"].ConnectionString;
 
         public enum ItemType { Category, Product, Customer, Supplier, Order }
         private readonly ItemType targetType;

@@ -43,19 +43,6 @@ namespace InventoryManagementSystem.Forms
             {
                 txtUsername.Select();
             }
-
-            // 2. Pre-warm SQL connection in background
-            _ = Task.Run(() =>
-            {
-                try
-                {
-                    using (var conn = new System.Data.SqlClient.SqlConnection("Server=.;Database=IMSDB;Trusted_Connection=True;TrustServerCertificate=True;"))
-                    {
-                        conn.Open();
-                    }
-                }
-                catch { /* Ignore pre-warm errors */ }
-            });
         }
 
         private void SaveRememberMeSettings()

@@ -19,6 +19,11 @@ namespace InventoryManagementSystem.Forms
             txtNewPassword.UseSystemPasswordChar = true;
             txtConfirmPassword.UseSystemPasswordChar = true;
 
+            //Eye icons for showing/hiding password
+            cureye.Image = Properties.Resources.hide;
+            neweye.Image = Properties.Resources.hide;
+            coneye.Image = Properties.Resources.hide;
+
             AcceptButton = btnSave;
             CancelButton = btnCancel;
         }
@@ -161,6 +166,33 @@ namespace InventoryManagementSystem.Forms
             {
                 btnSave.Enabled = true;
             }
+        }
+        private void cureye_Click(object sender, EventArgs e)
+        {
+            txtCurrentPassword.UseSystemPasswordChar =
+                !txtCurrentPassword.UseSystemPasswordChar;
+
+            cureye.Image = txtCurrentPassword.UseSystemPasswordChar
+                ? Properties.Resources.hide
+                : Properties.Resources.show;
+        }
+        private void newEye_Click(object sender, EventArgs e)
+        {
+            txtNewPassword.UseSystemPasswordChar =
+                !txtNewPassword.UseSystemPasswordChar;
+
+            neweye.Image = txtNewPassword.UseSystemPasswordChar
+                ? Properties.Resources.hide
+                : Properties.Resources.show;
+        }
+        private void conEye_Click(object sender, EventArgs e)
+        {
+            txtConfirmPassword.UseSystemPasswordChar =
+                !txtConfirmPassword.UseSystemPasswordChar;
+
+            coneye.Image = txtConfirmPassword.UseSystemPasswordChar
+                ? Properties.Resources.hide
+                : Properties.Resources.show;
         }
 
         // Real-time error hiding when user types in textboxes

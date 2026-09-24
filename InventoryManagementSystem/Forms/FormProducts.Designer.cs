@@ -67,6 +67,8 @@
             this.btnDeleteProduct = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddProduct = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ContainerControl5 = new Guna.UI2.WinForms.Guna2ContainerControl();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.guna2ContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.guna2ContainerControl2.SuspendLayout();
@@ -77,15 +79,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductView)).BeginInit();
             this.guna2ContainerControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 16);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(111, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 40);
+            this.label1.Size = new System.Drawing.Size(157, 45);
             this.label1.TabIndex = 10;
             this.label1.Text = "Products";
             // 
@@ -95,12 +98,13 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(75, 360);
+            this.button1.Location = new System.Drawing.Point(82, 387);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(33, 26);
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // guna2ContainerControl1
             // 
@@ -110,11 +114,12 @@
             this.guna2ContainerControl1.Controls.Add(this.lblTotalProducts);
             this.guna2ContainerControl1.Controls.Add(this.pictureBox2);
             this.guna2ContainerControl1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.guna2ContainerControl1.Location = new System.Drawing.Point(30, 90);
+            this.guna2ContainerControl1.Location = new System.Drawing.Point(37, 117);
             this.guna2ContainerControl1.Name = "guna2ContainerControl1";
             this.guna2ContainerControl1.Size = new System.Drawing.Size(361, 188);
             this.guna2ContainerControl1.TabIndex = 17;
             this.guna2ContainerControl1.Text = "guna2ContainerControl1";
+            this.guna2ContainerControl1.Click += new System.EventHandler(this.guna2ContainerControl1_Click);
             // 
             // label6
             // 
@@ -126,6 +131,7 @@
             this.label6.Size = new System.Drawing.Size(176, 33);
             this.label6.TabIndex = 0;
             this.label6.Text = "Total Products";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // lblTotalProducts
             // 
@@ -136,6 +142,7 @@
             this.lblTotalProducts.Name = "lblTotalProducts";
             this.lblTotalProducts.Size = new System.Drawing.Size(0, 81);
             this.lblTotalProducts.TabIndex = 2;
+            this.lblTotalProducts.Click += new System.EventHandler(this.lblTotalProducts_Click);
             // 
             // pictureBox2
             // 
@@ -147,6 +154,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // guna2ContainerControl2
             // 
@@ -155,11 +163,12 @@
             this.guna2ContainerControl2.Controls.Add(this.lblInStock);
             this.guna2ContainerControl2.Controls.Add(this.label9);
             this.guna2ContainerControl2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(249)))), ((int)(((byte)(242)))));
-            this.guna2ContainerControl2.Location = new System.Drawing.Point(449, 90);
+            this.guna2ContainerControl2.Location = new System.Drawing.Point(456, 117);
             this.guna2ContainerControl2.Name = "guna2ContainerControl2";
             this.guna2ContainerControl2.Size = new System.Drawing.Size(361, 188);
             this.guna2ContainerControl2.TabIndex = 18;
             this.guna2ContainerControl2.Text = "guna2ContainerControl2";
+            this.guna2ContainerControl2.Click += new System.EventHandler(this.guna2ContainerControl2_Click);
             // 
             // pictureBox4
             // 
@@ -172,6 +181,7 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 6;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // lblInStock
             // 
@@ -183,6 +193,7 @@
             this.lblInStock.Name = "lblInStock";
             this.lblInStock.Size = new System.Drawing.Size(0, 81);
             this.lblInStock.TabIndex = 5;
+            this.lblInStock.Click += new System.EventHandler(this.lblInStock_Click);
             // 
             // label9
             // 
@@ -195,6 +206,7 @@
             this.label9.Size = new System.Drawing.Size(104, 33);
             this.label9.TabIndex = 4;
             this.label9.Text = "In Stock";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // guna2ContainerControl3
             // 
@@ -203,11 +215,12 @@
             this.guna2ContainerControl3.Controls.Add(this.lblLowStock);
             this.guna2ContainerControl3.Controls.Add(this.label5);
             this.guna2ContainerControl3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(229)))));
-            this.guna2ContainerControl3.Location = new System.Drawing.Point(871, 90);
+            this.guna2ContainerControl3.Location = new System.Drawing.Point(878, 117);
             this.guna2ContainerControl3.Name = "guna2ContainerControl3";
             this.guna2ContainerControl3.Size = new System.Drawing.Size(361, 188);
             this.guna2ContainerControl3.TabIndex = 19;
             this.guna2ContainerControl3.Text = "guna2ContainerControl3";
+            this.guna2ContainerControl3.Click += new System.EventHandler(this.guna2ContainerControl3_Click);
             // 
             // pictureBox1
             // 
@@ -220,6 +233,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lblLowStock
             // 
@@ -231,6 +245,7 @@
             this.lblLowStock.Name = "lblLowStock";
             this.lblLowStock.Size = new System.Drawing.Size(0, 81);
             this.lblLowStock.TabIndex = 5;
+            this.lblLowStock.Click += new System.EventHandler(this.lblLowStock_Click);
             // 
             // label5
             // 
@@ -243,6 +258,7 @@
             this.label5.Size = new System.Drawing.Size(130, 33);
             this.label5.TabIndex = 4;
             this.label5.Text = "Low Stock";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // guna2ContainerControl4
             // 
@@ -251,11 +267,12 @@
             this.guna2ContainerControl4.Controls.Add(this.lblOutOfStock);
             this.guna2ContainerControl4.Controls.Add(this.label4);
             this.guna2ContainerControl4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.guna2ContainerControl4.Location = new System.Drawing.Point(1292, 90);
+            this.guna2ContainerControl4.Location = new System.Drawing.Point(1299, 117);
             this.guna2ContainerControl4.Name = "guna2ContainerControl4";
             this.guna2ContainerControl4.Size = new System.Drawing.Size(361, 188);
             this.guna2ContainerControl4.TabIndex = 7;
             this.guna2ContainerControl4.Text = "guna2ContainerControl4";
+            this.guna2ContainerControl4.Click += new System.EventHandler(this.guna2ContainerControl4_Click);
             // 
             // pictureBox3
             // 
@@ -268,6 +285,7 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // lblOutOfStock
             // 
@@ -279,6 +297,7 @@
             this.lblOutOfStock.Name = "lblOutOfStock";
             this.lblOutOfStock.Size = new System.Drawing.Size(0, 81);
             this.lblOutOfStock.TabIndex = 5;
+            this.lblOutOfStock.Click += new System.EventHandler(this.lblOutOfStock_Click);
             // 
             // label4
             // 
@@ -291,6 +310,7 @@
             this.label4.Size = new System.Drawing.Size(152, 33);
             this.label4.TabIndex = 4;
             this.label4.Text = "Out of Stock";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtSearchProduct
             // 
@@ -305,7 +325,7 @@
             this.txtSearchProduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchProduct.ForeColor = System.Drawing.Color.Black;
             this.txtSearchProduct.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearchProduct.Location = new System.Drawing.Point(64, 347);
+            this.txtSearchProduct.Location = new System.Drawing.Point(71, 374);
             this.txtSearchProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSearchProduct.Name = "txtSearchProduct";
             this.txtSearchProduct.PlaceholderForeColor = System.Drawing.Color.Gray;
@@ -327,7 +347,9 @@
             this.btnSearch.FillColor = System.Drawing.Color.ForestGreen;
             this.btnSearch.Font = new System.Drawing.Font("Arial", 10.8F);
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(605, 347);
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageSize = new System.Drawing.Size(16, 16);
+            this.btnSearch.Location = new System.Drawing.Point(612, 374);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(119, 48);
             this.btnSearch.TabIndex = 22;
@@ -346,7 +368,7 @@
             this.cmbCategory.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbCategory.ItemHeight = 30;
-            this.cmbCategory.Location = new System.Drawing.Point(754, 347);
+            this.cmbCategory.Location = new System.Drawing.Point(783, 374);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(242, 36);
             this.cmbCategory.TabIndex = 23;
@@ -364,7 +386,7 @@
             this.cmbStock.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbStock.ItemHeight = 30;
-            this.cmbStock.Location = new System.Drawing.Point(1047, 347);
+            this.cmbStock.Location = new System.Drawing.Point(1054, 374);
             this.cmbStock.Name = "cmbStock";
             this.cmbStock.Size = new System.Drawing.Size(228, 36);
             this.cmbStock.TabIndex = 24;
@@ -402,12 +424,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.ProductView.DefaultCellStyle = dataGridViewCellStyle3;
             this.ProductView.GridColor = System.Drawing.Color.Silver;
-            this.ProductView.Location = new System.Drawing.Point(64, 416);
+            this.ProductView.Location = new System.Drawing.Point(71, 443);
             this.ProductView.Name = "ProductView";
             this.ProductView.RowHeadersVisible = false;
             this.ProductView.RowHeadersWidth = 51;
             this.ProductView.RowTemplate.Height = 24;
-            this.ProductView.Size = new System.Drawing.Size(1557, 563);
+            this.ProductView.Size = new System.Drawing.Size(1557, 595);
             this.ProductView.TabIndex = 3;
             this.ProductView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.ProductView.ThemeStyle.GridColor = System.Drawing.Color.Silver;
@@ -415,6 +437,7 @@
             this.ProductView.ThemeStyle.HeaderStyle.Height = 18;
             this.ProductView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProductView.ThemeStyle.RowsStyle.Height = 24;
+            this.ProductView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductView_CellContentClick);
             this.ProductView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.ProductView_CellFormatting);
             this.ProductView.Paint += new System.Windows.Forms.PaintEventHandler(this.ProductView_Paint);
             // 
@@ -485,16 +508,17 @@
             this.btnEdit.FillColor = System.Drawing.Color.DodgerBlue;
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(1352, 35);
+            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
+            this.btnEdit.Location = new System.Drawing.Point(1348, 35);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(113, 45);
+            this.btnEdit.Size = new System.Drawing.Size(119, 48);
             this.btnEdit.TabIndex = 25;
             this.btnEdit.Text = "Edit";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDeleteProduct
             // 
-            this.btnDeleteProduct.BorderRadius = 8;
+            this.btnDeleteProduct.BorderRadius = 10;
             this.btnDeleteProduct.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeleteProduct.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnDeleteProduct.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -503,9 +527,10 @@
             this.btnDeleteProduct.FillColor = System.Drawing.Color.Red;
             this.btnDeleteProduct.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteProduct.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteProduct.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteProduct.Image")));
             this.btnDeleteProduct.Location = new System.Drawing.Point(1478, 35);
             this.btnDeleteProduct.Name = "btnDeleteProduct";
-            this.btnDeleteProduct.Size = new System.Drawing.Size(113, 45);
+            this.btnDeleteProduct.Size = new System.Drawing.Size(119, 48);
             this.btnDeleteProduct.TabIndex = 26;
             this.btnDeleteProduct.Text = "Delete";
             this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
@@ -521,11 +546,12 @@
             this.btnAddProduct.FillColor = System.Drawing.Color.DodgerBlue;
             this.btnAddProduct.Font = new System.Drawing.Font("Arial", 12F);
             this.btnAddProduct.ForeColor = System.Drawing.Color.White;
-            this.btnAddProduct.Location = new System.Drawing.Point(1459, 5);
+            this.btnAddProduct.Image = ((System.Drawing.Image)(resources.GetObject("btnAddProduct.Image")));
+            this.btnAddProduct.Location = new System.Drawing.Point(1459, 22);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(196, 57);
             this.btnAddProduct.TabIndex = 20;
-            this.btnAddProduct.Text = "＋ Add Product";
+            this.btnAddProduct.Text = "Add Product";
             this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // guna2ContainerControl5
@@ -533,18 +559,44 @@
             this.guna2ContainerControl5.BorderRadius = 20;
             this.guna2ContainerControl5.Controls.Add(this.btnDeleteProduct);
             this.guna2ContainerControl5.Controls.Add(this.btnEdit);
-            this.guna2ContainerControl5.Location = new System.Drawing.Point(30, 312);
+            this.guna2ContainerControl5.Location = new System.Drawing.Point(37, 339);
             this.guna2ContainerControl5.Name = "guna2ContainerControl5";
-            this.guna2ContainerControl5.Size = new System.Drawing.Size(1625, 703);
+            this.guna2ContainerControl5.Size = new System.Drawing.Size(1625, 735);
             this.guna2ContainerControl5.TabIndex = 27;
             this.guna2ContainerControl5.Text = "guna2ContainerControl5";
+            this.guna2ContainerControl5.Click += new System.EventHandler(this.guna2ContainerControl5_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Symbol", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(117, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(315, 25);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "Manage your product and stock easily";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(38, 19);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(71, 65);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 30;
+            this.pictureBox5.TabStop = false;
             // 
             // FormProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(1699, 1042);
+            this.ClientSize = new System.Drawing.Size(1699, 1055);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.ProductView);
             this.Controls.Add(this.cmbStock);
             this.Controls.Add(this.cmbCategory);
@@ -577,6 +629,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductView)).EndInit();
             this.guna2ContainerControl5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -618,5 +671,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

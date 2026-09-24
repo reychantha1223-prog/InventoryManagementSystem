@@ -163,5 +163,45 @@ namespace InventoryManagementSystem.Forms
             recentProductView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             recentProductView.ColumnHeadersHeight = 38;
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void recentProductView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (recentProductView.Columns[e.ColumnIndex].Name.Equals("Status", StringComparison.OrdinalIgnoreCase) ||
+                recentProductView.Columns[e.ColumnIndex].HeaderText.Equals("Status", StringComparison.OrdinalIgnoreCase))
+            {
+                if (e.Value != null)
+                {
+                    string status = e.Value.ToString().Trim();
+
+                    e.CellStyle.Font = new Font(recentProductView.Font.FontFamily, 10.5f, FontStyle.Bold);
+
+                    switch (status.ToLower())
+                    {
+                        case "in stock":
+                            e.CellStyle.ForeColor = Color.Green;
+                            break;
+                        case "low stock":
+                            e.CellStyle.ForeColor = Color.DarkOrange;
+                            break;
+                        case "out of stock":
+                            e.CellStyle.ForeColor = Color.Red;
+                            break;
+                        default:
+                            e.CellStyle.ForeColor = Color.DarkGray;
+                            break;
+                    }
+                }
+            }
+        }
     }
 }

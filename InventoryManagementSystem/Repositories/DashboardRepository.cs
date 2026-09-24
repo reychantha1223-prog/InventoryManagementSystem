@@ -113,11 +113,11 @@ namespace InventoryManagementSystem.Repositories
 
         // 4. Get Top Recent Products for DataGridView
         // 4. Get Top Recent Products for DataGridView
+        // 4. Get Top Recent Products for DataGridView
         public async Task<List<RecentProduct>> GetRecentProductsAsync(int topCount = 5)
         {
             var productList = new List<RecentProduct>();
 
-            // If your DB columns are ProductID, ProductName, CategoryID, CategoryName:
             string query = $@"
         SELECT TOP ({topCount}) 
             p.ProductID AS ID, 
@@ -126,8 +126,8 @@ namespace InventoryManagementSystem.Repositories
             p.Stock, 
             c.CategoryName AS Category,
             CASE 
-                WHEN p.Stock > 10 THEN 'In Stock'
-                WHEN p.Stock > 0 THEN 'Low Stock'
+                WHEN p.Stock > 5 THEN 'In Stock'
+                WHEN p.Stock > 0 AND p.Stock <= 5 THEN 'Low Stock'
                 ELSE 'Out of Stock'
             END AS Status,
             p.CreatedAt

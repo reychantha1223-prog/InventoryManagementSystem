@@ -267,5 +267,10 @@ namespace InventoryManagementSystem.Forms
 
             return supp;
         }
+
+        private void SupplierView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

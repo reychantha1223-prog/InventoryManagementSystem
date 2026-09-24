@@ -29,42 +29,42 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDashboard));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            Guna.Charts.WinForms.ChartFont chartFont65 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont66 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont67 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont68 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid25 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick25 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont69 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid26 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick26 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont70 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid27 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.PointLabel pointLabel9 = new Guna.Charts.WinForms.PointLabel();
-            Guna.Charts.WinForms.ChartFont chartFont71 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Tick tick27 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont72 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont73 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont74 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont75 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.ChartFont chartFont76 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid28 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick28 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont77 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid29 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.Tick tick29 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont78 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Grid grid30 = new Guna.Charts.WinForms.Grid();
-            Guna.Charts.WinForms.PointLabel pointLabel10 = new Guna.Charts.WinForms.PointLabel();
-            Guna.Charts.WinForms.ChartFont chartFont79 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.Tick tick30 = new Guna.Charts.WinForms.Tick();
-            Guna.Charts.WinForms.ChartFont chartFont80 = new Guna.Charts.WinForms.ChartFont();
-            Guna.Charts.WinForms.LPoint lPoint1 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint2 = new Guna.Charts.WinForms.LPoint();
-            Guna.Charts.WinForms.LPoint lPoint3 = new Guna.Charts.WinForms.LPoint();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            Guna.Charts.WinForms.ChartFont chartFont145 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont146 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont147 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont148 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid55 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick55 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont149 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid56 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick56 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont150 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid57 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel19 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont151 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick57 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont152 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont153 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont154 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont155 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont156 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid58 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick58 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont157 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid59 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick59 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont158 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid60 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel20 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont159 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick60 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont160 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.LPoint lPoint4 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint5 = new Guna.Charts.WinForms.LPoint();
+            Guna.Charts.WinForms.LPoint lPoint6 = new Guna.Charts.WinForms.LPoint();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTotalCategories = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -97,6 +97,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.guna2ContainerControl7 = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2ContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -112,6 +115,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.guna2ContainerControl7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -149,11 +153,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(26, 18);
+            this.label7.Location = new System.Drawing.Point(26, 55);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(251, 41);
+            this.label7.Size = new System.Drawing.Size(0, 41);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Main Dashboard";
             // 
             // label8
             // 
@@ -175,7 +178,7 @@
             this.guna2ContainerControl1.Controls.Add(this.lblTotalProducts);
             this.guna2ContainerControl1.Controls.Add(this.pictureBox2);
             this.guna2ContainerControl1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.guna2ContainerControl1.Location = new System.Drawing.Point(32, 80);
+            this.guna2ContainerControl1.Location = new System.Drawing.Point(29, 112);
             this.guna2ContainerControl1.Name = "guna2ContainerControl1";
             this.guna2ContainerControl1.Size = new System.Drawing.Size(361, 188);
             this.guna2ContainerControl1.TabIndex = 3;
@@ -221,7 +224,7 @@
             this.guna2ContainerControl2.Controls.Add(this.lblTotalCategories);
             this.guna2ContainerControl2.Controls.Add(this.label2);
             this.guna2ContainerControl2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.guna2ContainerControl2.Location = new System.Drawing.Point(449, 80);
+            this.guna2ContainerControl2.Location = new System.Drawing.Point(446, 112);
             this.guna2ContainerControl2.Name = "guna2ContainerControl2";
             this.guna2ContainerControl2.Size = new System.Drawing.Size(361, 188);
             this.guna2ContainerControl2.TabIndex = 11;
@@ -234,7 +237,7 @@
             this.guna2ContainerControl3.Controls.Add(this.lblTotalCustomers);
             this.guna2ContainerControl3.Controls.Add(this.label10);
             this.guna2ContainerControl3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(249)))), ((int)(((byte)(242)))));
-            this.guna2ContainerControl3.Location = new System.Drawing.Point(870, 80);
+            this.guna2ContainerControl3.Location = new System.Drawing.Point(867, 112);
             this.guna2ContainerControl3.Name = "guna2ContainerControl3";
             this.guna2ContainerControl3.Size = new System.Drawing.Size(361, 188);
             this.guna2ContainerControl3.TabIndex = 12;
@@ -282,7 +285,7 @@
             this.guna2ContainerControl4.Controls.Add(this.lblTotalSuppliers);
             this.guna2ContainerControl4.Controls.Add(this.label12);
             this.guna2ContainerControl4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
-            this.guna2ContainerControl4.Location = new System.Drawing.Point(1294, 80);
+            this.guna2ContainerControl4.Location = new System.Drawing.Point(1291, 112);
             this.guna2ContainerControl4.Name = "guna2ContainerControl4";
             this.guna2ContainerControl4.Size = new System.Drawing.Size(361, 188);
             this.guna2ContainerControl4.TabIndex = 13;
@@ -321,35 +324,35 @@
             // 
             // recentProductView
             // 
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            this.recentProductView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.recentProductView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.recentProductView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.recentProductView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
             this.recentProductView.ColumnHeadersHeight = 18;
             this.recentProductView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.recentProductView.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.recentProductView.DefaultCellStyle = dataGridViewCellStyle30;
             this.recentProductView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            this.recentProductView.Location = new System.Drawing.Point(69, 792);
+            this.recentProductView.Location = new System.Drawing.Point(66, 824);
             this.recentProductView.Name = "recentProductView";
             this.recentProductView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.recentProductView.RowHeadersVisible = false;
             this.recentProductView.RowHeadersWidth = 51;
             this.recentProductView.RowTemplate.Height = 24;
-            this.recentProductView.Size = new System.Drawing.Size(1542, 211);
+            this.recentProductView.Size = new System.Drawing.Size(1542, 232);
             this.recentProductView.TabIndex = 15;
             this.recentProductView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.recentProductView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
@@ -359,40 +362,41 @@
             this.recentProductView.ThemeStyle.HeaderStyle.Height = 18;
             this.recentProductView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.recentProductView.ThemeStyle.RowsStyle.Height = 24;
+            this.recentProductView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.recentProductView_CellFormatting);
             // 
             // guna2Chart1
             // 
-            chartFont65.FontName = "Arial";
-            this.guna2Chart1.Legend.LabelFont = chartFont65;
+            chartFont145.FontName = "Arial";
+            this.guna2Chart1.Legend.LabelFont = chartFont145;
             this.guna2Chart1.Location = new System.Drawing.Point(19, 28);
             this.guna2Chart1.Name = "guna2Chart1";
-            this.guna2Chart1.Size = new System.Drawing.Size(984, 377);
+            this.guna2Chart1.Size = new System.Drawing.Size(956, 377);
             this.guna2Chart1.TabIndex = 16;
-            chartFont66.FontName = "Arial";
-            chartFont66.Size = 12;
-            chartFont66.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.guna2Chart1.Title.Font = chartFont66;
-            chartFont67.FontName = "Arial";
-            this.guna2Chart1.Tooltips.BodyFont = chartFont67;
-            chartFont68.FontName = "Arial";
-            chartFont68.Size = 9;
-            chartFont68.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.guna2Chart1.Tooltips.TitleFont = chartFont68;
-            this.guna2Chart1.XAxes.GridLines = grid25;
-            chartFont69.FontName = "Arial";
-            tick25.Font = chartFont69;
-            this.guna2Chart1.XAxes.Ticks = tick25;
-            this.guna2Chart1.YAxes.GridLines = grid26;
-            chartFont70.FontName = "Arial";
-            tick26.Font = chartFont70;
-            this.guna2Chart1.YAxes.Ticks = tick26;
-            this.guna2Chart1.ZAxes.GridLines = grid27;
-            chartFont71.FontName = "Arial";
-            pointLabel9.Font = chartFont71;
-            this.guna2Chart1.ZAxes.PointLabels = pointLabel9;
-            chartFont72.FontName = "Arial";
-            tick27.Font = chartFont72;
-            this.guna2Chart1.ZAxes.Ticks = tick27;
+            chartFont146.FontName = "Arial";
+            chartFont146.Size = 12;
+            chartFont146.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.guna2Chart1.Title.Font = chartFont146;
+            chartFont147.FontName = "Arial";
+            this.guna2Chart1.Tooltips.BodyFont = chartFont147;
+            chartFont148.FontName = "Arial";
+            chartFont148.Size = 9;
+            chartFont148.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.guna2Chart1.Tooltips.TitleFont = chartFont148;
+            this.guna2Chart1.XAxes.GridLines = grid55;
+            chartFont149.FontName = "Arial";
+            tick55.Font = chartFont149;
+            this.guna2Chart1.XAxes.Ticks = tick55;
+            this.guna2Chart1.YAxes.GridLines = grid56;
+            chartFont150.FontName = "Arial";
+            tick56.Font = chartFont150;
+            this.guna2Chart1.YAxes.Ticks = tick56;
+            this.guna2Chart1.ZAxes.GridLines = grid57;
+            chartFont151.FontName = "Arial";
+            pointLabel19.Font = chartFont151;
+            this.guna2Chart1.ZAxes.PointLabels = pointLabel19;
+            chartFont152.FontName = "Arial";
+            tick57.Font = chartFont152;
+            this.guna2Chart1.ZAxes.Ticks = tick57;
             // 
             // chartStockOverview
             // 
@@ -401,53 +405,53 @@
             this.gunaDoughnutDataset1});
             this.chartStockOverview.Legend.Align = Guna.Charts.WinForms.ChartTextAlignment.Start;
             this.chartStockOverview.Legend.BoxWidth = 20;
-            chartFont73.FontName = "Arial";
-            this.chartStockOverview.Legend.LabelFont = chartFont73;
+            chartFont153.FontName = "Arial";
+            this.chartStockOverview.Legend.LabelFont = chartFont153;
             this.chartStockOverview.Legend.Position = Guna.Charts.WinForms.LegendPosition.Right;
             this.chartStockOverview.Location = new System.Drawing.Point(88, 46);
             this.chartStockOverview.Name = "chartStockOverview";
             this.chartStockOverview.Size = new System.Drawing.Size(490, 357);
             this.chartStockOverview.TabIndex = 17;
-            chartFont74.FontName = "Arial";
-            chartFont74.Size = 12;
-            chartFont74.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.chartStockOverview.Title.Font = chartFont74;
-            chartFont75.FontName = "Arial";
-            this.chartStockOverview.Tooltips.BodyFont = chartFont75;
-            chartFont76.FontName = "Arial";
-            chartFont76.Size = 9;
-            chartFont76.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            this.chartStockOverview.Tooltips.TitleFont = chartFont76;
+            chartFont154.FontName = "Arial";
+            chartFont154.Size = 12;
+            chartFont154.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.chartStockOverview.Title.Font = chartFont154;
+            chartFont155.FontName = "Arial";
+            this.chartStockOverview.Tooltips.BodyFont = chartFont155;
+            chartFont156.FontName = "Arial";
+            chartFont156.Size = 9;
+            chartFont156.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.chartStockOverview.Tooltips.TitleFont = chartFont156;
             this.chartStockOverview.XAxes.Display = false;
-            this.chartStockOverview.XAxes.GridLines = grid28;
-            chartFont77.FontName = "Arial";
-            tick28.Font = chartFont77;
-            this.chartStockOverview.XAxes.Ticks = tick28;
+            this.chartStockOverview.XAxes.GridLines = grid58;
+            chartFont157.FontName = "Arial";
+            tick58.Font = chartFont157;
+            this.chartStockOverview.XAxes.Ticks = tick58;
             this.chartStockOverview.YAxes.Display = false;
-            this.chartStockOverview.YAxes.GridLines = grid29;
-            chartFont78.FontName = "Arial";
-            tick29.Font = chartFont78;
-            this.chartStockOverview.YAxes.Ticks = tick29;
-            this.chartStockOverview.ZAxes.GridLines = grid30;
-            chartFont79.FontName = "Arial";
-            pointLabel10.Font = chartFont79;
-            this.chartStockOverview.ZAxes.PointLabels = pointLabel10;
-            chartFont80.FontName = "Arial";
-            tick30.Font = chartFont80;
-            this.chartStockOverview.ZAxes.Ticks = tick30;
+            this.chartStockOverview.YAxes.GridLines = grid59;
+            chartFont158.FontName = "Arial";
+            tick59.Font = chartFont158;
+            this.chartStockOverview.YAxes.Ticks = tick59;
+            this.chartStockOverview.ZAxes.GridLines = grid60;
+            chartFont159.FontName = "Arial";
+            pointLabel20.Font = chartFont159;
+            this.chartStockOverview.ZAxes.PointLabels = pointLabel20;
+            chartFont160.FontName = "Arial";
+            tick60.Font = chartFont160;
+            this.chartStockOverview.ZAxes.Ticks = tick60;
             // 
             // gunaDoughnutDataset1
             // 
-            lPoint1.Label = "In Stock";
-            lPoint1.Y = 12D;
-            lPoint2.Label = "Low Stock";
-            lPoint2.Y = 40D;
-            lPoint3.Label = "Out of Stock";
-            lPoint3.Y = 2D;
+            lPoint4.Label = "In Stock";
+            lPoint4.Y = 12D;
+            lPoint5.Label = "Low Stock";
+            lPoint5.Y = 40D;
+            lPoint6.Label = "Out of Stock";
+            lPoint6.Y = 2D;
             this.gunaDoughnutDataset1.DataPoints.AddRange(new Guna.Charts.WinForms.LPoint[] {
-            lPoint1,
-            lPoint2,
-            lPoint3});
+            lPoint4,
+            lPoint5,
+            lPoint6});
             this.gunaDoughnutDataset1.Label = "Doughnut1";
             this.gunaDoughnutDataset1.TargetChart = this.chartStockOverview;
             // 
@@ -457,7 +461,7 @@
             this.guna2ContainerControl5.Controls.Add(this.pictureBox3);
             this.guna2ContainerControl5.Controls.Add(this.lblOverview);
             this.guna2ContainerControl5.Controls.Add(this.guna2Chart1);
-            this.guna2ContainerControl5.Location = new System.Drawing.Point(33, 296);
+            this.guna2ContainerControl5.Location = new System.Drawing.Point(30, 328);
             this.guna2ContainerControl5.Name = "guna2ContainerControl5";
             this.guna2ContainerControl5.Size = new System.Drawing.Size(995, 407);
             this.guna2ContainerControl5.TabIndex = 18;
@@ -494,7 +498,7 @@
             this.guna2ContainerControl6.Controls.Add(this.pictureBox6);
             this.guna2ContainerControl6.Controls.Add(this.label3);
             this.guna2ContainerControl6.Controls.Add(this.chartStockOverview);
-            this.guna2ContainerControl6.Location = new System.Drawing.Point(1059, 296);
+            this.guna2ContainerControl6.Location = new System.Drawing.Point(1056, 328);
             this.guna2ContainerControl6.Name = "guna2ContainerControl6";
             this.guna2ContainerControl6.Size = new System.Drawing.Size(596, 405);
             this.guna2ContainerControl6.TabIndex = 20;
@@ -551,9 +555,9 @@
             this.guna2ContainerControl7.BorderRadius = 20;
             this.guna2ContainerControl7.Controls.Add(this.pictureBox7);
             this.guna2ContainerControl7.Controls.Add(this.label8);
-            this.guna2ContainerControl7.Location = new System.Drawing.Point(32, 724);
+            this.guna2ContainerControl7.Location = new System.Drawing.Point(29, 756);
             this.guna2ContainerControl7.Name = "guna2ContainerControl7";
-            this.guna2ContainerControl7.Size = new System.Drawing.Size(1623, 307);
+            this.guna2ContainerControl7.Size = new System.Drawing.Size(1623, 330);
             this.guna2ContainerControl7.TabIndex = 21;
             this.guna2ContainerControl7.Text = "guna2ContainerControl7";
             // 
@@ -567,12 +571,49 @@
             this.pictureBox7.TabIndex = 11;
             this.pictureBox7.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Symbol", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(109, 64);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(411, 25);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Overview of your inventory and business activities.";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(103, 17);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(276, 45);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Main Dashboard";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(29, 23);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(71, 65);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 31;
+            this.pictureBox8.TabStop = false;
+            // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(1682, 1043);
+            this.ClientSize = new System.Drawing.Size(1682, 1055);
+            this.Controls.Add(this.pictureBox8);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.recentProductView);
             this.Controls.Add(this.guna2ContainerControl4);
             this.Controls.Add(this.guna2ContainerControl3);
@@ -607,6 +648,7 @@
             this.guna2ContainerControl7.ResumeLayout(false);
             this.guna2ContainerControl7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -645,5 +687,8 @@
         private System.Windows.Forms.Label lblTotalStockCount;
         private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl7;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox8;
     }
 }

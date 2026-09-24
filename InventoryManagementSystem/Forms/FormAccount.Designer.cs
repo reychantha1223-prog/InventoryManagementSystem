@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAccount));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.guna2ContainerControl1 = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.picProfile = new Guna.UI2.WinForms.Guna2PictureBox();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
@@ -62,6 +60,8 @@
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.btnSaveChange = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.guna2ContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picProfile)).BeginInit();
             this.guna2ContainerControl2.SuspendLayout();
@@ -71,30 +71,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(120, 18);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(234, 37);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Account Settings";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(121, 60);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(397, 25);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Manage your account and profile information";
             // 
             // guna2ContainerControl1
             // 
@@ -109,7 +85,7 @@
             this.guna2ContainerControl1.Controls.Add(this.guna2Panel1);
             this.guna2ContainerControl1.Controls.Add(this.btnChangePhoto);
             this.guna2ContainerControl1.Controls.Add(this.label3);
-            this.guna2ContainerControl1.Location = new System.Drawing.Point(35, 108);
+            this.guna2ContainerControl1.Location = new System.Drawing.Point(33, 146);
             this.guna2ContainerControl1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2ContainerControl1.Name = "guna2ContainerControl1";
             this.guna2ContainerControl1.Size = new System.Drawing.Size(1636, 254);
@@ -121,7 +97,7 @@
             this.picProfile.BackColor = System.Drawing.Color.Transparent;
             this.picProfile.Image = ((System.Drawing.Image)(resources.GetObject("picProfile.Image")));
             this.picProfile.ImageRotate = 0F;
-            this.picProfile.Location = new System.Drawing.Point(63, 62);
+            this.picProfile.Location = new System.Drawing.Point(87, 62);
             this.picProfile.Name = "picProfile";
             this.picProfile.Size = new System.Drawing.Size(122, 105);
             this.picProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -258,7 +234,7 @@
             this.btnChangePhoto.ForeColor = System.Drawing.Color.Black;
             this.btnChangePhoto.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnChangePhoto.Image = ((System.Drawing.Image)(resources.GetObject("btnChangePhoto.Image")));
-            this.btnChangePhoto.Location = new System.Drawing.Point(47, 191);
+            this.btnChangePhoto.Location = new System.Drawing.Point(65, 191);
             this.btnChangePhoto.Margin = new System.Windows.Forms.Padding(4);
             this.btnChangePhoto.Name = "btnChangePhoto";
             this.btnChangePhoto.PressedColor = System.Drawing.Color.Silver;
@@ -272,7 +248,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(23, 15);
+            this.label3.Location = new System.Drawing.Point(47, 15);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(212, 31);
@@ -291,7 +267,7 @@
             this.guna2ContainerControl2.Controls.Add(this.label9);
             this.guna2ContainerControl2.Controls.Add(this.label8);
             this.guna2ContainerControl2.Controls.Add(this.label7);
-            this.guna2ContainerControl2.Location = new System.Drawing.Point(35, 389);
+            this.guna2ContainerControl2.Location = new System.Drawing.Point(33, 434);
             this.guna2ContainerControl2.Margin = new System.Windows.Forms.Padding(4);
             this.guna2ContainerControl2.Name = "guna2ContainerControl2";
             this.guna2ContainerControl2.Size = new System.Drawing.Size(1636, 254);
@@ -302,7 +278,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(28, 96);
+            this.pictureBox1.Location = new System.Drawing.Point(52, 96);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(124, 97);
@@ -413,7 +389,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label9.Location = new System.Drawing.Point(181, 134);
+            this.label9.Location = new System.Drawing.Point(205, 134);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(395, 59);
@@ -427,7 +403,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(163)))), ((int)(((byte)(74)))));
-            this.label8.Location = new System.Drawing.Point(179, 91);
+            this.label8.Location = new System.Drawing.Point(203, 91);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(85, 32);
@@ -439,7 +415,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(21, 30);
+            this.label7.Location = new System.Drawing.Point(45, 30);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(168, 31);
@@ -454,7 +430,7 @@
             this.guna2ContainerControl4.Controls.Add(this.pictureBox2);
             this.guna2ContainerControl4.Controls.Add(this.label13);
             this.guna2ContainerControl4.Controls.Add(this.label16);
-            this.guna2ContainerControl4.Location = new System.Drawing.Point(35, 673);
+            this.guna2ContainerControl4.Location = new System.Drawing.Point(33, 727);
             this.guna2ContainerControl4.Margin = new System.Windows.Forms.Padding(4);
             this.guna2ContainerControl4.Name = "guna2ContainerControl4";
             this.guna2ContainerControl4.Size = new System.Drawing.Size(1636, 196);
@@ -489,7 +465,7 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label12.Location = new System.Drawing.Point(181, 103);
+            this.label12.Location = new System.Drawing.Point(205, 103);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(333, 59);
@@ -501,7 +477,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(28, 60);
+            this.pictureBox2.Location = new System.Drawing.Point(52, 60);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(124, 97);
@@ -515,7 +491,7 @@
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(179, 60);
+            this.label13.Location = new System.Drawing.Point(203, 60);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(112, 31);
@@ -527,7 +503,7 @@
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(21, 9);
+            this.label16.Location = new System.Drawing.Point(45, 9);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(112, 31);
@@ -548,7 +524,7 @@
             this.btnCancel.FillColor = System.Drawing.Color.Transparent;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Red;
-            this.btnCancel.Location = new System.Drawing.Point(1167, 939);
+            this.btnCancel.Location = new System.Drawing.Point(1165, 993);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(169, 49);
@@ -570,7 +546,7 @@
             this.btnSaveChange.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveChange.ForeColor = System.Drawing.Color.White;
             this.btnSaveChange.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveChange.Image")));
-            this.btnSaveChange.Location = new System.Drawing.Point(1376, 939);
+            this.btnSaveChange.Location = new System.Drawing.Point(1374, 993);
             this.btnSaveChange.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveChange.Name = "btnSaveChange";
             this.btnSaveChange.Size = new System.Drawing.Size(240, 49);
@@ -583,28 +559,49 @@
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(35, 26);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(33, 39);
             this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(60, 55);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(66, 68);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
             this.guna2PictureBox1.UseTransparentBackground = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Symbol", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.DimGray;
+            this.label14.Location = new System.Drawing.Point(117, 80);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(388, 25);
+            this.label14.TabIndex = 49;
+            this.label14.Text = "Manage your account information and settings.";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(113, 32);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(148, 45);
+            this.label15.TabIndex = 48;
+            this.label15.Text = "Account";
             // 
             // FormAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(1699, 1042);
+            this.ClientSize = new System.Drawing.Size(1699, 1055);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSaveChange);
             this.Controls.Add(this.guna2ContainerControl4);
             this.Controls.Add(this.guna2ContainerControl2);
             this.Controls.Add(this.guna2ContainerControl1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2PictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -632,8 +629,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl1;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Button btnChangePhoto;
@@ -664,5 +659,7 @@
         private Guna.UI2.WinForms.Guna2Button btnSaveChange;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
         private Guna.UI2.WinForms.Guna2PictureBox picProfile;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
     }
 }

@@ -278,34 +278,74 @@ namespace InventoryManagementSystem.Forms
 
         private void OrderView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (OrderView.Columns[e.ColumnIndex].Name.Equals("Status", StringComparison.OrdinalIgnoreCase) ||
-                OrderView.Columns[e.ColumnIndex].HeaderText.Equals("Status", StringComparison.OrdinalIgnoreCase))
+            if (e.RowIndex < 0 || e.Value == null || e.Value == DBNull.Value) return;
+
+            string colName = OrderView.Columns[e.ColumnIndex].Name;
+            string colHeader = OrderView.Columns[e.ColumnIndex].HeaderText;
+
+            // 1. Format Monetary Columns (TotalAmount, UnitPrice, Price) with $ at the back
+            if (colName.Equals("TotalAmount", StringComparison.OrdinalIgnoreCase) ||
+                colHeader.Equals("Total Amount", StringComparison.OrdinalIgnoreCase) ||
+                colName.Equals("UnitPrice", StringComparison.OrdinalIgnoreCase) ||
+                colHeader.Equals("Unit Price", StringComparison.OrdinalIgnoreCase) ||
+                colName.Equals("Price", StringComparison.OrdinalIgnoreCase) ||
+                colHeader.Equals("Price", StringComparison.OrdinalIgnoreCase))
             {
-                if (e.Value != null)
+                if (decimal.TryParse(e.Value.ToString(), out decimal amount))
                 {
-                    string status = e.Value.ToString().Trim();
+                    e.Value = $"{amount:N2} $";
+                    e.FormattingApplied = true;
+                    return;
+                }
+            }
 
-                    e.CellStyle.Font = new Font(OrderView.Font.FontFamily, 11f, FontStyle.Bold);
+            // 2. Format Discount Column with % at the back
+            if (colName.Equals("Discount", StringComparison.OrdinalIgnoreCase) ||
+                colHeader.Equals("Discount", StringComparison.OrdinalIgnoreCase))
+            {
+                if (decimal.TryParse(e.Value.ToString(), out decimal discount))
+                {
+                    e.Value = $"{discount:N2} %"; // Or use $"{discount:0.##} %" to omit trailing zero decimals
+                    e.FormattingApplied = true;
+                    return;
+                }
+            }
 
-                    switch (status.ToLower())
-                    {
-                        case "pending":
-                            e.CellStyle.ForeColor = Color.DarkOrange;
-                            break;
-                        case "processing":
-                            e.CellStyle.ForeColor = Color.DodgerBlue;
-                            break;
-                        case "completed":
-                            e.CellStyle.ForeColor = Color.Green;
-                            break;
-                        case "cancelled":
-                        case "canceled":
-                            e.CellStyle.ForeColor = Color.Red;
-                            break;
-                        default:
-                            e.CellStyle.ForeColor = Color.DarkGray;
-                            break;
-                    }
+            // 3. Format Status Column with custom colors and bold font
+            if (colName.Equals("Status", StringComparison.OrdinalIgnoreCase) ||
+                colHeader.Equals("Status", StringComparison.OrdinalIgnoreCase))
+            {
+                string status = e.Value.ToString().Trim();
+
+                e.CellStyle.Font = new Font(OrderView.Font.FontFamily, 11f, FontStyle.Bold);
+
+                switch (status.ToLower())
+                {
+                    case "pending":
+                        e.CellStyle.ForeColor = Color.DarkOrange;
+                        e.CellStyle.SelectionForeColor = Color.DarkOrange;
+                        break;
+
+                    case "processing":
+                        e.CellStyle.ForeColor = Color.DodgerBlue;
+                        e.CellStyle.SelectionForeColor = Color.DodgerBlue;
+                        break;
+
+                    case "completed":
+                        e.CellStyle.ForeColor = Color.Green;
+                        e.CellStyle.SelectionForeColor = Color.Green;
+                        break;
+
+                    case "cancelled":
+                    case "canceled":
+                        e.CellStyle.ForeColor = Color.Red;
+                        e.CellStyle.SelectionForeColor = Color.Red;
+                        break;
+
+                    default:
+                        e.CellStyle.ForeColor = Color.DarkGray;
+                        e.CellStyle.SelectionForeColor = Color.DarkGray;
+                        break;
                 }
             }
         }

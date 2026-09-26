@@ -54,7 +54,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(172, 142);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 40);
+            this.label1.Size = new System.Drawing.Size(137, 38);
             this.label1.TabIndex = 1;
             this.label1.Text = "Log out";
             // 
@@ -84,6 +84,7 @@
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.Location = new System.Drawing.Point(87, 296);
             this.btnCancel.Name = "btnCancel";
+            this.btnCancel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnCancel.Size = new System.Drawing.Size(143, 45);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";

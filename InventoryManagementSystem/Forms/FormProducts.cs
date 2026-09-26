@@ -318,7 +318,24 @@ namespace InventoryManagementSystem.Forms
 
         private void ProductView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            // 1. Handle N/A formatting for null or empty values across all cells
+            if (e.RowIndex < 0) return;
+
+            string colName = ProductView.Columns[e.ColumnIndex].Name;
+            string colHeader = ProductView.Columns[e.ColumnIndex].HeaderText;
+
+            // 1. Format Price Column to display $ at the back (e.g., "2.00 $")
+            if (colName.Equals("Price", StringComparison.OrdinalIgnoreCase) ||
+                colHeader.Equals("Price", StringComparison.OrdinalIgnoreCase))
+            {
+                if (e.Value != null && e.Value != DBNull.Value && decimal.TryParse(e.Value.ToString(), out decimal price))
+                {
+                    e.Value = $"{price:N2} $";
+                    e.FormattingApplied = true;
+                    return;
+                }
+            }
+
+            // 2. Handle N/A formatting for null or empty values across all other cells
             if (e.Value == null || e.Value == DBNull.Value || string.IsNullOrWhiteSpace(e.Value.ToString()))
             {
                 e.Value = "N/A";
@@ -326,12 +343,12 @@ namespace InventoryManagementSystem.Forms
                 return;
             }
 
-            // 2. Custom color and font styling for the "Status" column
-            if (e.RowIndex >= 0 && (ProductView.Columns[e.ColumnIndex].Name.Equals("Status", StringComparison.OrdinalIgnoreCase) ||
-                                    ProductView.Columns[e.ColumnIndex].HeaderText.Equals("Status", StringComparison.OrdinalIgnoreCase)))
+            // 3. Custom color and font styling for the "Status" column
+            if (colName.Equals("Status", StringComparison.OrdinalIgnoreCase) ||
+                colHeader.Equals("Status", StringComparison.OrdinalIgnoreCase))
             {
                 string status = e.Value.ToString().Trim();
-                Font statusFont = new Font("Segoe UI", 11F, FontStyle.Bold); // Increased font size
+                Font statusFont = new Font("Segoe UI", 11F, FontStyle.Bold);
 
                 switch (status)
                 {
@@ -368,106 +385,6 @@ namespace InventoryManagementSystem.Forms
                         break;
                 }
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ContainerControl1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTotalProducts_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ContainerControl2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblInStock_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ContainerControl3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblLowStock_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ContainerControl4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblOutOfStock_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ProductView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void guna2ContainerControl5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

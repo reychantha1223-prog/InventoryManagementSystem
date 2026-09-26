@@ -57,9 +57,15 @@
             this.lblProductRequired = new System.Windows.Forms.Label();
             this.numQuantity = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.numPrice = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.numDiscount = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDiscount)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAddOrder
@@ -140,7 +146,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.label7.Location = new System.Drawing.Point(33, 485);
+            this.label7.Location = new System.Drawing.Point(338, 488);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(117, 22);
@@ -177,7 +183,7 @@
             // 
             this.txtTotalAmount.BorderRadius = 8;
             this.txtTotalAmount.Cursor = System.Windows.Forms.Cursors.No;
-            this.txtTotalAmount.DefaultText = "";
+            this.txtTotalAmount.DefaultText = "0";
             this.txtTotalAmount.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtTotalAmount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtTotalAmount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -185,14 +191,15 @@
             this.txtTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtTotalAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtTotalAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTotalAmount.Location = new System.Drawing.Point(35, 520);
+            this.txtTotalAmount.Location = new System.Drawing.Point(340, 521);
             this.txtTotalAmount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTotalAmount.Name = "txtTotalAmount";
             this.txtTotalAmount.PlaceholderText = "";
             this.txtTotalAmount.ReadOnly = true;
             this.txtTotalAmount.SelectedText = "";
-            this.txtTotalAmount.Size = new System.Drawing.Size(588, 44);
+            this.txtTotalAmount.Size = new System.Drawing.Size(285, 44);
             this.txtTotalAmount.TabIndex = 44;
+            this.txtTotalAmount.TextOffset = new System.Drawing.Point(20, 0);
             // 
             // txtProduct
             // 
@@ -318,10 +325,10 @@
             this.btnCancel.FillColor = System.Drawing.Color.Transparent;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnCancel.ForeColor = System.Drawing.Color.Red;
-            this.btnCancel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnCancel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.btnCancel.Location = new System.Drawing.Point(295, 807);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.PressedColor = System.Drawing.Color.Silver;
+            this.btnCancel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
             this.btnCancel.Size = new System.Drawing.Size(149, 45);
             this.btnCancel.TabIndex = 58;
             this.btnCancel.Text = "Cancel";
@@ -387,9 +394,9 @@
             // 
             this.lblQtyRequired.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQtyRequired.ForeColor = System.Drawing.Color.Red;
-            this.lblQtyRequired.Location = new System.Drawing.Point(422, 385);
+            this.lblQtyRequired.Location = new System.Drawing.Point(423, 385);
             this.lblQtyRequired.Name = "lblQtyRequired";
-            this.lblQtyRequired.Size = new System.Drawing.Size(194, 23);
+            this.lblQtyRequired.Size = new System.Drawing.Size(203, 23);
             this.lblQtyRequired.TabIndex = 69;
             this.lblQtyRequired.Text = "Must be greater than 0";
             this.lblQtyRequired.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -432,8 +439,65 @@
             this.numPrice.Name = "numPrice";
             this.numPrice.Size = new System.Drawing.Size(285, 44);
             this.numPrice.TabIndex = 71;
+            this.numPrice.TextOffset = new System.Drawing.Point(20, 0);
             this.numPrice.UpDownButtonFillColor = System.Drawing.SystemColors.Control;
             this.numPrice.ValueChanged += new System.EventHandler(this.numPrice_ValueChanged);
+            // 
+            // numDiscount
+            // 
+            this.numDiscount.BackColor = System.Drawing.Color.Transparent;
+            this.numDiscount.BorderRadius = 8;
+            this.numDiscount.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.numDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.numDiscount.Location = new System.Drawing.Point(38, 521);
+            this.numDiscount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numDiscount.Name = "numDiscount";
+            this.numDiscount.Size = new System.Drawing.Size(285, 44);
+            this.numDiscount.TabIndex = 72;
+            this.numDiscount.TextOffset = new System.Drawing.Point(22, 0);
+            this.numDiscount.UpDownButtonFillColor = System.Drawing.SystemColors.Control;
+            this.numDiscount.ValueChanged += new System.EventHandler(this.numDiscount_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.label1.Location = new System.Drawing.Point(34, 488);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 22);
+            this.label1.TabIndex = 73;
+            this.label1.Text = "Discount";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label11.Location = new System.Drawing.Point(43, 427);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(23, 25);
+            this.label11.TabIndex = 74;
+            this.label11.Text = "$";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label12.Location = new System.Drawing.Point(345, 532);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(23, 25);
+            this.label12.TabIndex = 75;
+            this.label12.Text = "$";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label13.Location = new System.Drawing.Point(41, 531);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(30, 25);
+            this.label13.TabIndex = 76;
+            this.label13.Text = "%";
             // 
             // FormCreateOrder
             // 
@@ -441,6 +505,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(657, 881);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.numDiscount);
             this.Controls.Add(this.numPrice);
             this.Controls.Add(this.lblProductRequired);
             this.Controls.Add(this.lblQtyRequired);
@@ -479,6 +548,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDiscount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -512,5 +582,10 @@
         private System.Windows.Forms.Label lblProductRequired;
         private Guna.UI2.WinForms.Guna2NumericUpDown numQuantity;
         private Guna.UI2.WinForms.Guna2NumericUpDown numPrice;
+        private Guna.UI2.WinForms.Guna2NumericUpDown numDiscount;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }

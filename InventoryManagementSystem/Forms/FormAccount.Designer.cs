@@ -221,7 +221,7 @@
             // btnChangePhoto
             // 
             this.btnChangePhoto.BackColor = System.Drawing.Color.Transparent;
-            this.btnChangePhoto.BorderColor = System.Drawing.Color.Silver;
+            this.btnChangePhoto.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnChangePhoto.BorderRadius = 8;
             this.btnChangePhoto.BorderThickness = 1;
             this.btnChangePhoto.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -229,15 +229,15 @@
             this.btnChangePhoto.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnChangePhoto.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnChangePhoto.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnChangePhoto.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnChangePhoto.FillColor = System.Drawing.Color.Transparent;
             this.btnChangePhoto.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnChangePhoto.ForeColor = System.Drawing.Color.Black;
-            this.btnChangePhoto.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnChangePhoto.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.btnChangePhoto.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(234)))), ((int)(((byte)(254)))));
             this.btnChangePhoto.Image = ((System.Drawing.Image)(resources.GetObject("btnChangePhoto.Image")));
             this.btnChangePhoto.Location = new System.Drawing.Point(65, 191);
             this.btnChangePhoto.Margin = new System.Windows.Forms.Padding(4);
             this.btnChangePhoto.Name = "btnChangePhoto";
-            this.btnChangePhoto.PressedColor = System.Drawing.Color.Silver;
+            this.btnChangePhoto.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(254)))));
             this.btnChangePhoto.Size = new System.Drawing.Size(169, 37);
             this.btnChangePhoto.TabIndex = 4;
             this.btnChangePhoto.Text = "Change Photo";
@@ -299,7 +299,7 @@
             this.txtRole.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtRole.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRole.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtRole.Location = new System.Drawing.Point(959, 78);
+            this.txtRole.Location = new System.Drawing.Point(959, 54);
             this.txtRole.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtRole.Name = "txtRole";
             this.txtRole.PlaceholderForeColor = System.Drawing.Color.Gray;
@@ -337,7 +337,7 @@
             this.guna2ContainerControl3.Controls.Add(this.label11);
             this.guna2ContainerControl3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(246)))), ((int)(((byte)(254)))));
             this.guna2ContainerControl3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2ContainerControl3.Location = new System.Drawing.Point(892, 134);
+            this.guna2ContainerControl3.Location = new System.Drawing.Point(892, 110);
             this.guna2ContainerControl3.Margin = new System.Windows.Forms.Padding(4);
             this.guna2ContainerControl3.Name = "guna2ContainerControl3";
             this.guna2ContainerControl3.Size = new System.Drawing.Size(689, 76);
@@ -364,7 +364,7 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(888, 87);
+            this.label10.Location = new System.Drawing.Point(888, 63);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 19);
@@ -415,7 +415,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(45, 30);
+            this.label7.Location = new System.Drawing.Point(61, 32);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(168, 31);
@@ -457,6 +457,7 @@
             this.btnChangePassword.Size = new System.Drawing.Size(240, 49);
             this.btnChangePassword.TabIndex = 12;
             this.btnChangePassword.Text = "Change Password";
+            this.btnChangePassword.TextOffset = new System.Drawing.Point(2, 0);
             this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
             // label12
@@ -477,7 +478,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(52, 60);
+            this.pictureBox2.Location = new System.Drawing.Point(52, 68);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(124, 97);
@@ -503,7 +504,7 @@
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(45, 9);
+            this.label16.Location = new System.Drawing.Point(61, 20);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(112, 31);
@@ -513,7 +514,7 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancel.BorderColor = System.Drawing.Color.Silver;
+            this.btnCancel.BorderColor = System.Drawing.Color.Red;
             this.btnCancel.BorderRadius = 8;
             this.btnCancel.BorderThickness = 1;
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -524,9 +525,11 @@
             this.btnCancel.FillColor = System.Drawing.Color.Transparent;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Red;
+            this.btnCancel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.btnCancel.Location = new System.Drawing.Point(1165, 993);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
+            this.btnCancel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
             this.btnCancel.Size = new System.Drawing.Size(169, 49);
             this.btnCancel.TabIndex = 20;
             this.btnCancel.Text = "Cancel";
@@ -552,6 +555,7 @@
             this.btnSaveChange.Size = new System.Drawing.Size(240, 49);
             this.btnSaveChange.TabIndex = 19;
             this.btnSaveChange.Text = "Save Change";
+            this.btnSaveChange.TextOffset = new System.Drawing.Point(2, 0);
             this.btnSaveChange.Click += new System.EventHandler(this.btnSaveChange_Click);
             // 
             // guna2PictureBox1

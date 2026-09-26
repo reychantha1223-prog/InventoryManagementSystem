@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainLayout));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnInvoice = new Guna.UI2.WinForms.Guna2Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblIMS = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAccount = new Guna.UI2.WinForms.Guna2Button();
             this.btnOrders = new Guna.UI2.WinForms.Guna2Button();
             this.btnSuppliers = new Guna.UI2.WinForms.Guna2Button();
@@ -41,10 +45,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelDesktopPane = new System.Windows.Forms.Panel();
-            this.lblIMS = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +52,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(45)))));
-            this.panelMenu.Controls.Add(this.guna2Button1);
+            this.panelMenu.Controls.Add(this.btnInvoice);
             this.panelMenu.Controls.Add(this.label1);
             this.panelMenu.Controls.Add(this.lblIMS);
             this.panelMenu.Controls.Add(this.pictureBox1);
@@ -71,6 +71,59 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(270, 876);
             this.panelMenu.TabIndex = 1;
+            // 
+            // btnInvoice
+            // 
+            this.btnInvoice.BorderRadius = 12;
+            this.btnInvoice.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInvoice.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnInvoice.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnInvoice.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnInvoice.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnInvoice.FillColor = System.Drawing.Color.Empty;
+            this.btnInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.btnInvoice.ForeColor = System.Drawing.Color.White;
+            this.btnInvoice.Image = ((System.Drawing.Image)(resources.GetObject("btnInvoice.Image")));
+            this.btnInvoice.ImageOffset = new System.Drawing.Point(-15, 0);
+            this.btnInvoice.ImageSize = new System.Drawing.Size(24, 24);
+            this.btnInvoice.Location = new System.Drawing.Point(17, 583);
+            this.btnInvoice.Name = "btnInvoice";
+            this.btnInvoice.Size = new System.Drawing.Size(234, 45);
+            this.btnInvoice.TabIndex = 26;
+            this.btnInvoice.Text = "Invoice";
+            this.btnInvoice.TextOffset = new System.Drawing.Point(-4, 0);
+            this.btnInvoice.Click += new System.EventHandler(this.btnInvoice_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(84, 77);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(213, 20);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Inventory Management System";
+            // 
+            // lblIMS
+            // 
+            this.lblIMS.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIMS.ForeColor = System.Drawing.Color.White;
+            this.lblIMS.Location = new System.Drawing.Point(76, 27);
+            this.lblIMS.Name = "lblIMS";
+            this.lblIMS.Size = new System.Drawing.Size(107, 66);
+            this.lblIMS.TabIndex = 24;
+            this.lblIMS.Text = "IMS";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(8, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(75, 86);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
             // 
             // btnAccount
             // 
@@ -273,58 +326,6 @@
             this.panelDesktopPane.Size = new System.Drawing.Size(1271, 876);
             this.panelDesktopPane.TabIndex = 2;
             // 
-            // lblIMS
-            // 
-            this.lblIMS.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIMS.ForeColor = System.Drawing.Color.White;
-            this.lblIMS.Location = new System.Drawing.Point(76, 27);
-            this.lblIMS.Name = "lblIMS";
-            this.lblIMS.Size = new System.Drawing.Size(107, 66);
-            this.lblIMS.TabIndex = 24;
-            this.lblIMS.Text = "IMS";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(8, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(75, 86);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(84, 77);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(213, 20);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Inventory Management System";
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BorderRadius = 12;
-            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.Empty;
-            this.guna2Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.ImageOffset = new System.Drawing.Point(-15, 0);
-            this.guna2Button1.ImageSize = new System.Drawing.Size(24, 24);
-            this.guna2Button1.Location = new System.Drawing.Point(17, 583);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(234, 45);
-            this.guna2Button1.TabIndex = 26;
-            this.guna2Button1.Text = "Invoice";
-            this.guna2Button1.TextOffset = new System.Drawing.Point(-4, 0);
-            // 
             // MainLayout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -365,7 +366,7 @@
         private System.Windows.Forms.Label lblIMS;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnInvoice;
     }
 }
 

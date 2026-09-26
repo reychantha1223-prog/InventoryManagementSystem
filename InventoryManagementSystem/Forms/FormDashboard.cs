@@ -21,7 +21,6 @@ namespace InventoryManagementSystem.Forms
         // 1. Primary Form Load Event
         private async void FormDashboard_Load(object sender, EventArgs e)
         {
-
             ConfigureRecentProductView();
             await LoadDashboardDataAsync();
         }
@@ -34,7 +33,6 @@ namespace InventoryManagementSystem.Forms
 
         public async Task LoadDashboardDataAsync()
         {
-
             try
             {
                 // Load Summary Cards
@@ -86,6 +84,7 @@ namespace InventoryManagementSystem.Forms
 
             guna2Chart1.Update();
         }
+
         // --- Guna Doughnut Chart: Stock Status ---
         private async Task LoadStockStatusChartAsync()
         {
@@ -176,30 +175,44 @@ namespace InventoryManagementSystem.Forms
 
         private void recentProductView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (recentProductView.Columns[e.ColumnIndex].Name.Equals("Status", StringComparison.OrdinalIgnoreCase) ||
-                recentProductView.Columns[e.ColumnIndex].HeaderText.Equals("Status", StringComparison.OrdinalIgnoreCase))
+            if (e.Value == null) return;
+
+            string columnName = recentProductView.Columns[e.ColumnIndex].Name;
+            string columnHeader = recentProductView.Columns[e.ColumnIndex].HeaderText;
+
+            // 1. Format Price Column to display $ at the back (e.g., "2.00 $")
+            if (columnName.Equals("Price", StringComparison.OrdinalIgnoreCase) ||
+                columnHeader.Equals("Price", StringComparison.OrdinalIgnoreCase))
             {
-                if (e.Value != null)
+                if (decimal.TryParse(e.Value.ToString(), out decimal price))
                 {
-                    string status = e.Value.ToString().Trim();
+                    e.Value = $"{price:N2} $";
+                    e.FormattingApplied = true;
+                }
+            }
 
-                    e.CellStyle.Font = new Font(recentProductView.Font.FontFamily, 10.5f, FontStyle.Bold);
+            // 2. Format Status Column with custom colors
+            if (columnName.Equals("Status", StringComparison.OrdinalIgnoreCase) ||
+                columnHeader.Equals("Status", StringComparison.OrdinalIgnoreCase))
+            {
+                string status = e.Value.ToString().Trim();
 
-                    switch (status.ToLower())
-                    {
-                        case "in stock":
-                            e.CellStyle.ForeColor = Color.Green;
-                            break;
-                        case "low stock":
-                            e.CellStyle.ForeColor = Color.DarkOrange;
-                            break;
-                        case "out of stock":
-                            e.CellStyle.ForeColor = Color.Red;
-                            break;
-                        default:
-                            e.CellStyle.ForeColor = Color.DarkGray;
-                            break;
-                    }
+                e.CellStyle.Font = new Font(recentProductView.Font.FontFamily, 10.5f, FontStyle.Bold);
+
+                switch (status.ToLower())
+                {
+                    case "in stock":
+                        e.CellStyle.ForeColor = Color.Green;
+                        break;
+                    case "low stock":
+                        e.CellStyle.ForeColor = Color.DarkOrange;
+                        break;
+                    case "out of stock":
+                        e.CellStyle.ForeColor = Color.Red;
+                        break;
+                    default:
+                        e.CellStyle.ForeColor = Color.DarkGray;
+                        break;
                 }
             }
         }

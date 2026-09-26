@@ -8,9 +8,12 @@ namespace InventoryManagementSystem.Models
         public string OrderNumber { get; set; }
         public int CustomerID { get; set; }
         public DateTime OrderDate { get; set; } = DateTime.Now;
+
+        public decimal Discount { get; set; } = 0m;
+
         public decimal TotalAmount { get; set; }
         public string Status { get; set; }
-        public string Description { get; set; } 
+        public string Description { get; set; }
 
         public string CustomerName { get; set; }
     }

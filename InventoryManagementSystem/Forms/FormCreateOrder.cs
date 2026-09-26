@@ -53,12 +53,19 @@ namespace InventoryManagementSystem.Forms
 
         private void SetupForm()
         {
+            if (numDiscount != null)
+            {
+                numDiscount.Minimum = 0m;
+                numDiscount.Maximum = 100m; // Assuming percentage discount (0% - 100%)
+                numDiscount.DecimalPlaces = 2;
+                numDiscount.ValueChanged += numDiscount_ValueChanged;
+            }
             dtpOrderDate.Value = DateTime.Now;
             dtpOrderDate.FillColor = Color.White;
             dtpOrderDate.ForeColor = Color.Black;
             dtpOrderDate.BorderColor = Color.LightGray;
 
-            txtTotalAmount.Text = "$0.00";
+            txtTotalAmount.Text = "0.00";
             txtTotalAmount.ReadOnly = true;
 
             // Configure Price numeric control to support decimals
@@ -109,7 +116,7 @@ namespace InventoryManagementSystem.Forms
                 }
             }
 
-            // FIX: Clear validation labels AFTER all data loading finishes
+            // Clear validation labels AFTER all data loading finishes
             ClearValidationErrors();
         }
 
@@ -141,11 +148,18 @@ namespace InventoryManagementSystem.Forms
                 numQuantity.UpDownButtonForeColor = Color.White;
             }
 
+            if (numDiscount != null)
+            {
+                numDiscount.UpDownButtonFillColor = Color.White;
+                numDiscount.UpDownButtonForeColor = Color.White;
+            }
+
             LockGunaControl(cmbCustomer);
             LockGunaControl(dtpOrderDate);
             LockGunaControl(cmbStatus);
             LockGunaControl(numPrice);
             LockGunaControl(numQuantity);
+            LockGunaControl(numDiscount);
 
             if (btnSave != null)
             {
@@ -217,11 +231,17 @@ namespace InventoryManagementSystem.Forms
                             cmbStatus.Text = status;
                     }
 
-                    // 4. Description
+                    // 4. Discount
+                    if (numDiscount != null && dtOrder.Columns.Contains("Discount") && row["Discount"] != DBNull.Value)
+                    {
+                        numDiscount.Value = Convert.ToDecimal(row["Discount"]);
+                    }
+
+                    // 5. Description
                     if (dtOrder.Columns.Contains("Description") && txtDescription != null)
                         txtDescription.Text = row["Description"]?.ToString();
 
-                    // 5. Product Name
+                    // 6. Product Name
                     string productName = string.Empty;
                     if (txtProduct != null)
                     {
@@ -233,7 +253,7 @@ namespace InventoryManagementSystem.Forms
                         txtProduct.Text = productName;
                     }
 
-                    // 6. Quantity
+                    // 7. Quantity
                     int currentOrderQty = 0;
                     if (numQuantity != null)
                     {
@@ -244,7 +264,7 @@ namespace InventoryManagementSystem.Forms
                         }
                     }
 
-                    // 7. Price
+                    // 8. Price
                     if (numPrice != null)
                     {
                         if (dtOrder.Columns.Contains("UnitPrice") && row["UnitPrice"] != DBNull.Value)
@@ -253,7 +273,7 @@ namespace InventoryManagementSystem.Forms
                             numPrice.Value = Convert.ToDecimal(row["Price"]);
                     }
 
-                    // 8. Stock Allowance Calculation (Warehouse Stock + Existing Order Quantity)
+                    // 9. Stock Allowance Calculation (Warehouse Stock + Existing Order Quantity)
                     if (_dtProducts != null && !string.IsNullOrWhiteSpace(productName))
                     {
                         string nameCol = _dtProducts.Columns.Contains("ProductName") ? "ProductName"
@@ -269,7 +289,6 @@ namespace InventoryManagementSystem.Forms
                         }
                         else
                         {
-                            // Fallback to current order quantity if the product row isn't matched
                             _currentSelectedProductStock = currentOrderQty;
                         }
                     }
@@ -388,8 +407,6 @@ namespace InventoryManagementSystem.Forms
                         if (_dtProducts.Columns.Contains("Stock") && matchedRow["Stock"] != DBNull.Value)
                         {
                             int availableStock = Convert.ToInt32(matchedRow["Stock"]);
-
-                            // In Edit Mode, include the quantity of the current order if modifying the same product
                             _currentSelectedProductStock = availableStock;
                         }
                         else
@@ -398,25 +415,28 @@ namespace InventoryManagementSystem.Forms
                         }
 
                         CalculateTotal();
-                        ValidateInputs(); // Validate ONLY after successfully matching product stock
+                        ValidateInputs();
                         return;
                     }
                 }
             }
 
-            // Reset stock threshold when no valid product is selected
             _currentSelectedProductStock = -1;
             if (lblQtyRequired != null) lblQtyRequired.Visible = false;
         }
 
         private void CalculateTotal()
         {
-            decimal price = numPrice != null ? numPrice.Value : 0;
+            decimal price = numPrice != null ? numPrice.Value : 0m;
             int quantity = numQuantity != null ? (int)numQuantity.Value : 0;
-            decimal total = price * quantity;
+            decimal discountPercentage = numDiscount != null ? numDiscount.Value : 0m;
+
+            decimal grossTotal = price * quantity;
+            decimal discountAmount = grossTotal * (discountPercentage / 100m);
+            decimal netTotal = Math.Max(0m, grossTotal - discountAmount);
 
             if (txtTotalAmount != null)
-                txtTotalAmount.Text = total.ToString("C2");
+                txtTotalAmount.Text = netTotal.ToString("N2");
         }
 
         private async Task<int> GetOrCreateCustomerIdAsync()
@@ -436,7 +456,6 @@ namespace InventoryManagementSystem.Forms
                     return Convert.ToInt32(row["CustomerID"]);
             }
 
-            // Create customer dynamically if not found in lookup list
             return await _repository.GetOrCreateCustomerByNameAsync(customerName);
         }
 
@@ -504,7 +523,7 @@ namespace InventoryManagementSystem.Forms
                 lblPriceRequired.Visible = false;
             }
 
-            // 4. Quantity & Stock Validation (Checks stock for ALL order statuses, including Pending)
+            // 4. Quantity & Stock Validation
             int requestedQty = numQuantity != null ? (int)numQuantity.Value : 0;
 
             if (requestedQty <= 0)
@@ -517,7 +536,6 @@ namespace InventoryManagementSystem.Forms
                 }
                 isValid = false;
             }
-            // Check stock limit directly without checking if status is Processing or Completed
             else if (productId > 0 && _currentSelectedProductStock >= 0 && requestedQty > _currentSelectedProductStock)
             {
                 if (lblQtyRequired != null)
@@ -553,12 +571,19 @@ namespace InventoryManagementSystem.Forms
                 int selectedCustomerId = await GetOrCreateCustomerIdAsync();
                 int selectedProductId = GetSelectedProductId();
 
+                decimal price = numPrice != null ? numPrice.Value : 0m;
+                int quantity = numQuantity != null ? (int)numQuantity.Value : 0;
+                decimal discount = numDiscount != null ? numDiscount.Value : 0m;
+                decimal grossTotal = price * quantity;
+                decimal finalTotal = Math.Max(0m, grossTotal - (grossTotal * (discount / 100m)));
+
                 Order orderData = new Order
                 {
                     OrderID = _orderId ?? 0,
                     CustomerID = selectedCustomerId,
                     OrderDate = dtpOrderDate.Value,
-                    TotalAmount = numPrice.Value * numQuantity.Value,
+                    Discount = discount,
+                    TotalAmount = finalTotal,
                     Status = cmbStatus?.Text ?? "Pending",
                     Description = txtDescription != null ? txtDescription.Text.Trim() : string.Empty
                 };
@@ -567,8 +592,8 @@ namespace InventoryManagementSystem.Forms
                 {
                     OrderID = _orderId ?? 0,
                     ProductID = selectedProductId,
-                    Quantity = (int)numQuantity.Value,
-                    UnitPrice = numPrice.Value
+                    Quantity = quantity,
+                    UnitPrice = price
                 };
 
                 bool success = _orderId.HasValue
@@ -584,7 +609,6 @@ namespace InventoryManagementSystem.Forms
             }
             catch (InvalidOperationException ex)
             {
-                // Display the stock exception message on the inline label instead of a MessageBox
                 if (lblQtyRequired != null)
                 {
                     lblQtyRequired.Text = ex.Message;
@@ -594,7 +618,6 @@ namespace InventoryManagementSystem.Forms
             }
             catch (Exception ex)
             {
-                // Display general errors inline if possible or keep concise
                 if (lblQtyRequired != null)
                 {
                     lblQtyRequired.Text = ex.Message;
@@ -607,6 +630,7 @@ namespace InventoryManagementSystem.Forms
                 if (btnSave != null) btnSave.Enabled = true;
             }
         }
+
         private void numPrice_ValueChanged(object sender, EventArgs e)
         {
             if (numPrice.Value > 0 && lblPriceRequired != null) lblPriceRequired.Visible = false;
@@ -617,7 +641,6 @@ namespace InventoryManagementSystem.Forms
         {
             if (_isViewOnly || _isLoadingData) return;
 
-            // Re-validate inputs when quantity changes to update lblQtyRequired text instantly
             ValidateInputs();
             CalculateTotal();
         }
@@ -626,7 +649,6 @@ namespace InventoryManagementSystem.Forms
         {
             if (_isViewOnly || _isLoadingData) return;
 
-            // Re-validate inputs when status changes (e.g. switching to/from Cancelled)
             ValidateInputs();
         }
 
@@ -641,6 +663,13 @@ namespace InventoryManagementSystem.Forms
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void numDiscount_ValueChanged(object sender, EventArgs e)
+        {
+            if (_isViewOnly || _isLoadingData) return;
+
+            CalculateTotal();
         }
     }
 }

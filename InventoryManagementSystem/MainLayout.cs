@@ -145,5 +145,10 @@ namespace InventoryManagementSystem
                 }
             }
         }
+
+        private void btnInvoice_Click(object sender, EventArgs e)
+        {
+            LoadForm(new FormInvoices(), sender);
+        }
     }
 }

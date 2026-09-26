@@ -32,7 +32,6 @@ namespace InventoryManagementSystem.Repositories
         public async Task<DataTable> GetProductsLookupAsync()
         {
             DataTable dt = new DataTable();
-            // Removed WHERE Stock > 0 so edit mode can load zero-stock items if needed
             string query = "SELECT ProductID, ProductName, Price, Stock FROM Products ORDER BY ProductName ASC";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -86,6 +85,7 @@ namespace InventoryManagementSystem.Repositories
                     o.OrderID AS [Order ID],
                     o.OrderDate AS [Date],
                     c.CustomerName AS [Customer],
+                    o.Discount AS [Discount],
                     o.TotalAmount AS [Total Amount],
                     o.Status AS [Status]
                 FROM Orders o
@@ -123,6 +123,7 @@ namespace InventoryManagementSystem.Repositories
                     c.CustomerName,
                     o.OrderDate,
                     o.Status,
+                    o.Discount,
                     o.TotalAmount,
                     o.Description,
                     od.ProductID,
@@ -193,17 +194,18 @@ namespace InventoryManagementSystem.Repositories
                             }
                         }
 
-                        // 3. Insert Order
+                        // 3. Insert Order with Discount
                         string insertOrderQuery = @"
-                            INSERT INTO Orders (CustomerID, OrderDate, TotalAmount, Status, Description)
+                            INSERT INTO Orders (CustomerID, OrderDate, Discount, TotalAmount, Status, Description)
                             OUTPUT INSERTED.OrderID
-                            VALUES (@CustomerID, @OrderDate, @TotalAmount, @Status, @Description);";
+                            VALUES (@CustomerID, @OrderDate, @Discount, @TotalAmount, @Status, @Description);";
 
                         int newOrderId;
                         using (SqlCommand cmdOrder = new SqlCommand(insertOrderQuery, conn, transaction))
                         {
                             cmdOrder.Parameters.AddWithValue("@CustomerID", order.CustomerID);
                             cmdOrder.Parameters.AddWithValue("@OrderDate", order.OrderDate);
+                            cmdOrder.Parameters.AddWithValue("@Discount", order.Discount);
                             cmdOrder.Parameters.AddWithValue("@TotalAmount", order.TotalAmount);
                             cmdOrder.Parameters.AddWithValue("@Status", string.IsNullOrWhiteSpace(order.Status) ? "Pending" : order.Status);
                             cmdOrder.Parameters.AddWithValue("@Description", string.IsNullOrWhiteSpace(order.Description) ? (object)DBNull.Value : order.Description);
@@ -312,11 +314,12 @@ namespace InventoryManagementSystem.Repositories
                             }
                         }
 
-                        // 2. Update Order
+                        // 2. Update Order with Discount
                         string updateOrderQuery = @"
                             UPDATE Orders
                             SET CustomerID = @CustomerID,
                                 OrderDate = @OrderDate,
+                                Discount = @Discount,
                                 TotalAmount = @TotalAmount,
                                 Status = @Status,
                                 Description = @Description
@@ -327,6 +330,7 @@ namespace InventoryManagementSystem.Repositories
                             cmd.Parameters.AddWithValue("@OrderID", order.OrderID);
                             cmd.Parameters.AddWithValue("@CustomerID", order.CustomerID);
                             cmd.Parameters.AddWithValue("@OrderDate", order.OrderDate);
+                            cmd.Parameters.AddWithValue("@Discount", order.Discount);
                             cmd.Parameters.AddWithValue("@TotalAmount", order.TotalAmount);
                             cmd.Parameters.AddWithValue("@Status", order.Status);
                             cmd.Parameters.AddWithValue("@Description", string.IsNullOrWhiteSpace(order.Description) ? (object)DBNull.Value : order.Description);
@@ -377,7 +381,6 @@ namespace InventoryManagementSystem.Repositories
                 {
                     try
                     {
-                        // Check order status before restoring stock
                         string checkStatusQuery = "SELECT Status FROM Orders WHERE OrderID = @OrderID;";
                         string status = string.Empty;
 
@@ -388,7 +391,6 @@ namespace InventoryManagementSystem.Repositories
                             status = result?.ToString() ?? string.Empty;
                         }
 
-                        // Only restore stock if the deleted order actually deducted stock
                         if (IsStockDeductibleStatus(status))
                         {
                             string restoreStockQuery = @"

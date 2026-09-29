@@ -436,6 +436,11 @@
             this.numPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.numPrice.Location = new System.Drawing.Point(38, 417);
             this.numPrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numPrice.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
             this.numPrice.Name = "numPrice";
             this.numPrice.Size = new System.Drawing.Size(285, 44);
             this.numPrice.TabIndex = 71;

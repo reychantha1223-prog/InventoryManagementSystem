@@ -76,14 +76,7 @@ namespace InventoryManagementSystem.Repositories
                 {
                     DataTable dt = new DataTable();
                     dt.Load(reader);
-
-                    dt.Columns["SupplierID"].AllowDBNull = true;
-                    DataRow dr = dt.NewRow();
-                    dr["SupplierID"] = DBNull.Value;
-                    dr["SupplierName"] = "";
-                    dt.Rows.InsertAt(dr, 0);
-
-                    return dt;
+                    return dt; 
                 }
             }
         }

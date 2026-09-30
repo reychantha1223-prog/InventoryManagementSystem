@@ -3,6 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventoryManagementSystem.Database;
 using InventoryManagementSystem.Models;
 using InventoryManagementSystem.Repositories;
 
@@ -20,7 +21,11 @@ namespace InventoryManagementSystem.Forms
 
         private async void FormAccount_Load(object sender, EventArgs e)
         {
+            // 1. Load User Profile Data
             await LoadUserProfileDataAsync();
+
+            // 2. Load Database Server Connection Settings
+            LoadDatabaseServerSettings();
         }
 
         private async Task LoadUserProfileDataAsync()
@@ -54,6 +59,27 @@ namespace InventoryManagementSystem.Forms
             }
         }
 
+        private void LoadDatabaseServerSettings()
+        {
+            // Read saved server type preference directly from configuration
+            string savedServerType = DbConnection.GetSavedServerType();
+
+            if (savedServerType.Equals("SQLExpress", StringComparison.OrdinalIgnoreCase))
+            {
+                rbSqlExpress.Checked = true;
+                txtServerInstance.Text = @".\SQLEXPRESS";
+            }
+            else
+            {
+                rbLocalhost.Checked = true;
+                txtServerInstance.Text = "localhost"; // Displays "localhost" as requested
+            }
+
+            // Lock text box so user cannot input text
+            txtServerInstance.ReadOnly = true;
+            txtServerInstance.BackColor = Color.White;
+        }
+
         // Handle Change Photo button click
         private void btnChangePhoto_Click(object sender, EventArgs e)
         {
@@ -70,6 +96,87 @@ namespace InventoryManagementSystem.Forms
             }
         }
 
+        // Radio Button: Localhost Selection
+        private void rbLocalhost_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbLocalhost.Checked)
+            {
+                txtServerInstance.Text = "localhost"; // Display text only
+            }
+        }
+
+        // Radio Button: SQL Server Express Selection
+        private void rbSqlExpress_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbSqlExpress.Checked)
+            {
+                txtServerInstance.Text = @".\SQLEXPRESS";
+            }
+        }
+
+        private bool _isTestingConnection = false;
+
+        private async void btnTestConnection_Click(object sender, EventArgs e)
+        {
+            // Prevent double-clicking while request is running
+            if (_isTestingConnection) return;
+            _isTestingConnection = true;
+
+            // Show loading state on text without graying out the button
+            string originalText = btnTestConnection.Text;
+            btnTestConnection.Text = " Testing...";
+
+            // Load loading icon while testing
+            string loadingPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images", "loading.png");
+            if (File.Exists(loadingPath))
+            {
+                picStatusIcon.Image = Image.FromFile(loadingPath);
+            }
+
+            // Setup Status Label Font & Alignment
+            lblStatus.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
+            lblStatus.Text = "Testing connection...";
+            lblStatus.ForeColor = Color.DarkOrange;
+
+            string selectedType = rbSqlExpress.Checked ? "SQLExpress" : "Localhost";
+            string connStr = DbConnection.BuildConnectionString(selectedType);
+
+            bool isConnected = await DbConnection.TestConnectionAsync(connStr);
+
+            if (isConnected)
+            {
+                // Load green check icon (check (1).png)
+                string successPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images", "check (1).png");
+                if (File.Exists(successPath))
+                {
+                    picStatusIcon.Image = Image.FromFile(successPath);
+                }
+
+                lblStatus.Text = "Connection Successful!\nThe Database server is reachable and ready to use.";
+                lblStatus.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
+                lblStatus.ForeColor = Color.FromArgb(25, 169, 87);
+                pnlStatus.FillColor = Color.FromArgb(235, 247, 238);
+            }
+            else
+            {
+                // Load warning icon (warning.png)
+                string failPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images", "warning.png");
+                if (File.Exists(failPath))
+                {
+                    picStatusIcon.Image = Image.FromFile(failPath);
+                }
+
+                lblStatus.Text = "Connection Failed!\nUnable to connect to the selected SQL Server instance.";
+                lblStatus.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
+                lblStatus.ForeColor = Color.Red;
+                pnlStatus.FillColor = ColorTranslator.FromHtml("#FEE2E2");
+            }
+
+            // Reset button state
+            btnTestConnection.Text = originalText;
+            _isTestingConnection = false;
+        }
+        // Save All Changes (User Details + Database Connection)
         private async void btnSaveChange_Click(object sender, EventArgs e)
         {
             if (AuthenticationRepository.CurrentUser == null)
@@ -88,21 +195,24 @@ namespace InventoryManagementSystem.Forms
                 return;
             }
 
-            // Save original button properties
             string originalText = btnSaveChange.Text;
 
             try
             {
-                // 1. Give visual feedback WITHOUT disabling the button color
                 btnSaveChange.Text = "Saving...";
                 this.Cursor = Cursors.WaitCursor;
 
                 int userId = AuthenticationRepository.CurrentUser.UserID;
 
-                // 2. Perform DB update
-                bool isSuccess = await _accountRepo.UpdateProfileInfoAsync(userId, fullName, email, selectedImageBytes);
+                // 1. Save User Profile Details
+                bool isProfileSuccess = await _accountRepo.UpdateProfileInfoAsync(userId, fullName, email, selectedImageBytes);
 
-                if (isSuccess)
+                // 2. Save Database Connection Settings
+                string selectedServerType = rbSqlExpress.Checked ? "SQLExpress" : "Localhost";
+                string newConnStr = DbConnection.BuildConnectionString(selectedServerType);
+                DbConnection.SaveConnectionString(newConnStr, selectedServerType);
+
+                if (isProfileSuccess)
                 {
                     // Update session cache
                     AuthenticationRepository.CurrentUser.FullName = fullName;
@@ -114,7 +224,7 @@ namespace InventoryManagementSystem.Forms
 
                     selectedImageBytes = null;
 
-                    MessageBox.Show("Account details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Account details and database settings updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     await LoadUserProfileDataAsync();
                 }
@@ -125,15 +235,15 @@ namespace InventoryManagementSystem.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Database error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error saving settings: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
-                // Restore original button text and cursor
                 btnSaveChange.Text = originalText;
                 this.Cursor = Cursors.Default;
             }
         }
+
         private async void btnChangePassword_Click(object sender, EventArgs e)
         {
             Form mainForm = this.TopLevelControl as Form ?? Form.ActiveForm ?? this;
@@ -155,7 +265,6 @@ namespace InventoryManagementSystem.Forms
 
                     changePasswordForm.FormClosed += async (s, args) =>
                     {
-                        // Refresh user data if password change modal performs changes
                         await LoadUserProfileDataAsync();
                     };
 
@@ -169,6 +278,7 @@ namespace InventoryManagementSystem.Forms
         {
             selectedImageBytes = null;
             await LoadUserProfileDataAsync();
+            LoadDatabaseServerSettings();
         }
     }
 }

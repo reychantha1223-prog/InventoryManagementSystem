@@ -10,36 +10,35 @@ static class Program
     {
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
-        Application.Run(new FormAccount());
-        //using (FormLoading loading = new FormLoading())
-        //{
-        //    loading.ShowDialog();
-        //}
+        using (FormLoading loading = new FormLoading())
+        {
+            loading.ShowDialog();
+        }
 
-        //bool keepRunning = true;
+        bool keepRunning = true;
 
-        //while (keepRunning)
-        //{
-        //    using (FormLogin login = new FormLogin())
-        //    {
-        //        if (login.ShowDialog() == DialogResult.OK)
-        //        {
-        //            using (MainLayout mainLayout = new MainLayout())
-        //            {
-        //                DialogResult result = mainLayout.ShowDialog();
+        while (keepRunning)
+        {
+            using (FormLogin login = new FormLogin())
+            {
+                if (login.ShowDialog() == DialogResult.OK)
+                {
+                    using (MainLayout mainLayout = new MainLayout())
+                    {
+                        DialogResult result = mainLayout.ShowDialog();
 
-        //                if (result != DialogResult.OK)
-        //                {
-        //                    keepRunning = false;
-        //                }
-        //            }
-        //        }
-        //        else
-        //        {
-        //            keepRunning = false;
-        //        }
-        //    }
-        //}
+                        if (result != DialogResult.OK)
+                        {
+                            keepRunning = false;
+                        }
+                    }
+                }
+                else
+                {
+                    keepRunning = false;
+                }
+            }
+        }
 
     }
 }

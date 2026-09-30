@@ -295,13 +295,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\check %281%29.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\hide.png" />
     <Content Include="Images\IMS.png" />
+    <Content Include="Images\loading.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\package.png" />
     <Content Include="Images\padlock %281%29.png" />
     <Content Include="Images\show.png" />
     <Content Include="Images\trash.png" />
     <Content Include="Images\user.png" />
+    <Content Include="Images\warning.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

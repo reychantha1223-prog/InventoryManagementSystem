@@ -1,17 +1,14 @@
-﻿using InventoryManagementSystem.Models;
+﻿using InventoryManagementSystem.Database;
+using InventoryManagementSystem.Models;
 using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
 using System.Threading.Tasks;
 
 namespace InventoryManagementSystem.Repositories
 {
     public class AccountRepository
     {
-        private readonly string connectionString = ConfigurationManager.ConnectionStrings["IMSDB"].ConnectionString;
-
-        // Get user profile details by UserID using the Authentication model
         public async Task<Authentication> GetUserProfileAsync(int userId)
         {
             string query = @"
@@ -19,7 +16,7 @@ namespace InventoryManagementSystem.Repositories
                 FROM Users 
                 WHERE UserID = @UserID;";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -58,7 +55,7 @@ namespace InventoryManagementSystem.Repositories
                     ProfileImage = CASE WHEN @HasNewImage = 1 THEN @ProfileImage ELSE ProfileImage END
                 WHERE UserID = @UserID;";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -80,14 +77,15 @@ namespace InventoryManagementSystem.Repositories
                 }
             }
         }
+
         public async Task<bool> ChangePasswordAsync(int userId, string currentPassword, string newPassword)
         {
             string query = @"
-        UPDATE Users 
-        SET PasswordHash = @NewPassword 
-        WHERE UserID = @UserID AND PasswordHash = @CurrentPassword;";
+                UPDATE Users 
+                SET PasswordHash = @NewPassword 
+                WHERE UserID = @UserID AND PasswordHash = @CurrentPassword;";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))

@@ -9,7 +9,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="ServerType" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Localhost</Value>
+      <Value Profile="(Default)">SQLExpress</Value>
     </Setting>
   </Settings>
 </SettingsFile>

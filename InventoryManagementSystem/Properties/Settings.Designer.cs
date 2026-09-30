@@ -49,7 +49,7 @@ namespace InventoryManagementSystem.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Localhost")]
+        [global::System.Configuration.DefaultSettingValueAttribute("SQLExpress")]
         public string ServerType {
             get {
                 return ((string)(this["ServerType"]));

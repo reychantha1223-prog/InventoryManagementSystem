@@ -2,14 +2,19 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
-using System.Xml;
 
 namespace InventoryManagementSystem.Database
 {
     public static class DbConnection
     {
-        public static string ConnectionString =>
-            ConfigurationManager.ConnectionStrings["IMSDB"]?.ConnectionString;
+        public static string ConnectionString
+        {
+            get
+            {
+                string serverType = GetSavedServerType();
+                return BuildConnectionString(serverType);
+            }
+        }
 
         public static SqlConnection Create()
         {
@@ -18,7 +23,6 @@ namespace InventoryManagementSystem.Database
 
         public static string BuildConnectionString(string serverType)
         {
-            // Use "." internally for fast local shared memory connection
             string dataSource = serverType.Equals("SQLExpress", StringComparison.OrdinalIgnoreCase)
                 ? @".\SQLEXPRESS"
                 : ".";
@@ -29,7 +33,7 @@ namespace InventoryManagementSystem.Database
                 InitialCatalog = "IMSDB",
                 IntegratedSecurity = true,
                 TrustServerCertificate = true,
-                ConnectTimeout = 5 // Responds in milliseconds via shared memory
+                ConnectTimeout = 5
             };
 
             return builder.ConnectionString;
@@ -55,56 +59,36 @@ namespace InventoryManagementSystem.Database
         {
             try
             {
-                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                ClientSettingsSection section = config.GetSection("userSettings/InventoryManagementSystem.Properties.Settings") as ClientSettingsSection;
-
-                if (section != null)
+                string savedType = Properties.Settings.Default.ServerType;
+                if (!string.IsNullOrEmpty(savedType))
                 {
-                    SettingElement setting = section.Settings.Get("ServerType");
-                    if (setting != null)
-                    {
-                        return setting.Value.ValueXml.InnerText;
-                    }
+                    return savedType;
                 }
             }
-            catch
-            {
-                // Default fallback
-            }
+            catch { }
 
             return "Localhost";
         }
 
         public static void SaveConnectionString(string connectionString, string serverType)
         {
-            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-
-            // 1. Update connectionString in App.config
-            if (config.ConnectionStrings.ConnectionStrings["IMSDB"] != null)
+            try
             {
-                config.ConnectionStrings.ConnectionStrings["IMSDB"].ConnectionString = connectionString;
-            }
+                Properties.Settings.Default.ServerType = serverType;
+                Properties.Settings.Default.Save();
 
-            // 2. Update ServerType inside userSettings in App.config
-            ClientSettingsSection section = config.GetSection("userSettings/InventoryManagementSystem.Properties.Settings") as ClientSettingsSection;
-            if (section != null)
-            {
-                SettingElement setting = section.Settings.Get("ServerType");
-                if (setting == null)
+                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                if (config.ConnectionStrings.ConnectionStrings["IMSDB"] != null)
                 {
-                    setting = new SettingElement("ServerType", SettingsSerializeAs.String);
-                    section.Settings.Add(setting);
+                    config.ConnectionStrings.ConnectionStrings["IMSDB"].ConnectionString = connectionString;
+                    config.Save(ConfigurationSaveMode.Modified);
+                    ConfigurationManager.RefreshSection("connectionStrings");
                 }
-
-                XmlDocument doc = new XmlDocument();
-                XmlElement valueElement = doc.CreateElement("value");
-                valueElement.InnerText = serverType;
-                setting.Value.ValueXml = valueElement;
             }
-
-            config.Save(ConfigurationSaveMode.Modified);
-            ConfigurationManager.RefreshSection("connectionStrings");
-            ConfigurationManager.RefreshSection("userSettings");
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving connection settings: {ex.Message}");
+            }
         }
     }
 }

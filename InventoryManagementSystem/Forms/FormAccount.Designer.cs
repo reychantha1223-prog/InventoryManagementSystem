@@ -66,6 +66,7 @@
             this.txtServerInstance = new Guna.UI2.WinForms.Guna2TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.pnlStatus = new Guna.UI2.WinForms.Guna2ContainerControl();
+            this.picStatusIcon = new System.Windows.Forms.PictureBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.rbSqlExpress = new Guna.UI2.WinForms.Guna2RadioButton();
@@ -76,7 +77,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.picStatusIcon = new System.Windows.Forms.PictureBox();
             this.guna2ContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picProfile)).BeginInit();
             this.guna2ContainerControl2.SuspendLayout();
@@ -87,8 +87,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2ContainerControl5.SuspendLayout();
             this.pnlStatus.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picStatusIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2ContainerControl1
@@ -703,6 +703,16 @@
             this.pnlStatus.Size = new System.Drawing.Size(843, 60);
             this.pnlStatus.TabIndex = 15;
             // 
+            // picStatusIcon
+            // 
+            this.picStatusIcon.Image = ((System.Drawing.Image)(resources.GetObject("picStatusIcon.Image")));
+            this.picStatusIcon.Location = new System.Drawing.Point(17, 16);
+            this.picStatusIcon.Name = "picStatusIcon";
+            this.picStatusIcon.Size = new System.Drawing.Size(35, 26);
+            this.picStatusIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picStatusIcon.TabIndex = 1;
+            this.picStatusIcon.TabStop = false;
+            // 
             // lblStatus
             // 
             this.lblStatus.BackColor = System.Drawing.Color.Transparent;
@@ -746,7 +756,7 @@
             this.rbSqlExpress.Size = new System.Drawing.Size(197, 32);
             this.rbSqlExpress.TabIndex = 18;
             this.rbSqlExpress.Text = "SQL Server Express";
-            this.rbSqlExpress.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rbSqlExpress.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
             this.rbSqlExpress.UncheckedState.BorderThickness = 2;
             this.rbSqlExpress.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rbSqlExpress.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
@@ -768,11 +778,12 @@
             this.rbLocalhost.Location = new System.Drawing.Point(939, 14);
             this.rbLocalhost.Margin = new System.Windows.Forms.Padding(4);
             this.rbLocalhost.Name = "rbLocalhost";
-            this.rbLocalhost.Size = new System.Drawing.Size(126, 32);
+            this.rbLocalhost.Size = new System.Drawing.Size(116, 32);
             this.rbLocalhost.TabIndex = 17;
             this.rbLocalhost.TabStop = true;
-            this.rbLocalhost.Text = "Loacalhost";
-            this.rbLocalhost.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rbLocalhost.Text = "Localhost";
+            this.rbLocalhost.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.rbLocalhost.UncheckedState.BorderColor = System.Drawing.Color.Transparent;
             this.rbLocalhost.UncheckedState.BorderThickness = 2;
             this.rbLocalhost.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rbLocalhost.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
@@ -863,16 +874,6 @@
             this.label18.TabIndex = 12;
             this.label18.Text = "Database Connection";
             // 
-            // picStatusIcon
-            // 
-            this.picStatusIcon.Image = ((System.Drawing.Image)(resources.GetObject("picStatusIcon.Image")));
-            this.picStatusIcon.Location = new System.Drawing.Point(17, 16);
-            this.picStatusIcon.Name = "picStatusIcon";
-            this.picStatusIcon.Size = new System.Drawing.Size(35, 26);
-            this.picStatusIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picStatusIcon.TabIndex = 1;
-            this.picStatusIcon.TabStop = false;
-            // 
             // FormAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -909,8 +910,8 @@
             this.guna2ContainerControl5.ResumeLayout(false);
             this.guna2ContainerControl5.PerformLayout();
             this.pnlStatus.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picStatusIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

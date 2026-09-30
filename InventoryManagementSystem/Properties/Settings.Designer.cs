@@ -46,5 +46,17 @@ namespace InventoryManagementSystem.Properties {
                 this["RememberMe"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Localhost")]
+        public string ServerType {
+            get {
+                return ((string)(this["ServerType"]));
+            }
+            set {
+                this["ServerType"] = value;
+            }
+        }
     }
 }

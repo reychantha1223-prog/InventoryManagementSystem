@@ -1,4 +1,5 @@
 ﻿using InventoryManagementSystem;
+using InventoryManagementSystem.Database;
 using InventoryManagementSystem.Forms;
 using System;
 using System.Windows.Forms;
@@ -10,6 +11,21 @@ static class Program
     {
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
+
+        string savedType = DbConnection.GetSavedServerType();
+        string connStr = DbConnection.BuildConnectionString(savedType);
+
+        if (!DbConnection.TestConnectionAsync(connStr).GetAwaiter().GetResult())
+        {
+            string fallbackType = savedType.Equals("SQLExpress", StringComparison.OrdinalIgnoreCase) ? "Localhost" : "SQLExpress";
+            string fallbackConnStr = DbConnection.BuildConnectionString(fallbackType);
+
+            if (DbConnection.TestConnectionAsync(fallbackConnStr).GetAwaiter().GetResult())
+            {
+                DbConnection.SaveConnectionString(fallbackConnStr, fallbackType);
+            }
+        }
+
         using (FormLoading loading = new FormLoading())
         {
             loading.ShowDialog();
@@ -39,6 +55,5 @@ static class Program
                 }
             }
         }
-
     }
 }

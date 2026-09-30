@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using InventoryManagementSystem.Database;
 using InventoryManagementSystem.Models;
-using System.Configuration;
 
 namespace InventoryManagementSystem.Repositories
 {
     public class AuthenticationRepository
     {
-        private readonly string connectionString = ConfigurationManager.ConnectionStrings["IMSDB"].ConnectionString;
-
         // Holds global session state for logged-in user
         public static Authentication CurrentUser { get; private set; }
 
@@ -27,7 +25,7 @@ namespace InventoryManagementSystem.Repositories
                   AND PasswordHash = @Password 
                   AND IsActive = 1;";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))

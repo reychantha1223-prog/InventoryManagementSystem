@@ -11,28 +11,23 @@ static class Program
     {
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
-
         string savedType = DbConnection.GetSavedServerType();
+        if (string.IsNullOrWhiteSpace(savedType)) savedType = "Localhost";
         string connStr = DbConnection.BuildConnectionString(savedType);
-
         if (!DbConnection.TestConnectionAsync(connStr).GetAwaiter().GetResult())
         {
-            string fallbackType = savedType.Equals("SQLExpress", StringComparison.OrdinalIgnoreCase) ? "Localhost" : "SQLExpress";
+            string fallbackType = savedType.Equals("Localhost", StringComparison.OrdinalIgnoreCase) ? "SQLExpress" : "Localhost";
             string fallbackConnStr = DbConnection.BuildConnectionString(fallbackType);
-
             if (DbConnection.TestConnectionAsync(fallbackConnStr).GetAwaiter().GetResult())
             {
                 DbConnection.SaveConnectionString(fallbackConnStr, fallbackType);
             }
         }
-
         using (FormLoading loading = new FormLoading())
         {
             loading.ShowDialog();
         }
-
         bool keepRunning = true;
-
         while (keepRunning)
         {
             using (FormLogin login = new FormLogin())
@@ -42,11 +37,7 @@ static class Program
                     using (MainLayout mainLayout = new MainLayout())
                     {
                         DialogResult result = mainLayout.ShowDialog();
-
-                        if (result != DialogResult.OK)
-                        {
-                            keepRunning = false;
-                        }
+                        if (result != DialogResult.OK) keepRunning = false;
                     }
                 }
                 else

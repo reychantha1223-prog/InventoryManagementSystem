@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Configuration;
 using System.Threading.Tasks;
+using InventoryManagementSystem.Database;
 using InventoryManagementSystem.Models;
 
 namespace InventoryManagementSystem.Repositories
 {
     public class DashboardRepository
     {
-        private readonly string connectionString = ConfigurationManager.ConnectionStrings["IMSDB"].ConnectionString;
-
         // 1. Get Metric Card Summaries
         public async Task<DashboardSummary> GetDashboardSummaryAsync()
         {
@@ -21,7 +19,7 @@ namespace InventoryManagementSystem.Repositories
                     (SELECT COUNT(*) FROM Customers) AS TotalCustomers,
                     (SELECT COUNT(*) FROM Suppliers) AS TotalSuppliers;";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -59,7 +57,7 @@ namespace InventoryManagementSystem.Repositories
                 GROUP BY FORMAT(OrderDate, 'MMM'), MONTH(OrderDate)
                 ORDER BY MonthNum;";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -90,7 +88,7 @@ namespace InventoryManagementSystem.Repositories
                     SUM(CASE WHEN Stock = 0 THEN 1 ELSE 0 END) AS OutOfStockCount
                 FROM Products;";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -113,30 +111,28 @@ namespace InventoryManagementSystem.Repositories
         }
 
         // 4. Get Top Recent Products for DataGridView
-        // 4. Get Top Recent Products for DataGridView
-        // 4. Get Top Recent Products for DataGridView
         public async Task<List<RecentProduct>> GetRecentProductsAsync(int topCount = 5)
         {
             var productList = new List<RecentProduct>();
 
             string query = $@"
-        SELECT TOP ({topCount}) 
-            p.ProductID AS ID, 
-            p.ProductName AS Name, 
-            p.Price, 
-            p.Stock, 
-            c.CategoryName AS Category,
-            CASE 
-                WHEN p.Stock > 5 THEN 'In Stock'
-                WHEN p.Stock > 0 AND p.Stock <= 5 THEN 'Low Stock'
-                ELSE 'Out of Stock'
-            END AS Status,
-            p.CreatedAt
-        FROM Products p
-        LEFT JOIN Categories c ON p.CategoryID = c.CategoryID
-        ORDER BY p.CreatedAt DESC;";
+                SELECT TOP ({topCount}) 
+                    p.ProductID AS ID, 
+                    p.ProductName AS Name, 
+                    p.Price, 
+                    p.Stock, 
+                    c.CategoryName AS Category,
+                    CASE 
+                        WHEN p.Stock > 5 THEN 'In Stock'
+                        WHEN p.Stock > 0 AND p.Stock <= 5 THEN 'Low Stock'
+                        ELSE 'Out of Stock'
+                    END AS Status,
+                    p.CreatedAt
+                FROM Products p
+                LEFT JOIN Categories c ON p.CategoryID = c.CategoryID
+                ORDER BY p.CreatedAt DESC;";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))

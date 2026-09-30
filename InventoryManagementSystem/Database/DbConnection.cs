@@ -7,8 +7,19 @@ namespace InventoryManagementSystem.Database
 {
     public static class DbConnection
     {
-        // Dynamic property: Always resolves a working connection string automatically
-        public static string ConnectionString => GetOrAutoDetectConnectionString();
+        private static string _cachedConnectionString = null;
+
+        public static string ConnectionString
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_cachedConnectionString))
+                {
+                    _cachedConnectionString = ResolveWorkingConnectionString();
+                }
+                return _cachedConnectionString;
+            }
+        }
 
         public static SqlConnection Create()
         {
@@ -17,46 +28,32 @@ namespace InventoryManagementSystem.Database
 
         public static string BuildConnectionString(string serverType)
         {
-            string dataSource = serverType.Equals("SQLExpress", StringComparison.OrdinalIgnoreCase)
-                ? @".\SQLEXPRESS"
-                : ".";
-
+            string dataSource = serverType.Equals("SQLExpress", StringComparison.OrdinalIgnoreCase) ? @".\SQLEXPRESS" : "localhost";
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
             {
                 DataSource = dataSource,
                 InitialCatalog = "IMSDB",
                 IntegratedSecurity = true,
                 TrustServerCertificate = true,
-                ConnectTimeout = 3 // Fast timeout to quickly switch if instance doesn't exist
+                ConnectTimeout = 2
             };
-
             return builder.ConnectionString;
         }
 
-        private static string GetOrAutoDetectConnectionString()
+        private static string ResolveWorkingConnectionString()
         {
             string savedType = GetSavedServerType();
-            string connStr = BuildConnectionString(savedType);
+            string primaryConnStr = BuildConnectionString(savedType);
+            if (CanConnect(primaryConnStr)) return primaryConnStr;
 
-            // Test if the saved preference connects
-            if (CanConnect(connStr))
-            {
-                return connStr;
-            }
-
-            // Fallback: If saved preference fails, test the alternative server instance
-            string fallbackType = savedType.Equals("SQLExpress", StringComparison.OrdinalIgnoreCase) ? "Localhost" : "SQLExpress";
+            string fallbackType = savedType.Equals("Localhost", StringComparison.OrdinalIgnoreCase) ? "SQLExpress" : "Localhost";
             string fallbackConnStr = BuildConnectionString(fallbackType);
-
             if (CanConnect(fallbackConnStr))
             {
-                // Auto-save the working instance so future queries connect instantly
-                SaveConnectionString(fallbackConnStr, fallbackType);
+                SaveServerType(fallbackType);
                 return fallbackConnStr;
             }
-
-            // Return primary string if both fail (allows error to surface cleanly)
-            return connStr;
+            return primaryConnStr;
         }
 
         private static bool CanConnect(string connStr)
@@ -96,37 +93,41 @@ namespace InventoryManagementSystem.Database
             try
             {
                 string savedType = Properties.Settings.Default.ServerType;
-                if (!string.IsNullOrEmpty(savedType))
-                {
-                    return savedType;
-                }
+                if (!string.IsNullOrEmpty(savedType)) return savedType;
             }
             catch { }
-
-            return "SQLExpress"; 
+            return "Localhost";
         }
 
-        public static void SaveConnectionString(string connectionString, string serverType)
+        public static void SaveServerType(string serverType)
         {
             try
             {
-                // 1. Update Properties.Settings (User scope)
                 Properties.Settings.Default.ServerType = serverType;
                 Properties.Settings.Default.Save();
-
-                // 2. Update ConnectionStrings in memory / App.config
-                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                if (config.ConnectionStrings.ConnectionStrings["IMSDB"] != null)
-                {
-                    config.ConnectionStrings.ConnectionStrings["IMSDB"].ConnectionString = connectionString;
-                    config.Save(ConfigurationSaveMode.Modified);
-                    ConfigurationManager.RefreshSection("connectionStrings");
-                }
+                _cachedConnectionString = BuildConnectionString(serverType);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error saving connection settings: {ex.Message}");
+                Console.WriteLine($"Error saving local server settings: {ex.Message}");
             }
+        }
+
+        public static void SaveConnectionString(string newConnectionString, string serverType = "Localhost")
+        {
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            if (config.ConnectionStrings.ConnectionStrings["IMSDB"] != null)
+            {
+                config.ConnectionStrings.ConnectionStrings["IMSDB"].ConnectionString = newConnectionString;
+            }
+            else
+            {
+                config.ConnectionStrings.ConnectionStrings.Add(
+                    new ConnectionStringSettings("IMSDB", newConnectionString, "System.Data.SqlClient"));
+            }
+            config.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection("connectionStrings");
+            if (!string.IsNullOrEmpty(serverType)) SaveServerType(serverType);
         }
     }
 }

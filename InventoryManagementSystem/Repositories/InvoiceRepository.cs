@@ -1,22 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using InventoryManagementSystem.Database;
 using InventoryManagementSystem.Models;
 
 namespace InventoryManagementSystem.Repositories
 {
     public class InvoiceRepository
     {
-        private readonly string _connectionString = ConfigurationManager.ConnectionStrings["IMSDB"].ConnectionString;
-
         public async Task<List<InvoiceHeader>> GetInvoicesAsync(string customerName = "", DateTime? filterDate = null)
         {
             var list = new List<InvoiceHeader>();
 
-            using (SqlConnection conn = new SqlConnection(_connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 string query = @"
             SELECT 
@@ -61,7 +59,7 @@ namespace InventoryManagementSystem.Repositories
         {
             var items = new List<InvoiceItem>();
 
-            using (SqlConnection conn = new SqlConnection(_connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 string query = @"
             SELECT 
@@ -99,7 +97,7 @@ namespace InventoryManagementSystem.Repositories
 
         public async Task<InvoiceDetailsModel> GetInvoiceDetailsAsync(int orderId)
         {
-            using (SqlConnection conn = new SqlConnection(_connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 // Calculates DiscountPercent based on Items Subtotal vs Order TotalAmount
                 string query = @"

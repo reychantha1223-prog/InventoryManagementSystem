@@ -1,6 +1,6 @@
-﻿using InventoryManagementSystem.Models;
+﻿using InventoryManagementSystem.Database;
+using InventoryManagementSystem.Models;
 using System;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
@@ -9,9 +9,6 @@ namespace InventoryManagementSystem.Repositories
 {
     public class SupplierRepository
     {
-        private readonly string connectionString =
-            ConfigurationManager.ConnectionStrings["IMSDB"].ConnectionString;
-
         public async Task<DataTable> GetAllSuppliersAsync()
         {
             DataTable dt = new DataTable();
@@ -26,7 +23,7 @@ namespace InventoryManagementSystem.Repositories
                 FROM Suppliers
                 ORDER BY SupplierID DESC";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -44,7 +41,7 @@ namespace InventoryManagementSystem.Repositories
                 INSERT INTO Suppliers (SupplierName, ContactPerson, Phone, Email, Address) 
                 VALUES (@Name, @ContactPerson, @Phone, @Email, @Address)";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -68,9 +65,9 @@ namespace InventoryManagementSystem.Repositories
                         Phone = @Phone, 
                         Email = @Email, 
                         Address = @Address 
-                    WHERE SupplierID = @ID;"; // Fixed: SupplierName and SupplierID
+                    WHERE SupplierID = @ID;";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
                 cmd.Parameters.AddWithValue("@ID", supplier.ID);
@@ -88,9 +85,9 @@ namespace InventoryManagementSystem.Repositories
 
         public async Task<bool> DeleteSupplierAsync(int supplierId)
         {
-            string query = "DELETE FROM Suppliers WHERE SupplierID = @ID;"; // Fixed: SupplierID
+            string query = "DELETE FROM Suppliers WHERE SupplierID = @ID;";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             using (SqlCommand cmd = new SqlCommand(query, conn))
             {
                 cmd.Parameters.AddWithValue("@ID", supplierId);

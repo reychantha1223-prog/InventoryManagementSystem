@@ -1,6 +1,6 @@
-﻿using InventoryManagementSystem.Models;
+﻿using InventoryManagementSystem.Database;
+using InventoryManagementSystem.Models;
 using System;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
@@ -9,15 +9,12 @@ namespace InventoryManagementSystem.Repositories
 {
     public class OrderRepository : IOrderRepository
     {
-        private readonly string connectionString =
-            ConfigurationManager.ConnectionStrings["IMSDB"].ConnectionString;
-
         public async Task<DataTable> GetCustomersLookupAsync()
         {
             DataTable dt = new DataTable();
             string query = "SELECT CustomerID, CustomerName FROM Customers ORDER BY CustomerName ASC";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -34,7 +31,7 @@ namespace InventoryManagementSystem.Repositories
             DataTable dt = new DataTable();
             string query = "SELECT ProductID, ProductName, Price, Stock FROM Products ORDER BY ProductName ASC";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -48,7 +45,7 @@ namespace InventoryManagementSystem.Repositories
 
         public async Task<int> GetOrCreateCustomerByNameAsync(string customerName)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
 
@@ -96,7 +93,7 @@ namespace InventoryManagementSystem.Repositories
                   AND (@Status = 'All' OR o.Status = @Status)
                 ORDER BY o.OrderID DESC;";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -136,7 +133,7 @@ namespace InventoryManagementSystem.Repositories
                 LEFT JOIN Products p ON od.ProductID = p.ProductID
                 WHERE o.OrderID = @OrderID;";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -158,7 +155,7 @@ namespace InventoryManagementSystem.Repositories
 
             bool requiresStockDeduction = IsStockDeductibleStatus(order.Status);
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlTransaction transaction = conn.BeginTransaction())
@@ -242,7 +239,7 @@ namespace InventoryManagementSystem.Repositories
 
         public async Task<bool> UpdateOrderAsync(Order order, OrderDetail detail)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlTransaction transaction = conn.BeginTransaction())
@@ -374,7 +371,7 @@ namespace InventoryManagementSystem.Repositories
 
         public async Task<bool> DeleteOrderAndRestoreStockAsync(int orderId)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlTransaction transaction = conn.BeginTransaction())

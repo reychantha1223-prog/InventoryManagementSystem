@@ -1,6 +1,6 @@
-﻿using InventoryManagementSystem.Models;
+﻿using InventoryManagementSystem.Database;
+using InventoryManagementSystem.Models;
 using System;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
@@ -9,9 +9,6 @@ namespace InventoryManagementSystem.Repositories
 {
     public class ProductRepository
     {
-        private readonly string connectionString =
-            ConfigurationManager.ConnectionStrings["IMSDB"].ConnectionString;
-
         public async Task<DataTable> GetProductsDataTableAsync()
         {
             string query = @"
@@ -36,7 +33,7 @@ namespace InventoryManagementSystem.Repositories
         LEFT JOIN Suppliers s ON p.SupplierID = s.SupplierID
         ORDER BY p.ProductID DESC";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -52,7 +49,7 @@ namespace InventoryManagementSystem.Repositories
         public async Task<DataTable> GetCategoriesAsync()
         {
             string query = "SELECT CategoryID, CategoryName FROM Categories ORDER BY CategoryName";
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -68,7 +65,7 @@ namespace InventoryManagementSystem.Repositories
         public async Task<DataTable> GetSuppliersAsync()
         {
             string query = "SELECT SupplierID, SupplierName FROM Suppliers ORDER BY SupplierName";
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -76,7 +73,7 @@ namespace InventoryManagementSystem.Repositories
                 {
                     DataTable dt = new DataTable();
                     dt.Load(reader);
-                    return dt; 
+                    return dt;
                 }
             }
         }
@@ -91,7 +88,7 @@ namespace InventoryManagementSystem.Repositories
                         Price = @Price, Stock = @Stock, Descriptions = @Descriptions 
                     WHERE ProductID = @ProductID";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -112,7 +109,7 @@ namespace InventoryManagementSystem.Repositories
                 }
             }
         }
-        // Method to adjust product stock dynamically (for sales orders or adjustments)
+
         public async Task<bool> IsProductNameExistsAsync(string name, int excludeProductId = 0)
         {
             string query = @"SELECT COUNT(1) 
@@ -120,7 +117,7 @@ namespace InventoryManagementSystem.Repositories
                     WHERE LOWER(LTRIM(RTRIM(ProductName))) = LOWER(LTRIM(RTRIM(@Name))) 
                     AND ProductID <> @ExcludeID";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -133,6 +130,7 @@ namespace InventoryManagementSystem.Repositories
                 }
             }
         }
+
         public async Task DeductStockAsync(int productId, int quantityToDeduct)
         {
             string query = @"
@@ -140,7 +138,7 @@ namespace InventoryManagementSystem.Repositories
                 SET Stock = Stock - @Quantity 
                 WHERE ProductID = @ProductID AND Stock >= @Quantity";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -167,7 +165,7 @@ namespace InventoryManagementSystem.Repositories
                     SUM(CASE WHEN Stock <= 0 THEN 1 ELSE 0 END) AS OutOfStock
                 FROM Products";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))

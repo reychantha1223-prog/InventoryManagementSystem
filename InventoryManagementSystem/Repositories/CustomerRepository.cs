@@ -1,6 +1,6 @@
-﻿using InventoryManagementSystem.Models;
+﻿using InventoryManagementSystem.Database;
+using InventoryManagementSystem.Models;
 using System;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
@@ -9,9 +9,6 @@ namespace InventoryManagementSystem.Repositories
 {
     public class CustomerRepository
     {
-        private readonly string connectionString =
-            ConfigurationManager.ConnectionStrings["IMSDB"].ConnectionString;
-
         public async Task<DataTable> GetAllCustomersAsync()
         {
             DataTable dt = new DataTable();
@@ -25,7 +22,7 @@ namespace InventoryManagementSystem.Repositories
                 FROM Customers
                 ORDER BY CustomerID DESC";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -43,7 +40,7 @@ namespace InventoryManagementSystem.Repositories
                 INSERT INTO Customers (CustomerName, Phone, Email, Address) 
                 VALUES (@Name, @Phone, @Email, @Address)";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -68,7 +65,7 @@ namespace InventoryManagementSystem.Repositories
                     Address = @Address 
                 WHERE CustomerID = @ID";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection conn = DbConnection.Create())
             {
                 await conn.OpenAsync();
                 using (SqlCommand cmd = new SqlCommand(query, conn))

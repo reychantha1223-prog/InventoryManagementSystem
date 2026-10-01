@@ -23,7 +23,7 @@ namespace InventoryManagementSystem.Forms
             panelProgressFill.BringToFront();
 
             timer = new Timer();
-            timer.Interval = 30;
+            timer.Interval = 10;
             timer.Tick += Timer_Tick;
             timer.Start();
         }

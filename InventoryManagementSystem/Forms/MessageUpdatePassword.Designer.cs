@@ -52,18 +52,18 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(72, 201);
+            this.label1.Location = new System.Drawing.Point(40, 201);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(321, 27);
+            this.label1.Size = new System.Drawing.Size(383, 27);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Update Password Success !";
+            this.label1.Text = "Password Updated Successfully !";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(56, 250);
+            this.label2.Location = new System.Drawing.Point(49, 250);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(353, 40);
             this.label2.TabIndex = 2;
@@ -74,7 +74,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(62, 277);
+            this.label3.Location = new System.Drawing.Point(55, 277);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(346, 20);
             this.label3.TabIndex = 3;
@@ -109,7 +109,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2PictureBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MessageUpdatePassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MessageUpdatePassword";
